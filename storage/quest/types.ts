@@ -18,6 +18,8 @@ export interface Quest {
   tags: Tag[]
   bids?: Bid[]
   id?: string
+  userId: UUID
+  bidders: string[]
 }
 
 export interface Bid {

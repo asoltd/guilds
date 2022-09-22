@@ -16,7 +16,11 @@ export const populateQuests = async (firestore: Firestore) => {
       description: faker.lorem.sentences(5),
       tags: [],
       userId: faker.datatype.uuid(),
-      bidders: [["QfABV59rDVWcUDBvtiaZCrQ8mTJ2", faker.datatype.uuid()][faker.datatype.number({ min: 0, max: 1 })]],
+      bidders: [
+        ["QfABV59rDVWcUDBvtiaZCrQ8mTJ2", faker.datatype.uuid()][
+          faker.datatype.number({ min: 0, max: 1 })
+        ],
+      ],
     }
     promises.push(addDoc(questRef, quest))
     const results = await Promise.all(promises)

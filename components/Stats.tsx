@@ -1,32 +1,27 @@
-import { collection, getFirestore, query, where } from "firebase/firestore"
-import { useFirestore, useFirestoreCollectionData, useUser } from "reactfire"
-import FreelancerBids from "components/FreelancerBids"
+import { useState } from "react"
+import QuestStats from "components/QuestStats"
 
-export default function Stats(): JSX.Element {
+export default function Stats() {
+  const [ShowStats, setShowStats] = useState("QuestStats")
 
-  const firestore = useFirestore()
-  const { status: userStatus, data: user} = useUser()
-  const questsRef = collection(firestore, "quests")
-  const userQuestsQuery = query(questsRef, where("userId", "==", "QfABV59rDVWcUDBvtiaZCrQ8mTJ2"))
-  const { status: questsStatus, data: quests } = useFirestoreCollectionData(userQuestsQuery)
-  const biddingQuestsQuery = query(questsRef, where("bidders", "array-contains", "QfABV59rDVWcUDBvtiaZCrQ8mTJ2"))
-  const { status: biddingQuestsStatus, data: biddingQuests } = useFirestoreCollectionData(biddingQuestsQuery)
+  function ShowQuests() {
+    return (
+      <div style={{ cursor: "pointer" }}>
+        <a
+          onClick={() => {
+            setShowStats("QuestStats")
+          }}
+        >
+          Show Quests
+        </a>
+      </div>
+    )
+  }
+
   return (
     <div>
-      {quests?.map((quest, idx) => (
-        <div key={idx}>
-          <div>{quest?.title}</div>
-          <div>{quest?.description}</div>
-          <div>{quest?.reward}</div>
-          <div>{quest?.tags}</div>
-          <div>{quest?.userId}</div>
-        </div>
-      ))}
-      {biddingQuests?.map((biddingQuest, idx) => (
-        <div key={idx}>
-          <FreelancerBids path={biddingQuest?.id} />
-        </div>
-      ))}
+      <ShowQuests />
+      {ShowStats && <QuestStats />}
     </div>
   )
 }

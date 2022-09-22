@@ -19,7 +19,6 @@ export default function Stats(): JSX.Element {
       </div>
     )
   }
-
   return (
     <div>
       <div>

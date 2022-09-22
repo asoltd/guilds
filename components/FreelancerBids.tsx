@@ -2,12 +2,11 @@ import { collection, query, where } from "firebase/firestore"
 import { useFirestore, useFirestoreCollectionData } from "reactfire"
 
 export default function FreelancerBids(path): JSX.Element {
-  console.log("path", path)
   const firestore = useFirestore()
   const bidsRef = collection(firestore, "quests/path.path/bids")
   const bidsQuery = query(
     bidsRef,
-    where("userId", "==", "QfABV59rDVWcUDBvtiaZCrQ8mTJ2")
+    where("userId", "==", "QfABV59rDVWcUDBvtiaZCrQ8mTJ2") //hardcoded for now
   )
   const { status: bidsStatus, data: bids } =
     useFirestoreCollectionData(bidsQuery)

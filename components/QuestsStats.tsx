@@ -6,15 +6,12 @@ export default function QuestsStats(): JSX.Element {
   const firestore = useFirestore()
   const { status: userStatus, data: user } = useUser()
   const questsRef = collection(firestore, "quests")
-  const userQuestsQuery = query(
-    questsRef,
-    where("userId", "==", "QfABV59rDVWcUDBvtiaZCrQ8mTJ2")
-  )
+  const userQuestsQuery = query(questsRef, where("userId", "==", user.uid))
   const { status: questsStatus, data: quests } =
     useFirestoreCollectionData(userQuestsQuery)
   const biddingQuestsQuery = query(
     questsRef,
-    where("bidders", "array-contains", "QfABV59rDVWcUDBvtiaZCrQ8mTJ2")
+    where("bidders", "array-contains", user.uid)
   )
   const { status: biddingQuestsStatus, data: biddingQuests } =
     useFirestoreCollectionData(biddingQuestsQuery)

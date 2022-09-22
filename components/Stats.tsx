@@ -1,18 +1,20 @@
 import { useState } from "react"
-import QuestStats from "components/QuestStats"
+import QuestsStats from "components/QuestsStats"
+import BountyStats from "components/BountyStats"
 
-export default function Stats() {
-  const [ShowStats, setShowStats] = useState("QuestStats")
+export default function Stats(): JSX.Element {
+  const [showStats, setShowStats] = useState("QuestsTab")
+  const tabs = ["QuestsTab", "BountyTab", "PlaceholderTab1", "PlaceholderTab2"]
 
-  function ShowQuests() {
+  function Tab(tabName): JSX.Element {
     return (
       <div style={{ cursor: "pointer" }}>
         <a
           onClick={() => {
-            setShowStats("QuestStats")
+            setShowStats(tabName.tabName)
           }}
         >
-          Show Quests
+          <div>Show {tabName.tabName}</div>
         </a>
       </div>
     )
@@ -20,8 +22,13 @@ export default function Stats() {
 
   return (
     <div>
-      <ShowQuests />
-      {ShowStats && <QuestStats />}
+      <div>
+        {tabs.map((tab, idx) => (
+          <Tab tabName={tab} key={idx} />
+        ))}
+      </div>
+      {showStats == "QuestsTab" && <QuestsStats />}
+      {showStats == "BountyTab" && <BountyStats />}
     </div>
   )
 }

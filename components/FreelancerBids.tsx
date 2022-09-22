@@ -1,7 +1,7 @@
 import { collection, query, where } from "firebase/firestore"
 import { useFirestore, useFirestoreCollectionData } from "reactfire"
 
-export default function FreelancerBids(path) {
+export default function FreelancerBids(path): JSX.Element {
   console.log("path", path)
   const firestore = useFirestore()
   const bidsRef = collection(firestore, "quests/path.path/bids")

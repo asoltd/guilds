@@ -5,7 +5,10 @@ export default function FreelancerBids(path): JSX.Element {
   const firestore = useFirestore()
   const { status, data: user } = useUser()
   const bidsRef = collection(firestore, "quests/path.path/bids")
-  const bidsQuery = query(bidsRef, where("userId", "==", user.uid))
+  const bidsQuery = query(
+    bidsRef,
+    where("userId", "==", "QfABV59rDVWcUDBvtiaZCrQ8mTJ2") //hardcoded for now
+  )
   const { status: bidsStatus, data: bids } =
     useFirestoreCollectionData(bidsQuery)
   console.log("bids", bids)

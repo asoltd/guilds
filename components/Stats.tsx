@@ -1,10 +1,11 @@
 import { useState } from "react"
 import QuestsStats from "components/QuestsStats"
-import BountyStats from "components/BountyStats"
+import ProfileStats from "components/ProfileStats"
+import ExperienceAndRewiews from "components/ExperienceAndRewiews"
 
 export default function Stats(): JSX.Element {
-  const [showStats, setShowStats] = useState("QuestsTab")
-  const tabs = ["QuestsTab", "BountyTab", "PlaceholderTab1", "PlaceholderTab2"]
+  const [showStats, setShowStats] = useState("Quests")
+  const tabs = ["Quests", "Profile", "Epirience And Reviews"]
 
   function Tab(tabName): JSX.Element {
     return (
@@ -26,8 +27,9 @@ export default function Stats(): JSX.Element {
           <Tab tabName={tab} key={idx} />
         ))}
       </div>
-      {showStats == "QuestsTab" && <QuestsStats />}
-      {showStats == "BountyTab" && <BountyStats />}
+      {showStats == "Quests" && <QuestsStats />}
+      {showStats == "Profile" && <ProfileStats />}
+      {showStats == "Epirience And Reviews" && <ExperienceAndRewiews />}
     </div>
   )
 }

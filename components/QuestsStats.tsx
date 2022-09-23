@@ -1,4 +1,4 @@
-import { collection, getFirestore, query, where } from "firebase/firestore"
+import { collection, query, where } from "firebase/firestore"
 import { useFirestore, useFirestoreCollectionData, useUser } from "reactfire"
 import FreelancerBids from "components/FreelancerBids"
 
@@ -8,13 +8,13 @@ export default function QuestsStats(): JSX.Element {
   const questsRef = collection(firestore, "quests")
   const userQuestsQuery = query(
     questsRef,
-    where("userId", "==", "QfABV59rDVWcUDBvtiaZCrQ8mTJ2") //hardcoded for now
+    where("userId", "==", user?.uid || "")
   )
   const { status: questsStatus, data: quests } =
     useFirestoreCollectionData(userQuestsQuery)
   const biddingQuestsQuery = query(
     questsRef,
-    where("bidders", "array-contains", "QfABV59rDVWcUDBvtiaZCrQ8mTJ2") //hardcoded for now
+    where("bidders", "array-contains", user?.uid || "")
   )
   const { status: biddingQuestsStatus, data: biddingQuests } =
     useFirestoreCollectionData(biddingQuestsQuery)
@@ -31,7 +31,7 @@ export default function QuestsStats(): JSX.Element {
       ))}
       {biddingQuests?.map((biddingQuest, idx) => (
         <div key={idx}>
-          <FreelancerBids path={biddingQuest?.id} />
+          <FreelancerBids path={biddingQuest?.questId} />
         </div>
       ))}
     </div>

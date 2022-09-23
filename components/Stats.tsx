@@ -1,21 +1,21 @@
 import { useState } from "react"
-import QuestsStats from "components/QuestsStats"
-import ProfileStats from "components/ProfileStats"
-import ExperienceAndRewiews from "components/ExperienceAndRewiews"
+import { QuestsStats } from "components/QuestsStats"
+import { ProfileStats } from "components/ProfileStats"
+import { ExperienceAndReviews } from "components/ExperienceAndReviews"
 
-export default function Stats(): JSX.Element {
+export function Stats(): JSX.Element {
   const [showStats, setShowStats] = useState("Quests")
-  const tabs = ["Quests", "Profile", "Epirience And Reviews"]
+  const tabs = ["Quests", "Profile", "Eperience And Reviews"]
 
-  function Tab(tabName): JSX.Element {
+  function Tab(name): JSX.Element {
     return (
       <div style={{ cursor: "pointer" }}>
         <a
           onClick={() => {
-            setShowStats(tabName.tabName)
+            setShowStats(name.name)
           }}
         >
-          <div>Show {tabName.tabName}</div>
+          <div>Show {name.name}</div>
         </a>
       </div>
     )
@@ -23,13 +23,13 @@ export default function Stats(): JSX.Element {
   return (
     <div>
       <div>
-        {tabs.map((tab, idx) => (
-          <Tab tabName={tab} key={idx} />
+        {tabs.map((name, idx) => (
+          <Tab name={name} key={idx} />
         ))}
       </div>
       {showStats == "Quests" && <QuestsStats />}
       {showStats == "Profile" && <ProfileStats />}
-      {showStats == "Epirience And Reviews" && <ExperienceAndRewiews />}
+      {showStats == "Eperience And Reviews" && <ExperienceAndReviews />}
     </div>
   )
 }

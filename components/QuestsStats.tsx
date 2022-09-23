@@ -2,7 +2,7 @@ import { collection, query, where } from "firebase/firestore"
 import { useFirestore, useFirestoreCollectionData, useUser } from "reactfire"
 import FreelancerBids from "components/FreelancerBids"
 
-export default function QuestsStats(): JSX.Element {
+export function QuestsStats(): JSX.Element {
   const firestore = useFirestore()
   const { status: userStatus, data: user } = useUser()
   const questsRef = collection(firestore, "quests")

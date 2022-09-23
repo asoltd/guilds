@@ -14,6 +14,8 @@
     "react-firebaseui": "^6.0.0",
     "react-is": "^17.0.2",
     "reactfire": "^4.2.2",
+    "stream-chat": "7.1.0",
+    "stream-chat-react": "10.1.1",
     "styled-components": "^5.3.5",
     "styled-css-grid": "^1.2.1"
   },

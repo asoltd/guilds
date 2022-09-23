@@ -12,13 +12,7 @@ export default function Profile() {
   return (
     <Container>
       {user?.uid ? (
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-          }}
-        >
+        <div>
           <div>{user.email}</div>
           <div onClick={() => auth.signOut()}>logout</div>
         </div>

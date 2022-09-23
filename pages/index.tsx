@@ -5,7 +5,6 @@ import Header from "../components/Header"
 import SignIn from "../components/SignIn"
 import { useSigninCheck } from "reactfire"
 import Profile from "components/Profile"
-import Quests from "components/Quests"
 import Heroes from "components/Heroes"
 
 export default function Home() {
@@ -31,7 +30,6 @@ export default function Home() {
           ) : signInCheckResult.signedIn === true ? (
             <>
               <Profile />
-              <Quests />
               <Heroes />
             </>
           ) : (

@@ -18,9 +18,10 @@ export interface Quest {
   title: string
   description: string
   tags: Tag[]
-  bids?: Bid[]
-  bidders?: UUID[]
-  status: string
+  image?: URL
+  userId?: string
+  bidders?: string[]
+  status?: string
 }
 
 export interface Bid {
@@ -32,5 +33,4 @@ export interface Bid {
   createdAt: Date
   updatedAt?: Date
   status?: string
-  // createdAt, updatedAt should be available from Firestore
 }

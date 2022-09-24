@@ -17,17 +17,16 @@ import { getFunctions, httpsCallable } from "firebase/functions"
 import { useFirebaseApp } from "reactfire"
 import { useUser } from "reactfire"
 
-const apiKey = process.env.NEXT_PUBLIC_CHAT_API
-
 const Messaging = () => {
   const { status, data: currentUser } = useUser()
   const app = useFirebaseApp()
-
   const [client, setClient] = useState(null)
 
   useEffect(() => {
     async function init() {
-      const chatClient = StreamChat.getInstance(apiKey)
+      const chatClient = StreamChat.getInstance(
+        process.env.NEXT_PUBLIC_CHAT_API
+      )
 
       const functions = getFunctions(app, "europe-west2")
       const getToken = httpsCallable(
@@ -42,13 +41,8 @@ const Messaging = () => {
         streamToken
       )
 
-      // To do: connect to front end, this will be the person you want to chat with
-      const recipient = {
-        name: "Oli",
-      }
-
       const channel = chatClient.channel("messaging", "chat-id", {
-        name: `${currentUser.displayName} and ${recipient.name}'s chat`,
+        name: "test chat",
         members: [currentUser?.uid],
       })
 
@@ -57,10 +51,10 @@ const Messaging = () => {
       setClient(chatClient)
     }
 
-    if (currentUser) init()
+    if (status === "success") init()
 
     if (client) return () => client.disconnectUser()
-  }, [currentUser])
+  }, [currentUser, status])
 
   if (!client) return <LoadingIndicator />
 

@@ -1,6 +1,5 @@
 import { collection, query, where } from "firebase/firestore"
 import { useFirestore, useFirestoreCollectionData, useUser } from "reactfire"
-import FreelancerBids from "components/FreelancerBids"
 
 export function QuestsStats(): JSX.Element {
   const firestore = useFirestore()
@@ -16,6 +15,7 @@ export function QuestsStats(): JSX.Element {
     questsRef,
     where("bidders", "array-contains", user?.uid || "")
   )
+
   const { status: biddingQuestsStatus, data: biddingQuests } =
     useFirestoreCollectionData(biddingQuestsQuery)
   return (
@@ -36,4 +36,31 @@ export function QuestsStats(): JSX.Element {
       ))}
     </div>
   )
+}
+
+export function FreelancerBids(path): JSX.Element {
+  const firestore = useFirestore()
+  const { status, data: user } = useUser()
+  const bidsRef = collection(firestore, "quests", `${path.path}`, "bids")
+  const bidsQuery = query(bidsRef, where("userId", "==", user?.uid || ""))
+  const { status: bidsStatus, data: bids } =
+    useFirestoreCollectionData(bidsQuery)
+  return (
+    <div>
+      {bids?.map((bid, idx) => (
+        <div key={idx}>
+          <div>{bid?.amount}</div>
+          <div>{bid?.timeEstimate}</div>
+        </div>
+      ))}
+    </div>
+  )
+}
+
+export function ProfileStats(): JSX.Element {
+  return <div>Profile Page</div>
+}
+
+export function ExperienceAndReviews(): JSX.Element {
+  return <div>Experience and reviews</div>
 }

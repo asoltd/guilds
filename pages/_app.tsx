@@ -1,4 +1,5 @@
-import "../styles/globals.css"
+import Head from "next/head"
+import { useMemo } from "react"
 import { getAuth, connectAuthEmulator } from "firebase/auth"
 import { connectFirestoreEmulator, getFirestore } from "firebase/firestore"
 import {
@@ -10,6 +11,13 @@ import {
 } from "reactfire"
 import { firebaseConfig } from "../firebase.config"
 import { connectStorageEmulator, getStorage } from "firebase/storage"
+
+import { createTheme, CssBaseline } from "@mui/material"
+import { ThemeProvider } from "@mui/material/styles"
+import { useMediaQuery } from "@mui/material"
+
+import { lightThemeOptions, darkThemeOptions } from "../theme"
+import "../theme/globals.css"
 
 function FirebaseSDKProviders({ children }) {
   const app = useFirebaseApp()
@@ -35,12 +43,32 @@ function FirebaseSDKProviders({ children }) {
 }
 
 function MyApp({ Component, pageProps }) {
+  const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)")
+
+  const theme = useMemo(
+    () => createTheme(prefersDarkMode ? darkThemeOptions : lightThemeOptions),
+    [prefersDarkMode]
+  )
+
+  console.log(prefersDarkMode)
+
   return (
-    <FirebaseAppProvider firebaseConfig={firebaseConfig}>
-      <FirebaseSDKProviders>
-        <Component {...pageProps} />;
-      </FirebaseSDKProviders>
-    </FirebaseAppProvider>
+    <>
+      <Head>
+        <title>Guilds</title>
+        <meta name="viewport" content="initial-scale=1, width=device-width" />
+        <meta name="description" content="Get working" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <FirebaseAppProvider firebaseConfig={firebaseConfig}>
+        <FirebaseSDKProviders>
+          <ThemeProvider theme={theme}>
+            <CssBaseline />
+            <Component {...pageProps} />;
+          </ThemeProvider>
+        </FirebaseSDKProviders>
+      </FirebaseAppProvider>
+    </>
   )
 }
 

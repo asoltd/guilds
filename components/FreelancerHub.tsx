@@ -1,13 +1,9 @@
-import styled from "styled-components"
+import styled from "@emotion/styled"
 import Link from "next/link"
+import { Title } from "./Title"
 
 const Container = styled.div`
   width: 100%;
-`
-
-const Title = styled.div`
-  font-size: 100px;
-  text-align: center;
 `
 
 const Navigator = styled.div`
@@ -17,9 +13,9 @@ const Navigator = styled.div`
 `
 
 const NavItem = styled.a`
-  font-size: 50px;
-  width: 300px;
-  height: 150px;
+  font-size: 4rem;
+  width: 25rem;
+  height: 12rem;
   display: flex;
   justify-content: center;
   align-items: center;

@@ -11,22 +11,24 @@ export enum Tag {
 }
 
 export interface Quest {
-  image: URL
+  id: UUID
+  userId: UUID
   reward: number
   title: string
   description: string
   tags: Tag[]
-  bids?: Bid[]
-  id?: string
+  image?: URL
+  bidders?: string[]
+  status: string
 }
 
 export interface Bid {
-  bidId: UUID
+  id: UUID
   questId: UUID
   userId: UUID
   amount: number
   timeEstimate: string
   createdAt: Date
   updatedAt?: Date
-  // createdAt, updatedAt should be available from Firestore
+  status?: string
 }

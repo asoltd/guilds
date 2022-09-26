@@ -22,20 +22,52 @@ export function QuestsStats(): JSX.Element {
     useFirestoreCollectionData(biddingQuestsQuery)
   return (
     <div>
-      {quests?.map((quest: Quest, idx) => (
-        <div key={idx}>
-          <div>{quest?.title}</div>
-          <div>{quest?.description}</div>
-          <div>{quest?.reward}</div>
-          <div>{quest?.tags}</div>
-          <div>{quest?.userId}</div>
-        </div>
-      ))}
-      {biddingQuests?.map((biddingQuest: Bid, idx) => (
-        <div key={idx}>
-          <FreelancerBids path={biddingQuest?.questId} />
-        </div>
-      ))}
+      <>
+        {questsStatus && (
+          <>
+            {questsStatus === "loading" ? (
+              <div>loading</div>
+            ) : (
+              <>
+                {quests ? (
+                  quests?.map((quest: Quest, idx) => (
+                    <div key={idx}>
+                      <div>{quest?.title}</div>
+                      <div>{quest?.description}</div>
+                      <div>{quest?.reward}</div>
+                      <div>{quest?.tags}</div>
+                      <div>{quest?.userId}</div>
+                    </div>
+                  ))
+                ) : (
+                  <div>no quests</div>
+                )}
+              </>
+            )}
+          </>
+        )}
+      </>
+      <>
+        {biddingQuestsStatus && (
+          <>
+            {biddingQuestsStatus === "loading" ? (
+              <div>loading</div>
+            ) : (
+              <>
+                {biddingQuests ? (
+                  biddingQuests?.map((biddingQuest: Bid, idx) => (
+                    <div key={idx}>
+                      <FreelancerBids path={biddingQuest?.questId} />
+                    </div>
+                  ))
+                ) : (
+                  <div>no bids</div>
+                )}
+              </>
+            )}
+          </>
+        )}
+      </>
     </div>
   )
 }
@@ -49,17 +81,15 @@ export function FreelancerBids(path): JSX.Element {
     useFirestoreCollectionData(bidsQuery)
   return (
     <>
-      {status && (
+      {bidsStatus && (
         <>
-          {status === "loading" ? (
+          {bidsStatus === "loading" ? (
             <div>loading</div>
           ) : (
             <>
               {bids ? (
                 bids.map((bid: Bid, idx) => (
-                  <div key={idx}>
-                    <div></div>
-                  </div>
+                  <BidComponent key={idx} value={bid}></BidComponent>
                 ))
               ) : (
                 <div>no bids</div>

@@ -1,6 +1,7 @@
+import { Bid, Quest } from "storage/quest/types"
 import { collection, query, where } from "firebase/firestore"
 import { useFirestore, useFirestoreCollectionData, useUser } from "reactfire"
-import { Bid, Quest } from "storage/quest/types"
+import { Bid as BidComponent } from "components/Bid"
 
 export function QuestsStats(): JSX.Element {
   const firestore = useFirestore()
@@ -47,21 +48,26 @@ export function FreelancerBids(path): JSX.Element {
   const { status: bidsStatus, data: bids } =
     useFirestoreCollectionData(bidsQuery)
   return (
-    <div>
-      {bids?.map((bid, idx) => (
-        <div key={idx}>
-          <div>{bid?.amount}</div>
-          <div>{bid?.timeEstimate}</div>
-        </div>
-      ))}
-    </div>
+    <>
+      {status && (
+        <>
+          {status === "loading" ? (
+            <div>loading</div>
+          ) : (
+            <>
+              {bids ? (
+                bids.map((bid: Bid, idx) => (
+                  <div key={idx}>
+                    <div></div>
+                  </div>
+                ))
+              ) : (
+                <div>no bids</div>
+              )}
+            </>
+          )}
+        </>
+      )}
+    </>
   )
-}
-
-export function ProfileStats(): JSX.Element {
-  return <div>Profile Page</div>
-}
-
-export function ExperienceAndReviews(): JSX.Element {
-  return <div>Experience and reviews</div>
 }

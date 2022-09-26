@@ -16,5 +16,6 @@ jobs:
 
       - name: Build
         env:
+          NEXT_PUBLIC_TYPESENSE_API_KEY: ${{ secrets.NEXT_PUBLIC_TYPESENSE.API.KEY }}
           NEXT_PUBLIC_CHAT_API: ${{ secrets.NEXT_PUBLIC_CHAT_API }}
         run: bun next build

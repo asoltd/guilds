@@ -17,13 +17,17 @@
     "react": "^18",
     "react-dom": "^18",
     "react-firebaseui": "^6.0.0",
+    "react-instantsearch-dom": "^6.32.1",
+    "react-instantsearch-hooks-web": "^6.32.1",
     "react-is": "^17.0.2",
     "react-select": "^5.4.0",
     "reactfire": "^4.2.2",
     "stream-chat": "7.1.0",
     "stream-chat-react": "10.1.1",
     "styled-components": "^5.3.5",
-    "styled-css-grid": "^1.2.1"
+    "styled-css-grid": "^1.2.1",
+    "typesense": "^1.4.0",
+    "typesense-instantsearch-adapter": "^2.4.1"
   },
   "devDependencies": {
     "@types/chai": "^4.3.3",

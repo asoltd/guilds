@@ -2,14 +2,19 @@ import { useState } from "react"
 import { QuestsStats } from "components/Tabs/QuestStats"
 import { ProfileStats } from "components/Tabs/ProfileStats"
 import { ExperienceAndReviews } from "components/Tabs/ExpirienceAndReviews.tsx"
+import styled from "styled-components"
+
+const Button = styled.div`
+  cursor: pointer;
+`
 
 export function Stats(): JSX.Element {
-  const [showStats, setShowStats] = useState("Quests")
+  const [showStats, setShowStats] = useState("QuestsStats")
 
   function Tabs(tab): JSX.Element {
     return (
       <>
-        <div style={{ cursor: "pointer" }}>
+        <Button>
           <a
             onClick={() => {
               setShowStats("QuestsStats")
@@ -17,8 +22,8 @@ export function Stats(): JSX.Element {
           >
             <div>Show Quest Stats</div>
           </a>
-        </div>
-        <div style={{ cursor: "pointer" }}>
+        </Button>
+        <Button>
           <a
             onClick={() => {
               setShowStats("ProfileStats")
@@ -26,8 +31,8 @@ export function Stats(): JSX.Element {
           >
             <div>Show Profile Stats</div>
           </a>
-        </div>
-        <div style={{ cursor: "pointer" }}>
+        </Button>
+        <Button>
           <a
             onClick={() => {
               setShowStats("ExperienceAndReviews")
@@ -35,7 +40,7 @@ export function Stats(): JSX.Element {
           >
             <div>Show Experience And Reviews</div>
           </a>
-        </div>
+        </Button>
       </>
     )
   }

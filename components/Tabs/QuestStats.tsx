@@ -26,7 +26,7 @@ export function QuestsStats(): JSX.Element {
         {questsStatus && (
           <>
             {questsStatus === "loading" ? (
-              <div>loading</div>
+              <div>loading quests</div>
             ) : (
               <>
                 {quests ? (
@@ -51,7 +51,7 @@ export function QuestsStats(): JSX.Element {
         {biddingQuestsStatus && (
           <>
             {biddingQuestsStatus === "loading" ? (
-              <div>loading</div>
+              <div>loading bids</div>
             ) : (
               <>
                 {biddingQuests ? (
@@ -72,10 +72,10 @@ export function QuestsStats(): JSX.Element {
   )
 }
 
-export function FreelancerBids(path): JSX.Element {
+export function FreelancerBids({ path }): JSX.Element {
   const firestore = useFirestore()
   const { status, data: user } = useUser()
-  const bidsRef = collection(firestore, "quests", `${path.path}`, "bids")
+  const bidsRef = collection(firestore, "quests", `${path}`, "bids")
   const bidsQuery = query(bidsRef, where("userId", "==", user?.uid || ""))
   const { status: bidsStatus, data: bids } =
     useFirestoreCollectionData(bidsQuery)
@@ -84,7 +84,7 @@ export function FreelancerBids(path): JSX.Element {
       {bidsStatus && (
         <>
           {bidsStatus === "loading" ? (
-            <div>loading</div>
+            <div>loading bids</div>
           ) : (
             <>
               {bids ? (

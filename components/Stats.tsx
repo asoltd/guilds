@@ -1,37 +1,50 @@
 import { useState } from "react"
-import {
-  ProfileStats,
-  ExperienceAndReviews,
-  QuestsStats,
-} from "components/AllStats"
+import { QuestsStats } from "components/Tabs/QuestStats"
+import { ProfileStats } from "components/Tabs/ProfileStats"
+import { ExperienceAndReviews } from "components/Tabs/ExpirienceAndReviews.tsx"
 
 export function Stats(): JSX.Element {
   const [showStats, setShowStats] = useState("Quests")
-  const tabs = ["Quests", "Profile", "Experience And Reviews"]
 
-  function Tab(tab): JSX.Element {
+  function Tabs(tab): JSX.Element {
     return (
-      <div style={{ cursor: "pointer" }}>
-        <a
-          onClick={() => {
-            setShowStats(tab.name)
-          }}
-        >
-          <div>Show {tab.name}</div>
-        </a>
-      </div>
+      <>
+        <div style={{ cursor: "pointer" }}>
+          <a
+            onClick={() => {
+              setShowStats("QuestsStats")
+            }}
+          >
+            <div>Show Quest Stats</div>
+          </a>
+        </div>
+        <div style={{ cursor: "pointer" }}>
+          <a
+            onClick={() => {
+              setShowStats("ProfileStats")
+            }}
+          >
+            <div>Show Profile Stats</div>
+          </a>
+        </div>
+        <div style={{ cursor: "pointer" }}>
+          <a
+            onClick={() => {
+              setShowStats("ExperienceAndReviews")
+            }}
+          >
+            <div>Show Experience And Reviews</div>
+          </a>
+        </div>
+      </>
     )
   }
   return (
     <div>
-      <div>
-        {tabs.map((tab, idx) => (
-          <Tab name={tab} key={idx} />
-        ))}
-      </div>
-      {showStats == "Quests" && <QuestsStats />}
-      {showStats == "Profile" && <ProfileStats />}
-      {showStats == "Experience And Reviews" && <ExperienceAndReviews />}
+      <Tabs />
+      {showStats == "QuestsStats" && <QuestsStats />}
+      {showStats == "ProfileStats" && <ProfileStats />}
+      {showStats == "ExperienceAndReviews" && <ExperienceAndReviews />}
     </div>
   )
 }

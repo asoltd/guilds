@@ -89,7 +89,7 @@ export function FreelancerBids(path): JSX.Element {
             <>
               {bids ? (
                 bids.map((bid: Bid, idx) => (
-                  <BidComponent key={idx} value={bid}></BidComponent>
+                  <BidComponent key={idx} value={bid} />
                 ))
               ) : (
                 <div>no bids</div>

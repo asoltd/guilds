@@ -1,4 +1,4 @@
-import { UUID } from './../common';
+import { UUID } from "./../common"
 import { URL } from "../common"
 
 export enum Tag {
@@ -14,8 +14,8 @@ export enum Tag {
 export interface Team {
   image: URL
   name: {
-    first: string,
-    second: string,
+    first: string
+    second: string
     last: string
   }
   title: string

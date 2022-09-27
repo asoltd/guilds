@@ -1,4 +1,3 @@
-import { UUID } from './../common';
 import { Firestore, collection, getDocs, addDoc } from "firebase/firestore"
 import { Team, Tag } from "../../storage/team"
 import { faker } from "@faker-js/faker"
@@ -7,7 +6,7 @@ export const populateTeams = async (firestore: Firestore) => {
   const teamRef = collection(firestore, `teams`)
   const promises = []
 
-  const values = Object.keys(Tag);
+  const values = Object.keys(Tag)
 
   for (let i = 0; i < 3; i++) {
     const team: Team = {
@@ -15,7 +14,7 @@ export const populateTeams = async (firestore: Firestore) => {
       name: {
         first: faker.name.firstName(),
         second: faker.name.middleName(),
-        last: faker.name.lastName()
+        last: faker.name.lastName(),
       },
       title: Tag[values[Math.floor(Math.random() * values.length)]],
       description: faker.lorem.sentences(3),

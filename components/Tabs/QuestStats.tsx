@@ -55,9 +55,9 @@ export function QuestsStats(): JSX.Element {
             ) : (
               <>
                 {biddingQuests ? (
-                  biddingQuests?.map((biddingQuest: Bid, idx) => (
+                  biddingQuests?.map((userBids: Bid, idx) => (
                     <div key={idx}>
-                      <FreelancerBids path={biddingQuest?.questId} />
+                      <FreelancerBids path={userBids?.questId} />
                     </div>
                   ))
                 ) : (

@@ -2,6 +2,7 @@ import { Header } from "../components/Header"
 
 import { Footer } from "../components/Footer"
 import { Container, Box } from "@mui/material"
+import { Teams } from "components/Teams"
 
 export default function Home() {
   return (
@@ -13,7 +14,9 @@ export default function Home() {
       }}
     >
       <Header />
-      <Container></Container>
+      <Container>
+        <Teams />
+      </Container>
       <Footer />
     </Box>
   )

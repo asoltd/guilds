@@ -21,5 +21,5 @@ export interface Team {
   title: string
   description: string
   tags: Tag[]
-  _id?: UUID
+  id: UUID
 }

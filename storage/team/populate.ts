@@ -1,15 +1,14 @@
-import { Firestore, collection, getDocs, addDoc } from "firebase/firestore"
+import { Firestore, collection, doc, setDoc } from "firebase/firestore"
 import { Team, Tag } from "../../storage/team"
 import { faker } from "@faker-js/faker"
 
-export const populateTeams = async (firestore: Firestore) => {
-  const teamRef = collection(firestore, `teams`)
-  const promises = []
-
+export const populateTeams = async (firestore: Firestore): Promise<void> => {
   const values = Object.keys(Tag)
-
-  for (let i = 0; i < 3; i++) {
+  try {
+    const teamsRef = collection(firestore, `teams`)
+    const teamRef = doc(teamsRef)
     const team: Team = {
+      id: teamRef.id,
       image: faker.image.imageUrl(),
       name: {
         first: faker.name.firstName(),
@@ -20,8 +19,9 @@ export const populateTeams = async (firestore: Firestore) => {
       description: faker.lorem.sentences(3),
       tags: [],
     }
-    promises.push(addDoc(teamRef, team))
-    const results = await Promise.all(promises)
-    console.log(results[0])
+    setDoc(teamRef, team)
+    alert("Team added")
+  } catch (e: any) {
+    alert("Error: " + e)
   }
 }

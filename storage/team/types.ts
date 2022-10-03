@@ -12,6 +12,7 @@ export enum Tag {
 }
 
 export interface Team {
+  id: UUID
   image: URL
   name: {
     first: string
@@ -21,5 +22,4 @@ export interface Team {
   title: string
   description: string
   tags: Tag[]
-  id: UUID
 }

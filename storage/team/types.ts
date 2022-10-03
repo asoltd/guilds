@@ -1,5 +1,4 @@
-import { UUID } from "./../common"
-import { URL } from "../common"
+import { UUID, URL } from "../common"
 
 export enum Tag {
   Design = "design",

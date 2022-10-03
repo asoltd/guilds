@@ -1,16 +1,15 @@
-import { Grid } from "styled-css-grid"
+import { styled } from "@mui/system"
+import { Grid } from "@mui/material"
 import { useFirestore, useFirestoreCollectionData } from "reactfire"
 import { collection, deleteDoc, getDocs, query } from "firebase/firestore"
 import { populateTeams, Team } from "../storage/team"
-import Link from "next/link"
-import styled from "styled-components"
-import Image from "next/image"
+import TeamCard from "./TeamCard"
 
-const ButtonContainer = styled.div`
-  display: flex;
-  gap: 4rem;
-  margin: 4rem 0rem;
-`
+const ButtonContainer = styled("div")({
+  display: "flex",
+  gap: "4rem",
+  margin: "4rem 0rem",
+})
 
 export const Teams = (): JSX.Element => {
   const firestore = useFirestore()
@@ -24,9 +23,11 @@ export const Teams = (): JSX.Element => {
   return (
     <>
       <ButtonContainer>
-        <button onClick={() => populateTeams(firestore)}>
-          populate teams if not populated
-        </button>
+        {!teams?.length && (
+          <button onClick={() => populateTeams(firestore)}>
+            populate teams if not populated
+          </button>
+        )}
         <button onClick={handleClean}>Clean the Team Collection</button>
       </ButtonContainer>
       {status && (
@@ -35,44 +36,12 @@ export const Teams = (): JSX.Element => {
             <div>loading</div>
           ) : (
             <>
-              <Grid
-                columns={"repeat(auto-fit, minmax(210px, 1fr))"}
-                gap={"4rem"}
-              >
+              <Grid container spacing={2} xs={12}>
                 {teams?.length ? (
                   teams.map((team: Team, idx) => (
-                    <div key={idx}>
-                      <div>
-                        <Image
-                          src={`${team?.image}`}
-                          alt={team.name.first}
-                          width={500}
-                          height={400}
-                        />
-                      </div>
-                      <div>
-                        <b> Name: </b>
-                        {team.name.first} {team.name.second} {team.name.last}
-                      </div>
-                      <div>
-                        <b>Title: </b>
-                        {team?.title}
-                      </div>
-                      <div>
-                        <b>Description:</b> {team?.description}
-                      </div>
-                      <div>
-                        <b>Tags:</b> {team?.tags}
-                      </div>
-                      <Link
-                        href={{
-                          pathname: "/team",
-                          query: { teamId: team.id },
-                        }}
-                      >
-                        <button>view {team.name.first}</button>
-                      </Link>
-                    </div>
+                    <Grid item key={idx} xs={3}>
+                      <TeamCard team={team} />
+                    </Grid>
                   ))
                 ) : (
                   <div>no teams</div>

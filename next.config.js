@@ -1,4 +1,9 @@
 module.exports = {
+  images: {
+    domains: [
+      'loremflickr.com'
+    ]
+  },
   reactStrictMode: false,
   typescript: {
     // !! WARN !!
@@ -7,4 +12,5 @@ module.exports = {
     // !! WARN !!
     ignoreBuildErrors: false,
   },
-}
+
+};

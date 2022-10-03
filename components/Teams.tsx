@@ -3,18 +3,15 @@ import { useFirestore, useFirestoreCollectionData } from "reactfire"
 import { collection, deleteDoc, getDocs, query } from "firebase/firestore"
 import { populateTeams, Team } from "../storage/team"
 import Link from "next/link"
-import { useEffect } from "react"
 import styled from "styled-components"
+import Image from "next/image"
 
 const ButtonContainer = styled.div`
   display: flex;
   gap: 4rem;
-  margin: 2rem 0rem;
+  margin: 4rem 0rem;
 `
-const Image = styled.img`
-  width: 13rem;
-  height: 13rem;
-`
+
 export const Teams = (): JSX.Element => {
   const firestore = useFirestore()
   const teamsQuery = query(collection(firestore, "teams"))
@@ -46,7 +43,12 @@ export const Teams = (): JSX.Element => {
                   teams.map((team: Team, idx) => (
                     <div key={idx}>
                       <div>
-                        <Image src={team?.image} alt={team.name.first} />
+                        <Image
+                          src={`${team?.image}`}
+                          alt={team.name.first}
+                          width={500}
+                          height={400}
+                        />
                       </div>
                       <div>
                         <b> Name: </b>

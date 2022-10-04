@@ -2,7 +2,7 @@ import { styled } from "@mui/system"
 import { Grid } from "@mui/material"
 import { useFirestore, useFirestoreCollectionData } from "reactfire"
 import { collection, deleteDoc, getDocs, query } from "firebase/firestore"
-import { populateTeams, Team } from "../storage/team"
+import { populateTeams, Team } from "../../storage/team"
 import TeamCard from "./TeamCard"
 
 const ButtonContainer = styled("div")({

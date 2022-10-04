@@ -1,7 +1,7 @@
 import { Header } from "../components/Header"
 import { Footer } from "../components/Footer"
 import { Container, Box } from "@mui/material"
-import { Teams } from "../components/Teams"
+import { Teams } from "components/teams/Teams"
 
 export default function Home() {
   return (

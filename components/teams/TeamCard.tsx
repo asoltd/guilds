@@ -5,7 +5,7 @@ import { Team } from "storage/team"
 type CardProps = {
   team: Team
 }
-const TeamCard = ({ team }: CardProps) => {
+const TeamCard = ({ team }: CardProps): JSX.Element => {
   return (
     <div>
       <div>

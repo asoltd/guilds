@@ -1,15 +1,17 @@
 import styled from "styled-components"
 import { Tag } from "./Tag"
-import { Tag as TagType } from "storage/quest/types"
-import Bids from "./Bids"
+import { Box, Button } from "@mui/material"
+import { Tag as TagType } from "storage/quest"
+import { Bids } from "../Bids/Bids"
 import Link from "next/link"
 
-const QuestProperty = styled.div``
+const QuestProperty = styled.div`
+  margin: 0.5rem 0;
+`
 
-export default function QuestHit({ hit }): JSX.Element {
-  console.log(hit)
+export function QuestHit({ hit }) {
   return (
-    <div>
+    <Box sx={{ border: "1px solid", borderRadius: "1rem", p: "1rem" }}>
       <QuestProperty>Title: {hit?.title}</QuestProperty>
       <QuestProperty>Description: {hit?.description}</QuestProperty>
       <QuestProperty>Reward: {hit?.reward}</QuestProperty>
@@ -24,8 +26,8 @@ export default function QuestHit({ hit }): JSX.Element {
           query: { questId: hit.id },
         }}
       >
-        <button>see quest</button>
+        <Button variant="contained">see quest</Button>
       </Link>
-    </div>
+    </Box>
   )
 }

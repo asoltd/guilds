@@ -11,8 +11,8 @@ import {
   updateDoc,
   arrayUnion,
 } from "firebase/firestore"
-import { Title } from "./Title"
-import { Caption, FormField } from "./Form"
+import { Title } from "components/Title"
+import { Caption, FormField } from "components/Form"
 
 const Column = styled.div`
   display: flex;
@@ -25,7 +25,7 @@ interface FormValues {
   timeEstimate: number
 }
 
-export default function AddBid(): JSX.Element {
+export function AddBid(): JSX.Element {
   const router = useRouter()
   const { questId } = router.query
   const firestore = useFirestore()

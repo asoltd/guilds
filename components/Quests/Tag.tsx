@@ -7,6 +7,6 @@ interface TagProps {
 
 const TagContainer = styled.div``
 
-export const Tag = ({ value }: TagProps) => {
+export function Tag({ value }: TagProps): JSX.Element {
   return <TagContainer>{value}</TagContainer>
 }

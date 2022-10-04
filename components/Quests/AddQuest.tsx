@@ -4,8 +4,8 @@ import { Tag } from "storage/quest"
 import TagSelect from "./TagSelect"
 import { useFirestore, useUser } from "reactfire"
 import { doc, setDoc, collection, getDoc } from "firebase/firestore"
-import { Title } from "./Title"
-import { Caption, FormField } from "./Form"
+import { Title } from "components/Title"
+import { Caption, FormField } from "components/Form"
 
 const Column = styled.div`
   display: flex;
@@ -20,7 +20,7 @@ interface FormValues {
   tags: string[]
 }
 
-export default function AddQuest(): JSX.Element {
+export function AddQuest(): JSX.Element {
   const tags = Object.values(Tag).map((tag: Tag) => ({
     value: tag,
     label: tag,

@@ -3,11 +3,11 @@ import Link from "next/link"
 import { useFirestore, useFirestoreDocData } from "reactfire"
 import { doc } from "firebase/firestore"
 import { useRouter } from "next/router"
-import { Title } from "./Title"
+import { Title } from "components/Title"
 
 const QuestEntry = styled.div``
 
-export default function Quest(): JSX.Element {
+export function Quest(): JSX.Element {
   const router = useRouter()
   const { questId } = router.query
   const firestore = useFirestore()

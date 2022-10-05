@@ -6,8 +6,9 @@ import { useFirestore } from "reactfire"
 import { populateQuests, populateBids } from "storage/quest"
 import { searchClient } from "typesense/insantsearch"
 import { Box, Button } from "@mui/material"
-import { InstantSearch, RefinementList } from "react-instantsearch-dom"
+import { InstantSearch } from "react-instantsearch-dom"
 import { QuestSearchBox } from "./SearchBox"
+import { QuestRefinementList } from "./QuestRefinementList"
 
 export function Quests(): JSX.Element {
   const firestore = useFirestore()
@@ -24,7 +25,7 @@ export function Quests(): JSX.Element {
             height: "20rem",
           }}
         >
-          <RefinementList attribute="tags" />
+          <QuestRefinementList attribute="tags" facetOrdering={true} />
           <Button variant="contained" onClick={() => populateQuests(firestore)}>
             populate quests if not populated
           </Button>

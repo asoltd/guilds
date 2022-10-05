@@ -1,17 +1,17 @@
 import styled from "styled-components"
 import { Tag } from "./Tag"
-import { Box, Button } from "@mui/material"
+import { Box, Button, Card } from "@mui/material"
 import { Tag as TagType } from "storage/quest"
 import { Bids } from "../Bids/Bids"
 import Link from "next/link"
 
 const QuestProperty = styled.div`
-  margin: 0.5rem 0;
+  margin-bottom: 1rem;
 `
 
 export function QuestHit({ hit }) {
   return (
-    <Box sx={{ border: "1px solid", borderRadius: "1rem", p: "1rem" }}>
+    <Card variant="outlined" sx={{ p: "1rem" }}>
       <QuestProperty>Title: {hit?.title}</QuestProperty>
       <QuestProperty>Description: {hit?.description}</QuestProperty>
       <QuestProperty>Reward: {hit?.reward}</QuestProperty>
@@ -28,6 +28,6 @@ export function QuestHit({ hit }) {
       >
         <Button variant="contained">see quest</Button>
       </Link>
-    </Box>
+    </Card>
   )
 }

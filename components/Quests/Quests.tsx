@@ -22,7 +22,7 @@ export function Quests(): JSX.Element {
             flexDirection: "column",
             justifyContent: "space-between",
             width: "20%",
-            height: "20rem",
+            height: "50rem",
           }}
         >
           <QuestRefinementList attribute="tags" facetOrdering={true} />
@@ -39,7 +39,7 @@ export function Quests(): JSX.Element {
         <Box sx={{ display: "flex", flexDirection: "column", width: "80%" }}>
           <QuestSearchBox />
           <Box sx={{ marginTop: "1rem" }}>
-            <Grid columns={"40% 40%"} justifyContent="space-around">
+            <Grid columns="repeat(auto-fit,minmax(20rem,1fr))" gap="5rem">
               <QuestHits />
             </Grid>
           </Box>

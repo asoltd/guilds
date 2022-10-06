@@ -1,33 +1,26 @@
-import { Highlight, connectRefinementList } from "react-instantsearch-dom"
+import { connectRefinementList } from "react-instantsearch-dom"
 import _ from "lodash"
-import { Box, List, ListItemButton, ListItemText } from "@mui/material"
+import { Box, ListItemButton, ListItemText, Stack } from "@mui/material"
 
 function RefinementList({ items, refine }) {
   const sortedItems = _.orderBy(items, ["count", "label"], ["desc", "asc"])
 
   return (
-    <List
-      sx={{
-        height: "50rem",
-        display: "flex",
-        justifyContent: "space-between",
-        flexDirection: "column",
-      }}
-    >
+    <Stack spacing={2}>
       {sortedItems.length > 0 &&
-        sortedItems.map((item) => (
+        sortedItems.map((item, idx) => (
           <Box
             sx={{
               bgcolor: item.isRefined ? "primary.main" : "background.main",
-              color: item.isRefined ? "background.paper" : "background.main",
             }}
+            key={idx}
           >
             <ListItemButton onClick={() => refine(item.value)}>
               <ListItemText primary={item.label} />
             </ListItemButton>
           </Box>
         ))}
-    </List>
+    </Stack>
   )
 }
 

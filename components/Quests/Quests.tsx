@@ -1,50 +1,41 @@
 import styled from "styled-components"
 import { QuestHits } from "./QuestHits"
 import Link from "next/link"
-import { Grid } from "styled-css-grid"
 import { useFirestore } from "reactfire"
 import { populateQuests, populateBids } from "storage/quest"
 import { searchClient } from "typesense/insantsearch"
-import { Box, Button } from "@mui/material"
+import { Box, Button, Stack, Grid } from "@mui/material"
 import { InstantSearch } from "react-instantsearch-dom"
-import { QuestSearchBox } from "./SearchBox"
+import { QuestSearchBox } from "./QuestSearchBox"
 import { QuestRefinementList } from "./QuestRefinementList"
 
 export function Quests(): JSX.Element {
   const firestore = useFirestore()
 
   return (
-    <Box sx={{ display: "flex", flexDirection: "row", marginTop: "1rem" }}>
-      <InstantSearch searchClient={searchClient} indexName="quests">
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "space-between",
-            width: "20%",
-            height: "50rem",
-          }}
-        >
-          <QuestRefinementList attribute="tags" facetOrdering={true} />
+    <InstantSearch searchClient={searchClient} indexName="quests">
+      <Stack direction="row" spacing={2} sx={{ marginTop: "1rem" }}>
+        <Stack spacing={2}>
+          <QuestSearchBox />
+          <QuestRefinementList attribute="tags" />
           <Button variant="contained" onClick={() => populateQuests(firestore)}>
-            populate quests if not populated
+            populate quests
           </Button>
           <Button variant="contained" onClick={() => populateBids(firestore)}>
-            populate bids if not populated
+            populate bids
           </Button>
           <Link href="/add-quest">
             <Button variant="contained">Add Quest</Button>
           </Link>
-        </Box>
-        <Box sx={{ display: "flex", flexDirection: "column", width: "80%" }}>
-          <QuestSearchBox />
+        </Stack>
+        <Stack spacing={2}>
           <Box sx={{ marginTop: "1rem" }}>
-            <Grid columns="repeat(auto-fit,minmax(20rem,1fr))" gap="5rem">
+            <Grid container spacing={2}>
               <QuestHits />
             </Grid>
           </Box>
-        </Box>
-      </InstantSearch>
-    </Box>
+        </Stack>
+      </Stack>
+    </InstantSearch>
   )
 }

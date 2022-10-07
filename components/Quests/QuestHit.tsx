@@ -1,4 +1,3 @@
-import styled from "styled-components"
 import { Tag } from "./Tag"
 import { Box, Button, Card, Stack } from "@mui/material"
 import { Tag as TagType } from "storage/quest"
@@ -7,7 +6,7 @@ import Link from "next/link"
 
 export function QuestHit({ hit }) {
   return (
-    <Card variant="outlined" sx={{ p: "1rem" }}>
+    <Card variant="outlined" sx={{ p: "1rem", height: "25rem" }}>
       <Stack spacing={2}>
         <Box>Title: {hit?.title}</Box>
         <Box>Description: {hit?.description}</Box>

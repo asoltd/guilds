@@ -1,13 +1,15 @@
-import styled from "@emotion/styled"
-import Link from "next/link"
 import { useFirestore, useFirestoreDocData } from "reactfire"
 import { doc } from "firebase/firestore"
 import { useRouter } from "next/router"
-import { Title } from "components/Title"
-
-const QuestEntry = styled.div``
+import { Box, Button, Stack, Typography, Card } from "@mui/material"
+import { Tag } from "components/Quests/Tag"
+import { Tag as TagType } from "storage/quest"
+import { useState } from "react"
+import { AddBidModal } from "components/Bids/AddBidModal"
 
 export function Quest(): JSX.Element {
+  const [modalOpen, setModalOpen] = useState(false)
+
   const router = useRouter()
   const { questId } = router.query
   const firestore = useFirestore()
@@ -15,25 +17,30 @@ export function Quest(): JSX.Element {
   const { status: questStatus, data: quest } = useFirestoreDocData(questRef)
 
   return (
-    <div>
+    <Card sx={{ mt: 4, p: 4 }}>
       {questStatus === "loading" ? (
-        <div>loading</div>
+        <Box>loading</Box>
       ) : (
-        <div>
-          <Title>Quest: {quest?.title}</Title>
-          <QuestEntry>{quest?.description}</QuestEntry>
-          <QuestEntry>{quest?.reward}</QuestEntry>
-          <QuestEntry>{quest?.tags}</QuestEntry>
-          <Link
-            href={{
-              pathname: "/add-bid",
-              query: { questId: quest.questId },
-            }}
+        <Stack spacing={2}>
+          <Typography variant="h3">Quest: {quest?.title}</Typography>
+          <Box>Description: {quest?.description}</Box>
+          <Box>Reward: {quest?.reward}</Box>
+          <Stack direction="row" spacing={1}>
+            <Box>Tags:</Box>
+            {quest?.tags.map((tag: TagType, idx) => (
+              <Tag key={idx} value={tag} />
+            ))}
+          </Stack>
+          <Button
+            variant="contained"
+            sx={{ width: "20%" }}
+            onClick={() => setModalOpen(true)}
           >
-            <button>add bid</button>
-          </Link>
-        </div>
+            add bid
+          </Button>
+          <AddBidModal modalOpen={modalOpen} setModalOpen={setModalOpen} />
+        </Stack>
       )}
-    </div>
+    </Card>
   )
 }

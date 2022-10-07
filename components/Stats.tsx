@@ -2,16 +2,16 @@ import { useState } from "react"
 import { QuestsStats } from "components/Tabs/QuestStats"
 import { ProfileStats } from "components/Tabs/ProfileStats"
 import { ExperienceAndReviews } from "components/Tabs/ExpirienceAndReviews.tsx"
-import styled from "styled-components"
+import { Button } from "@mui/material"
 
-const Button = styled.div`
-  cursor: pointer;
-`
+export interface Tab {
+  name: string
+}
 
 export function Stats(): JSX.Element {
   const [showStats, setShowStats] = useState("QuestsStats")
 
-  function Tabs(tab): JSX.Element {
+  function Tabs(): JSX.Element {
     return (
       <>
         <Button>

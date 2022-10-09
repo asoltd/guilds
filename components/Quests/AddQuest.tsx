@@ -76,7 +76,7 @@ export function AddQuest(): JSX.Element {
                 onChange={handleChange}
                 value={values.reward}
               />
-              <Typography>Tags</Typography>
+              <Typography variant="h4">Tags</Typography>
               <FormField
                 name="tags"
                 options={tags}

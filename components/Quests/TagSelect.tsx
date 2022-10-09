@@ -1,11 +1,14 @@
-import styled from "@emotion/styled"
-import Select from "react-select"
 import { Tag } from "storage/quest"
 import { FieldProps } from "formik"
-
-const MySelect = styled(Select)`
-  margin-bottom: 2rem;
-`
+import {
+  FormControl,
+  InputLabel,
+  MenuItem,
+  OutlinedInput,
+  Select,
+  SelectChangeEvent,
+} from "@mui/material"
+import { useState } from "react"
 
 interface Option {
   value: Tag
@@ -17,34 +20,30 @@ interface TagSelectProps extends FieldProps {
   isMulti: boolean
 }
 
-export default function TagSelect({
-  field,
-  form,
-  options,
-  isMulti,
-}: TagSelectProps) {
-  const onChange = (option: Option | Option[]) => {
-    form.setFieldValue(
-      field.name,
-      (option as Option[]).map((item: Option) => item.value)
-    )
-  }
+export default function TagSelect({ options }: TagSelectProps) {
+  const [tags, setTags] = useState<string[]>([])
 
-  const getValue = () => {
-    if (options) {
-      options.filter((option: Option) => field.value.indexOf(option.value) >= 0)
-    } else {
-      return []
-    }
+  const handleChange = (event: SelectChangeEvent<typeof tags>) => {
+    const {
+      target: { value },
+    } = event
+    setTags(typeof value === "string" ? value.split(",") : value)
   }
-
   return (
-    <MySelect
-      name={field.name}
-      options={options}
-      isMulti={isMulti}
-      onChange={onChange}
-      value={getValue()}
-    />
+    <FormControl>
+      <InputLabel>Tags</InputLabel>
+      <Select
+        multiple
+        value={tags}
+        onChange={handleChange}
+        input={<OutlinedInput label="Name" />}
+      >
+        {options.map((option: Option, idx) => (
+          <MenuItem key={idx} value={option.value}>
+            {option.label}
+          </MenuItem>
+        ))}
+      </Select>
+    </FormControl>
   )
 }

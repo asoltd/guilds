@@ -18,7 +18,7 @@ export function QuestHit({ hit }: QuestHitProps) {
           <Box>Title: {hit?.title}</Box>
           <Box>
             <LinesElipsis
-              text={"Description:" + hit.description}
+              text={"Description: " + hit.description}
               maxLine="2"
               ellipsis="..."
               trimRight
@@ -30,7 +30,7 @@ export function QuestHit({ hit }: QuestHitProps) {
                 query: { questId: hit.id },
               }}
             >
-              <MuiLink> see more...</MuiLink>
+              <MuiLink>see more</MuiLink>
             </Link>
           </Box>
           <Box>Reward: {hit?.reward}</Box>

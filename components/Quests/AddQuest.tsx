@@ -1,17 +1,11 @@
-import styled from "@emotion/styled"
 import { Formik, Form } from "formik"
 import { Tag } from "storage/quest"
 import TagSelect from "./TagSelect"
 import { useFirestore, useUser } from "reactfire"
 import { doc, setDoc, collection, getDoc } from "firebase/firestore"
-import { Title } from "components/Title"
-import { Caption, FormField } from "components/Form"
-
-const Column = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-`
+import { FormField } from "components/Form"
+import { Box, Button, Input, Typography } from "@mui/material"
+import { Stack } from "@mui/system"
 
 interface FormValues {
   title: string
@@ -47,8 +41,8 @@ export function AddQuest(): JSX.Element {
   }
 
   return (
-    <div>
-      <Title>Add Quest</Title>
+    <Box sx={{ width: "50%", margin: "auto" }}>
+      <Typography variant="h2">Add Quest</Typography>
       <Formik
         initialValues={{
           title: "",
@@ -58,27 +52,44 @@ export function AddQuest(): JSX.Element {
         }}
         onSubmit={(values) => onSubmit(values)}
       >
-        {({ handleSubmit }) => (
+        {({ handleSubmit, handleChange, values }) => (
           <Form onSubmit={handleSubmit}>
-            <Column>
-              <Caption>Title</Caption>
-              <FormField type="text" name="title" />
-              <Caption>Description</Caption>
-              <FormField type="text" name="description" />
-              <Caption>Reward</Caption>
-              <FormField type="number" name="reward" />
-              <Caption>Tags</Caption>
+            <Stack spacing={3}>
+              <Typography variant="h4">Title</Typography>
+              <Input
+                type="text"
+                name="title"
+                onChange={handleChange}
+                value={values.title}
+              />
+              <Typography variant="h4">Description</Typography>
+              <Input
+                type="text"
+                name="description"
+                onChange={handleChange}
+                value={values.description}
+              />
+              <Typography variant="h4">Reward</Typography>
+              <Input
+                type="number"
+                name="reward"
+                onChange={handleChange}
+                value={values.reward}
+              />
+              <Typography>Tags</Typography>
               <FormField
                 name="tags"
                 options={tags}
                 component={TagSelect}
                 isMulti={true}
               />
-              <button type="submit">Add Quest</button>
-            </Column>
+              <Button variant={"contained"} type="submit">
+                Add Quest
+              </Button>
+            </Stack>
           </Form>
         )}
       </Formik>
-    </div>
+    </Box>
   )
 }

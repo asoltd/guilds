@@ -5,8 +5,8 @@ export enum Tag {
   Management = "management",
   Research = "research",
   Presentation = "presentation",
-  SoftwareDevelopment = "softwareDevelopment",
-  CustomerSuccess = "customerSuccess",
+  SoftwareDevelopment = "software development",
+  CustomerSuccess = "customer success",
   Leadership = "leadership",
 }
 

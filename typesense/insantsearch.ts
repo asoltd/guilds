@@ -5,7 +5,7 @@ const typesenseInstantsearchAdapter = new TypesenseInstantSearchAdapter({
     apiKey: process.env.NEXT_PUBLIC_TYPESENSE_API_KEY,
     nodes: [
       {
-        host: "diqlbuj6yapn8mehp-1.a1.typesense.net",
+        host: "aq8h0s27cxp54yvrp-1.a1.typesense.net",
         port: 443,
         protocol: "https",
       },

@@ -1,16 +1,21 @@
 import { connectHits } from "react-instantsearch-dom"
+import { Quest } from "storage/quest"
 import { QuestHit } from "./QuestHit"
 import { Grid } from "@mui/material"
 
-function Hits({ hits }) {
+interface HitsProps {
+  hits: Quest[]
+}
+
+function Hits({ hits }: HitsProps) {
   return (
-    <>
-      {hits.map((hit, idx) => (
-        <Grid item xs={6} key={idx}>
-          <QuestHit hit={hit} />
-        </Grid>
-      ))}
-    </>
+    <Grid container spacing={2}>
+      <>
+        {hits.map((hit: Quest, idx) => (
+          <QuestHit hit={hit} key={idx} />
+        ))}
+      </>
+    </Grid>
   )
 }
 

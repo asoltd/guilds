@@ -71,17 +71,27 @@ export function AddBidModal({ modalOpen, setModalOpen }): JSX.Element {
           initialValues={{ amount: 0, timeEstimate: 0 }}
           onSubmit={(values) => handleSubmit(values)}
         >
-          {({ handleSubmit }) => (
+          {({ handleSubmit, handleChange, values }) => (
             <Form onSubmit={handleSubmit}>
               <Stack spacing={8}>
                 <Typography variant="h2">Add Bid</Typography>
                 <Stack spacing={2}>
                   <Typography variant="h4">Amount</Typography>
-                  <Input type="number" name="amount" />
+                  <Input
+                    type="number"
+                    name="amount"
+                    value={values.amount}
+                    onChange={handleChange}
+                  />
                 </Stack>
                 <Stack spacing={2}>
                   <Typography variant="h4">Time Estimate</Typography>
-                  <Input type="number" name="timeEstimate" />
+                  <Input
+                    type="number"
+                    name="timeEstimate"
+                    value={values.timeEstimate}
+                    onChange={handleChange}
+                  />
                 </Stack>
                 <Button type="submit" variant="contained">
                   Submit

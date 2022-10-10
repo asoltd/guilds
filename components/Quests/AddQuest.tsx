@@ -4,17 +4,27 @@ import TagSelect from "./TagSelect"
 import { useFirestore, useUser } from "reactfire"
 import { doc, setDoc, collection, getDoc } from "firebase/firestore"
 import { FormField } from "components/Form"
-import { Box, Button, Input, Typography } from "@mui/material"
+import { Box, Button, Input, Typography, IconButton } from "@mui/material"
 import { Stack } from "@mui/system"
+import { useState } from "react"
+import PhotoCamera from "@mui/icons-material/PhotoCamera"
+import LinesEllipsis from "react-lines-ellipsis"
+
+interface Image {
+  url: string
+  name: string
+}
 
 interface FormValues {
   title: string
   description: string
   reward: number
   tags: string[]
+  image: Image
 }
 
 export function AddQuest(): JSX.Element {
+  const [image, setImage] = useState(null)
   const tags = Object.values(Tag).map((tag: Tag) => ({
     value: tag,
     label: tag,
@@ -49,6 +59,7 @@ export function AddQuest(): JSX.Element {
           description: "",
           reward: 0,
           tags: [],
+          image: image,
         }}
         onSubmit={(values) => onSubmit(values)}
       >
@@ -83,6 +94,41 @@ export function AddQuest(): JSX.Element {
                 component={TagSelect}
                 isMulti={true}
               />
+              <Stack direction="row" spacing={2} justifyContent="space-between">
+                <Typography variant="h4">Image</Typography>
+                <Stack direction="row" spacing={2}>
+                  <Stack justifyContent={"flex-end"}>
+                    <LinesEllipsis
+                      text={image?.name}
+                      maxLine="1"
+                      ellipsis="..."
+                      basedOn="letters"
+                    />
+                  </Stack>
+                  <Button component="label" variant={"outlined"}>
+                    Upload
+                    <input
+                      hidden
+                      accept="image/*"
+                      type="file"
+                      onChange={(e) => setImage(e.target.files[0])}
+                    />
+                  </Button>
+                  <IconButton
+                    color="primary"
+                    aria-label="upload picture"
+                    component="label"
+                  >
+                    <input
+                      hidden
+                      accept="image/*"
+                      type="file"
+                      onChange={(e) => setImage(e.target.files[0])}
+                    />
+                    <PhotoCamera />
+                  </IconButton>
+                </Stack>
+              </Stack>
               <Button variant={"contained"} type="submit">
                 Add Quest
               </Button>

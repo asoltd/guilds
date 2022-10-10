@@ -3,11 +3,11 @@ import Link from "next/link"
 import { useFirestore } from "reactfire"
 import { populateQuests, populateBids } from "storage/quest"
 import { searchClient } from "typesense/insantsearch"
-import { Box, Button, Stack, Grid } from "@mui/material"
 import { InstantSearch } from "react-instantsearch-dom"
 import { QuestSearchBox } from "./QuestSearchBox"
 import { QuestRefinementList } from "./QuestRefinementList"
 import { QuestPagination } from "./QuestPagination"
+import { Button, Stack } from "@mui/material"
 
 export function Quests(): JSX.Element {
   const firestore = useFirestore()

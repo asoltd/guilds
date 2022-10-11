@@ -18,10 +18,10 @@ export function Quests(): JSX.Element {
         <Stack spacing={2}>
           <QuestSearchBox />
           <QuestRefinementList attribute="tags" />
-          <Button variant="contained" onClick={() => populateQuests(firestore)}>
+          <Button variant="outlined" onClick={() => populateQuests(firestore)}>
             populate quests
           </Button>
-          <Button variant="contained" onClick={() => populateBids(firestore)}>
+          <Button variant="outlined" onClick={() => populateBids(firestore)}>
             populate bids
           </Button>
           <Link href="/add-quest">

@@ -9,11 +9,22 @@ interface Item {
   isRefined: boolean
 }
 
-function RefinementList({ items, refine }) {
-  const sortedItems = _.orderBy(items, ["count", "label"], ["desc", "asc"])
-  console.log("items", items)
+function RefinementList({ items, refine, currentRefinement }) {
+  const sortedItems = _.orderBy(items, ["label"], ["desc", "asc"])
+  console.log("currentRefinemnet", currentRefinement)
   return (
-    <Stack spacing={2}>
+    <Stack spacing={2} width={"13rem"}>
+      <Box
+        sx={{
+          bgcolor: !currentRefinement.length
+            ? "primary.main"
+            : "background.main",
+        }}
+      >
+        <ListItemButton onClick={() => refine([])}>
+          <ListItemText primary={"View all"} />
+        </ListItemButton>
+      </Box>
       {sortedItems.length > 0 &&
         sortedItems.map((item: Item, idx) => (
           <Box

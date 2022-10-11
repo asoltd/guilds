@@ -6,5 +6,5 @@ interface TagProps {
 }
 
 export function Tag({ value }: TagProps): JSX.Element {
-  return <Chip label={value} variant={"outlined"} />
+  return <Chip label={value} />
 }

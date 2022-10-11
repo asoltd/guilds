@@ -8,6 +8,7 @@ function SearchBox({ currentRefinement, refine }) {
         type="search"
         value={currentRefinement}
         onChange={(event) => refine(event.currentTarget.value)}
+        sx={{ width: "13rem" }}
       />
     </Box>
   )

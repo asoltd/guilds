@@ -9,7 +9,7 @@ interface HitsProps {
 
 function Hits({ hits }: HitsProps) {
   return (
-    <Grid container spacing={2}>
+    <Grid container spacing={2} mt={"1rem"}>
       <>
         {hits.map((hit: Quest, idx) => (
           <QuestHit hit={hit} key={idx} />

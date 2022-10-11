@@ -7,6 +7,8 @@ import {
   OutlinedInput,
   Select,
   SelectChangeEvent,
+  Box,
+  Chip,
 } from "@mui/material"
 
 interface Option {
@@ -39,6 +41,13 @@ export default function TagSelect({
         value={selectedTags}
         onChange={handleChange}
         input={<OutlinedInput label="Name" />}
+        renderValue={(selected) => (
+          <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}>
+            {selected.map((value) => (
+              <Chip key={value} label={value} />
+            ))}
+          </Box>
+        )}
       >
         {options.map((option: Option, idx) => (
           <MenuItem key={idx} value={option.value}>

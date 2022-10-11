@@ -7,13 +7,14 @@ import {
   setDoc,
   doc,
 } from "firebase/firestore"
+import faker from "faker"
 import { Quest, Bid, Tag } from "../../storage/quest"
-import { faker } from "@faker-js/faker"
 
 const populateQuests = async (firestore: Firestore) => {
   try {
     const promises = []
     for (let i = 0; i < 3; i++) {
+      const tags = Object.values(Tag).filter(() => Math.random() > 0.5)
       const developerIds = [
         "imZrHGqnOCfGy44ya596jOyNHIG3",
         "QfABV59rDVWcUDBvtiaZCrQ8mTJ2",
@@ -26,11 +27,11 @@ const populateQuests = async (firestore: Firestore) => {
       const quest: Quest = {
         id: questRef.id,
         userId: userId,
-        image: "https://picsum.photos/200",
+        image: "office_420x240.jpeg",
         reward: faker.datatype.number({ min: 1, max: 1000 }),
         title: faker.lorem.sentence(5),
         description: faker.lorem.sentences(5),
-        tags: [Object.values(Tag)[faker.datatype.number(6)]],
+        tags: tags,
         bidders: bidders,
         status: ["open", "closed"][faker.datatype.number(1)],
       }

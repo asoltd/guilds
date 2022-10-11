@@ -1,50 +1,65 @@
-import { Grid, Card, Box, Stack, Link as MuiLink } from "@mui/material"
+import { Grid, Box, Stack, Typography } from "@mui/material"
 import Link from "next/link"
-import { Bids } from "../Bids/Bids"
 import { Tag } from "./Tag"
 import { Tag as TagType } from "storage/quest"
 import { Quest } from "storage/quest"
 import LinesElipsis from "react-lines-ellipsis"
-import { StorageImage } from "reactfire"
+import {
+  StorageImage,
+  useFirestore,
+  useFirestoreCollectionData,
+} from "reactfire"
+import { collection, limit, orderBy, query } from "firebase/firestore"
 
 interface QuestHitProps {
   hit: Quest
 }
 
 export function QuestHit({ hit }: QuestHitProps) {
+  const firestore = useFirestore()
+  const biddersRef = collection(firestore, `quests/${hit.id}/bids`)
+  const biddersQuery = query(biddersRef, orderBy("amount", "asc"), limit(1))
+  const { data: bids } = useFirestoreCollectionData(biddersQuery)
+
   return (
-    <Grid item xs={6}>
-      <Card variant="outlined" sx={{ p: "1rem" }}>
-        <Stack spacing={2}>
-          <StorageImage storagePath={`quests/questsResized/${hit.image}`} />
-          <Box>Title: {hit?.title}</Box>
-          <Box>
-            <LinesElipsis
-              text={"Description: " + hit.description}
-              maxLine="2"
-              ellipsis="..."
-              trimRight
-              basedOn="words"
-            />
-            <Link
-              href={{
-                pathname: "/quest",
-                query: { questId: hit.id },
-              }}
-            >
-              <MuiLink>see more</MuiLink>
-            </Link>
-          </Box>
-          <Box>Reward: {hit?.reward}</Box>
-          <Stack direction="row" spacing={1}>
-            <Box>Tags:</Box>
-            {hit?.tags.map((tag: TagType, idx) => (
-              <Tag key={idx} value={tag} />
-            ))}
+    <Grid item xs={6} p={"2rem"}>
+      <Link
+        href={{
+          pathname: "/quest",
+          query: { questId: hit.id },
+        }}
+      >
+        <Box width={"28rem"}>
+          <Stack spacing={2}>
+            <StorageImage storagePath={`quests/questsResized/${hit.image}`} />
+            {bids?.[0]?.amount && (
+              <Typography variant="body1">
+                {"Lowest price - £" + bids?.[0]?.amount}
+              </Typography>
+            )}
+
+            <Typography variant="h6">{hit?.title}</Typography>
+            <Typography variant="body1">
+              <LinesElipsis
+                text={"Description: " + hit.description}
+                maxLine="2"
+                ellipsis="..."
+                trimRight
+                basedOn="words"
+              />
+            </Typography>
+            <Grid container spacing={1}>
+              <>
+                {hit?.tags.map((tag: TagType, idx) => (
+                  <Grid item key={idx}>
+                    <Tag value={tag} />
+                  </Grid>
+                ))}
+              </>
+            </Grid>
           </Stack>
-          <Bids path={`quests/${hit.id}/bids`} />
-        </Stack>
-      </Card>
+        </Box>
+      </Link>
     </Grid>
   )
 }

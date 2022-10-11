@@ -55,10 +55,10 @@ export function AddQuest(): JSX.Element {
   const handleImageSubmit = () => {
     try {
       if (!image) {
-        alert("Please choose a file first!")
+        alert("Please choose an image first!")
       }
       const storageRef = ref(storage, `quests/${image?.name}`)
-      const uploadTask = uploadBytes(storageRef, image)
+      uploadBytes(storageRef, image)
       alert("Image Uploaded")
     } catch (error) {
       alert("Error:" + error)
@@ -71,8 +71,7 @@ export function AddQuest(): JSX.Element {
   }
 
   return (
-    <Box sx={{ width: "50%", margin: "auto" }}>
-      <Typography variant="h2">Add Quest</Typography>
+    <Box sx={{ width: "35%", m: "auto", mt: "2rem" }}>
       <Formik
         initialValues={{
           title: "",
@@ -83,8 +82,9 @@ export function AddQuest(): JSX.Element {
       >
         {({ handleSubmit, handleChange, values }) => (
           <Form onSubmit={handleSubmit}>
-            <Stack spacing={3}>
-              <Typography variant="h4">Title</Typography>
+            <Stack spacing={2}>
+              <Typography variant="h4">Add Quest</Typography>
+              <Typography variant="h6">Title</Typography>
               <Input
                 type="text"
                 name="title"
@@ -92,7 +92,7 @@ export function AddQuest(): JSX.Element {
                 value={values.title}
                 required={true}
               />
-              <Typography variant="h4">Description</Typography>
+              <Typography variant="h6">Description</Typography>
               <Input
                 type="text"
                 name="description"
@@ -100,7 +100,7 @@ export function AddQuest(): JSX.Element {
                 value={values.description}
                 required={true}
               />
-              <Typography variant="h4">Reward</Typography>
+              <Typography variant="h6">Reward</Typography>
               <Input
                 type="number"
                 name="reward"
@@ -108,32 +108,15 @@ export function AddQuest(): JSX.Element {
                 value={values.reward}
                 required={true}
               />
-              <Typography variant="h4">Tags</Typography>
+              <Typography variant="h6">Tags</Typography>
               <TagSelect
                 selectedTags={selectedTags}
                 setSelectedTags={setSelectedTags}
                 options={tags}
               />
+              <Typography variant="h6">Image</Typography>
               <Stack direction="row" spacing={2} justifyContent="space-between">
-                <Typography variant="h4">Image</Typography>
                 <Stack direction="row" spacing={2}>
-                  <Stack justifyContent={"flex-end"}>
-                    <LinesEllipsis
-                      text={image?.name ? image.name : "No file chosen"}
-                      maxLine="1"
-                      ellipsis="..."
-                      basedOn="letters"
-                    />
-                  </Stack>
-                  <Button component="label" variant={"outlined"}>
-                    Upload
-                    <input
-                      hidden
-                      accept="image/png, image/jpeg"
-                      type="file"
-                      onChange={(e) => setImage(e.target.files[0])}
-                    />
-                  </Button>
                   <IconButton
                     color="primary"
                     aria-label="upload picture"
@@ -147,6 +130,11 @@ export function AddQuest(): JSX.Element {
                     />
                     <PhotoCamera />
                   </IconButton>
+                  <Stack justifyContent={"center"}>
+                    <Typography variant="body1">
+                      {image?.name ? image.name : "No file chosen"}
+                    </Typography>
+                  </Stack>
                 </Stack>
               </Stack>
               <Button variant={"contained"} type="submit">

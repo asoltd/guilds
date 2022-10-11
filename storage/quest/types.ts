@@ -1,13 +1,13 @@
 import { URL, UUID } from "../common"
 
 export enum Tag {
-  Design = "design",
-  Management = "management",
-  Research = "research",
-  Presentation = "presentation",
-  SoftwareDevelopment = "software development",
-  CustomerSuccess = "customer success",
-  Leadership = "leadership",
+  Design = "Design",
+  Management = "Management",
+  Research = "Research",
+  Presentation = "Presentation",
+  SoftwareDevelopment = "Software Development",
+  CustomerSuccess = "Customer Success",
+  Leadership = "Leadership",
 }
 
 export interface Quest {

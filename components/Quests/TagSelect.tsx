@@ -8,33 +8,35 @@ import {
   Select,
   SelectChangeEvent,
 } from "@mui/material"
-import { useState } from "react"
 
 interface Option {
   value: Tag
   label: Tag
 }
 
-interface TagSelectProps extends FieldProps {
+interface TagSelectProps {
   options: Option[]
-  isMulti: boolean
+  selectedTags: string[]
+  setSelectedTags: (tags: string[]) => void
 }
 
-export default function TagSelect({ options }: TagSelectProps) {
-  const [tags, setTags] = useState<string[]>([])
-
-  const handleChange = (event: SelectChangeEvent<typeof tags>) => {
+export default function TagSelect({
+  options,
+  selectedTags,
+  setSelectedTags,
+}: TagSelectProps) {
+  const handleChange = (event: SelectChangeEvent<typeof selectedTags>) => {
     const {
       target: { value },
     } = event
-    setTags(typeof value === "string" ? value.split(",") : value)
+    setSelectedTags(typeof value === "string" ? value.split(",") : value)
   }
   return (
     <FormControl>
       <InputLabel>Tags</InputLabel>
       <Select
         multiple
-        value={tags}
+        value={selectedTags}
         onChange={handleChange}
         input={<OutlinedInput label="Name" />}
       >

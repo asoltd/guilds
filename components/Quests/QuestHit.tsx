@@ -5,6 +5,7 @@ import { Tag } from "./Tag"
 import { Tag as TagType } from "storage/quest"
 import { Quest } from "storage/quest"
 import LinesElipsis from "react-lines-ellipsis"
+import { StorageImage } from "reactfire"
 
 interface QuestHitProps {
   hit: Quest
@@ -15,6 +16,7 @@ export function QuestHit({ hit }: QuestHitProps) {
     <Grid item xs={6}>
       <Card variant="outlined" sx={{ p: "1rem" }}>
         <Stack spacing={2}>
+          <StorageImage storagePath={`quests/questsResized/${hit.image}`} />
           <Box>Title: {hit?.title}</Box>
           <Box>
             <LinesElipsis

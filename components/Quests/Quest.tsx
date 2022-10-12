@@ -22,13 +22,16 @@ export function Quest(): JSX.Element {
 
   const router = useRouter()
   const { questId } = router.query
+
   const firestore = useFirestore()
   const storage = useStorage()
+
   const questRef = doc(firestore, `quests/${questId}`)
   const { status: questStatus, data: quest } = useFirestoreDocData(questRef)
+
   const imageRef = ref(storage, `quests/${quest?.image}`)
   const { data: imageURL } = useStorageDownloadURL(imageRef)
-  console.log("imageUrl", imageURL)
+
   const biddersRef = collection(firestore, `quests/${quest?.id}/bids`)
   const biddersQuery = query(biddersRef, orderBy("amount", "asc"), limit(1))
   const { data: bids } = useFirestoreCollectionData(biddersQuery)

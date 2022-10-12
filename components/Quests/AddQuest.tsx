@@ -27,11 +27,6 @@ export function AddQuest(): JSX.Element {
   const storage = useStorage()
   const { data: user } = useUser()
 
-  const convertImageName = () => {
-    const [imageName, imageExtension] = image.name.split(".")
-    return imageName + "_420x240." + imageExtension
-  }
-
   const handleQuestSubmit = async (values: FormValues) => {
     try {
       const questColRef = collection(firestore, "quests")
@@ -44,7 +39,7 @@ export function AddQuest(): JSX.Element {
           userId: user.uid,
           tags: selectedTags,
           status: "open",
-          image: convertImageName(),
+          image: image,
         })
       alert("Quest Created")
     } catch (error) {

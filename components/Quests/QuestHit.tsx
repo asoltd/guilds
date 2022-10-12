@@ -21,6 +21,11 @@ export function QuestHit({ hit }: QuestHitProps) {
   const biddersQuery = query(biddersRef, orderBy("amount", "asc"), limit(1))
   const { data: bids } = useFirestoreCollectionData(biddersQuery)
 
+  const convertImageName = () => {
+    const [imageName, imageExtension] = hit.image.split(".")
+    return imageName + "_420x240." + imageExtension
+  }
+
   return (
     <Grid item xs={6} p={"2rem"}>
       <Link
@@ -31,13 +36,14 @@ export function QuestHit({ hit }: QuestHitProps) {
       >
         <Box width={"28rem"}>
           <Stack spacing={2}>
-            <StorageImage storagePath={`quests/questsResized/${hit.image}`} />
+            <StorageImage
+              storagePath={`quests/questsResized/${convertImageName()}`}
+            />
             {bids?.[0]?.amount && (
               <Typography variant="body1">
                 {"Lowest price - £" + bids?.[0]?.amount}
               </Typography>
             )}
-
             <Typography variant="h6">{hit?.title}</Typography>
             <Typography variant="body1">
               <LinesElipsis

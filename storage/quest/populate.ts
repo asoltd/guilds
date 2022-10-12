@@ -27,7 +27,7 @@ const populateQuests = async (firestore: Firestore) => {
       const quest: Quest = {
         id: questRef.id,
         userId: userId,
-        image: "office_420x240.jpeg",
+        image: "office.jpeg",
         reward: faker.datatype.number({ min: 1, max: 1000 }),
         title: faker.lorem.sentence(5),
         description: faker.lorem.sentences(5),

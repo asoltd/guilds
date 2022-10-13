@@ -1,3 +1,5 @@
+import { Box } from "@mui/material"
+
 export function ProfileStats(): JSX.Element {
-  return <div>Profile Page</div>
+  return <Box>Profile Page</Box>
 }

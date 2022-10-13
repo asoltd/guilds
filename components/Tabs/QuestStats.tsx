@@ -2,6 +2,7 @@ import { Bid, Quest } from "storage/quest/types"
 import { collection, query, where } from "firebase/firestore"
 import { useFirestore, useFirestoreCollectionData, useUser } from "reactfire"
 import { Bid as BidComponent } from "components/Bid"
+import { Box, Card, Typography } from "@mui/material"
 
 export function QuestsStats(): JSX.Element {
   const firestore = useFirestore()
@@ -21,26 +22,26 @@ export function QuestsStats(): JSX.Element {
   const { status: biddingQuestsStatus, data: biddingQuests } =
     useFirestoreCollectionData(biddingQuestsQuery)
   return (
-    <div>
+    <Box>
       <>
         {questsStatus && (
           <>
             {questsStatus === "loading" ? (
-              <div>loading quests</div>
+              <Typography>loading quests</Typography>
             ) : (
               <>
                 {quests ? (
                   quests?.map((quest: Quest, idx) => (
-                    <div key={idx}>
+                    <Card variant="outlined" key={idx}>
                       <div>{quest?.title}</div>
                       <div>{quest?.description}</div>
                       <div>{quest?.reward}</div>
                       <div>{quest?.tags}</div>
                       <div>{quest?.userId}</div>
-                    </div>
+                    </Card>
                   ))
                 ) : (
-                  <div>no quests</div>
+                  <Typography>no quests</Typography>
                 )}
               </>
             )}
@@ -51,24 +52,24 @@ export function QuestsStats(): JSX.Element {
         {biddingQuestsStatus && (
           <>
             {biddingQuestsStatus === "loading" ? (
-              <div>loading bids</div>
+              <Typography>loading bids</Typography>
             ) : (
               <>
                 {biddingQuests ? (
                   biddingQuests?.map((userBids: Bid, idx) => (
-                    <div key={idx}>
+                    <Box key={idx}>
                       <FreelancerBids path={userBids?.questId} />
-                    </div>
+                    </Box>
                   ))
                 ) : (
-                  <div>no bids</div>
+                  <Typography>no bids</Typography>
                 )}
               </>
             )}
           </>
         )}
       </>
-    </div>
+    </Box>
   )
 }
 
@@ -80,11 +81,11 @@ export function FreelancerBids({ path }): JSX.Element {
   const { status: bidsStatus, data: bids } =
     useFirestoreCollectionData(bidsQuery)
   return (
-    <>
+    <Box>
       {bidsStatus && (
         <>
           {bidsStatus === "loading" ? (
-            <div>loading bids</div>
+            <Typography>loading bids</Typography>
           ) : (
             <>
               {bids ? (
@@ -92,12 +93,12 @@ export function FreelancerBids({ path }): JSX.Element {
                   <BidComponent key={idx} value={bid} />
                 ))
               ) : (
-                <div>no bids</div>
+                <Typography>no bids</Typography>
               )}
             </>
           )}
         </>
       )}
-    </>
+    </Box>
   )
 }

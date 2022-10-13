@@ -1,3 +1,5 @@
+import { Box } from "@mui/material"
+
 export function ExperienceAndReviews(): JSX.Element {
-  return <div>Experience and reviews</div>
+  return <Box>Experience and reviews</Box>
 }

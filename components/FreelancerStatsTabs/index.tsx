@@ -10,16 +10,16 @@ export function FreelancerStats() {
   return (
     <Box sx={{ width: "100%" }}>
       <Stack direction="row">
-        <Box sx={{ borderBottom: 1, borderColor: "divider", width: "10%" }}>
+        <Box sx={{ borderRight: 1, borderColor: "divider", width: "10%" }}>
           <TabSelect value={value} setValue={setValue} />
         </Box>
-        <Box sx={{ width: "90%" }}>
+        <Box sx={{ width: "50%" }}>
           <QuestTabPanel value={value} index={0} />
           <TabPanel value={value} index={1}>
-            cipka
+            I love Yoni
           </TabPanel>
           <TabPanel value={value} index={2}>
-            cycki
+            I love Yoni
           </TabPanel>
         </Box>
       </Stack>

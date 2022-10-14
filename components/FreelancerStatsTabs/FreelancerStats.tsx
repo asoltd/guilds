@@ -7,7 +7,7 @@ interface AllBidsProps {
   path: string
 }
 
-export function AllBids({ path }): JSX.Element {
+export function AllBids({ path }: AllBidsProps): JSX.Element {
   const firestore = useFirestore()
   const { status, data: user } = useUser()
   const bidsRef = collection(firestore, "quests", `${path}`, "bids")

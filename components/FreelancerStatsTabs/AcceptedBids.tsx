@@ -18,8 +18,7 @@ export function AcceptedBids({ path, title }: AcceptedBidsProps): JSX.Element {
     userBidsQuery,
     where("status", "==", "accepted")
   )
-  const { status: acceptedBidsStatus, data: acceptedBids } =
-    useFirestoreCollectionData(acceptedBidsQuery)
+  const { data: acceptedBids } = useFirestoreCollectionData(acceptedBidsQuery)
 
   return (
     <Stack>

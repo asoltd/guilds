@@ -18,8 +18,7 @@ export function PendingBids({ path, title }: PendingBidsProps): JSX.Element {
     userBidsQuery,
     where("status", "==", "pending")
   )
-  const { status: pendingBidsStatus, data: pendingBids } =
-    useFirestoreCollectionData(PendingBidsQuery)
+  const { data: pendingBids } = useFirestoreCollectionData(PendingBidsQuery)
 
   return (
     <Stack>

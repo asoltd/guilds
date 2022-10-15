@@ -19,7 +19,7 @@ export function AcceptedBid({ title, bid }: AcceptedBidProps): JSX.Element {
       >
         <Box>
           <Box>{title}</Box>
-          <Box>@{bid?.userId}</Box>
+          <Box>@{bid?.bidderId}</Box>
         </Box>
         <Box>
           <Box>Estimated completion: {bid?.timeEstimate}</Box>

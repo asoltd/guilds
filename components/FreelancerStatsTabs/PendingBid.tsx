@@ -19,7 +19,7 @@ export function PendingBid({ title, bid }: PendingBidProps): JSX.Element {
       >
         <Box>
           <Box>{title}</Box>
-          <Box>@{bid?.userId}</Box>
+          <Box>@{bid?.bidderId}</Box>
         </Box>
         <Box>
           <Box>Estimated completion: {bid?.timeEstimate}</Box>

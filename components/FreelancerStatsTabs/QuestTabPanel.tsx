@@ -17,7 +17,7 @@ export function QuestTabPanel({ value, index, ...other }: TabPanelProps) {
     questsRef,
     where("bidders", "array-contains", user?.uid || "")
   )
-  const { status: biddinguestsStatus, data: biddingQuests } =
+  const { status: biddingQuestsStatus, data: biddingQuests } =
     useFirestoreCollectionData(biddingQuestsQuery)
 
   return (
@@ -31,9 +31,9 @@ export function QuestTabPanel({ value, index, ...other }: TabPanelProps) {
       {value === index && (
         <Box sx={{ p: 3 }}>
           <Typography variant="h5">Current Jobs</Typography>
-          {biddinguestsStatus && (
+          {biddingQuestsStatus && (
             <>
-              {biddinguestsStatus === "loading" ? (
+              {biddingQuestsStatus === "loading" ? (
                 <Typography>loading bids</Typography>
               ) : (
                 <>
@@ -54,9 +54,9 @@ export function QuestTabPanel({ value, index, ...other }: TabPanelProps) {
             </>
           )}
           <Typography variant="h5">Pending Jobs</Typography>
-          {biddinguestsStatus && (
+          {biddingQuestsStatus && (
             <>
-              {biddinguestsStatus === "loading" ? (
+              {biddingQuestsStatus === "loading" ? (
                 <Typography>loading bids</Typography>
               ) : (
                 <>

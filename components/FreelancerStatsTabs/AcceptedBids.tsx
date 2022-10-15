@@ -24,7 +24,7 @@ export function AcceptedBids({ path, title }: AcceptedBidsProps): JSX.Element {
   return (
     <Stack>
       {acceptedBids?.map((bid: BidType, idx) => (
-        <AcceptedBid path={path} title={title} bid={bid} />
+        <AcceptedBid path={path} title={title} bid={bid} key={idx} />
       ))}
     </Stack>
   )

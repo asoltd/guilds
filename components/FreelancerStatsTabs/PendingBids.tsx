@@ -1,7 +1,8 @@
+import { Stack } from "@mui/material"
 import { collection, where, query } from "firebase/firestore"
 import { useFirestore, useFirestoreCollectionData, useUser } from "reactfire"
-import { Box, Stack, Divider } from "@mui/material"
 import { Bid as BidType } from "storage/quest"
+import { PendingBid } from "./PendingBid"
 
 interface PendingBidsProps {
   path: string
@@ -23,25 +24,7 @@ export function PendingBids({ path, title }: PendingBidsProps): JSX.Element {
   return (
     <Stack>
       {pendingBids?.map((bid: BidType, idx) => (
-        <Stack>
-          <Stack
-            py={1}
-            px={2}
-            alignItems="center"
-            justifyContent="space-between"
-            direction="row"
-            key={idx}
-          >
-            <Box>
-              <Box>{title}</Box>
-              <Box>@{bid?.userId}</Box>
-            </Box>
-            <Box>
-              <Box>Estimated completion: {bid?.timeEstimate}</Box>
-            </Box>
-          </Stack>
-          <Divider orientation="horizontal" flexItem />
-        </Stack>
+        <PendingBid path={path} title={title} bid={bid} key={idx} />
       ))}
     </Stack>
   )

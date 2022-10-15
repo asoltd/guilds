@@ -1,7 +1,8 @@
 import { Box, Typography, Divider } from "@mui/material"
 import { useFirestore, useUser, useFirestoreCollectionData } from "reactfire"
 import { collection, query, where } from "firebase/firestore"
-import { AcceptedBids } from "../AcceptedBids"
+import { AcceptedBids } from "./AcceptedBids"
+import { PendingBids } from "./PendingBids"
 
 interface TabPanelProps {
   index: number
@@ -40,6 +41,29 @@ export function QuestTabPanel({ value, index, ...other }: TabPanelProps) {
                   {biddingQuests ? (
                     biddingQuests.map((quest, idx) => (
                       <AcceptedBids
+                        path={quest.id}
+                        title={quest.title}
+                        key={idx}
+                      />
+                    ))
+                  ) : (
+                    <Typography>no bids</Typography>
+                  )}
+                </>
+              )}
+            </>
+          )}
+          <Typography variant="h5">Pending Jobs</Typography>
+          {biddinguestsStatus && (
+            <>
+              {biddinguestsStatus === "loading" ? (
+                <Typography>loading bids</Typography>
+              ) : (
+                <>
+                  <Divider orientation="horizontal" />
+                  {biddingQuests ? (
+                    biddingQuests.map((quest, idx) => (
+                      <PendingBids
                         path={quest.id}
                         title={quest.title}
                         key={idx}

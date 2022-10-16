@@ -1,7 +1,7 @@
 import { AddQuest } from "components/AddQuestForm"
 import { Box, Container } from "@mui/material"
 import { Header } from "components/Header"
-import { QuestPanel } from "components/HirerStatsTabs/QuestPanel"
+import { QuestPanel } from "components/HirerStatsTabs/QuestTab"
 
 export default function addQuest() {
   return (

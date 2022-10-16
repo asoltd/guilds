@@ -1,6 +1,6 @@
-import styled from "@emotion/styled"
+import styled from "styled-components"
 import Link from "next/link"
-import { Title } from "./Title"
+import { Box } from "@mui/material"
 
 const Container = styled.div`
   width: 100%;
@@ -25,7 +25,7 @@ const NavItem = styled.a`
 export default function FreelancerHub(): JSX.Element {
   return (
     <Container>
-      <Title>Freelancer Hub</Title>
+      <Box>Freelancer Hub</Box>
       <Navigator>
         <Link href="/quests">
           <NavItem>Quests</NavItem>

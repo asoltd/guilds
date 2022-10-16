@@ -8,7 +8,6 @@ import { Box, Button, Input, Typography, IconButton } from "@mui/material"
 import { Stack } from "@mui/system"
 import { useState } from "react"
 import PhotoCamera from "@mui/icons-material/PhotoCamera"
-import LinesEllipsis from "react-lines-ellipsis"
 
 interface FormValues {
   title: string
@@ -35,11 +34,11 @@ export function AddQuest(): JSX.Element {
       if (!questSnap.exists())
         await setDoc(questRef, {
           ...values,
-          questId: questRef.id,
+          id: questRef.id,
           userId: user.uid,
           tags: selectedTags,
           status: "open",
-          image: image,
+          image: image?.name,
         })
       alert("Quest Created")
     } catch (error) {
@@ -121,7 +120,9 @@ export function AddQuest(): JSX.Element {
                       hidden
                       accept="image/png, image/jpeg"
                       type="file"
-                      onChange={(e) => setImage(e.target.files[0])}
+                      onChange={(e) => {
+                        setImage(e.target.files[0])
+                      }}
                     />
                     <PhotoCamera />
                   </IconButton>

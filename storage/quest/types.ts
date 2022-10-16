@@ -25,7 +25,7 @@ export interface Quest {
 export interface Bid {
   id: UUID
   questId: UUID
-  userId: UUID
+  bidderId: UUID
   amount: number
   timeEstimate: string
   createdAt: Date

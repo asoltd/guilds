@@ -1,6 +1,6 @@
 import { Grid, Box, Stack, Typography } from "@mui/material"
 import Link from "next/link"
-import { Tag } from "./Tag"
+import { Tag } from "../QuestTag"
 import { Tag as TagType } from "storage/quest"
 import { Quest } from "storage/quest"
 import LinesElipsis from "react-lines-ellipsis"
@@ -17,9 +17,10 @@ interface QuestHitProps {
 
 export function QuestHit({ hit }: QuestHitProps) {
   const firestore = useFirestore()
-  const biddersRef = collection(firestore, `quests/${hit.id}/bids`)
-  const biddersQuery = query(biddersRef, orderBy("amount", "asc"), limit(1))
-  const { data: bids } = useFirestoreCollectionData(biddersQuery)
+  const bidsRef = collection(firestore, `quests/${hit.id}/bids`)
+  const topBidsQuery = query(bidsRef, orderBy("amount", "asc"), limit(1))
+  const { data: topBids } = useFirestoreCollectionData(topBidsQuery)
+  const topBid = topBids?.[0]
 
   const convertImageName = () => {
     const [imageName, imageExtension] = hit.image.split(".")
@@ -39,15 +40,15 @@ export function QuestHit({ hit }: QuestHitProps) {
             <StorageImage
               storagePath={`quests/questsResized/${convertImageName()}`}
             />
-            {bids?.[0]?.amount && (
+            {topBid && (
               <Typography variant="body1">
-                {"Lowest price - £" + bids?.[0]?.amount}
+                {"Lowest price - £" + topBid?.amount}
               </Typography>
             )}
             <Typography variant="h6">{hit?.title}</Typography>
             <Typography variant="body1">
               <LinesElipsis
-                text={"Description: " + hit.description}
+                text={hit.description}
                 maxLine="2"
                 ellipsis="..."
                 trimRight

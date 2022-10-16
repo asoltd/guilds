@@ -1,6 +1,7 @@
-import { AddQuest } from "components/Quests/AddQuest"
+import { AddQuest } from "components/AddQuestForm"
 import { Box, Container } from "@mui/material"
 import { Header } from "components/Header"
+import { QuestPanel } from "components/HirerStatsTabs/QuestPanel"
 
 export default function addQuest() {
   return (
@@ -13,6 +14,7 @@ export default function addQuest() {
       <Header />
       <Container>
         <AddQuest />
+        <QuestPanel />
       </Container>
     </Box>
   )

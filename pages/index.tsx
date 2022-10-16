@@ -1,8 +1,7 @@
 import { Header } from "../components/Header"
-
 import { Footer } from "../components/Footer"
+import { Quests } from "components/QuestSearch"
 import { Container, Box } from "@mui/material"
-import { Quests } from "components/Quests/Quests"
 
 export default function Home() {
   return (

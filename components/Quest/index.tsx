@@ -7,12 +7,12 @@ import {
 } from "reactfire"
 import { doc } from "firebase/firestore"
 import { useRouter } from "next/router"
-import { Box, Button, Stack, Typography, Card, Chip } from "@mui/material"
+import { Box, Button, Stack, Typography, Grid, Chip } from "@mui/material"
 import { ref } from "firebase/storage"
-import { Tag } from "components/Quests/Tag"
+import { Tag } from "components/QuestTag"
 import { Tag as TagType } from "storage/quest"
 import { useState } from "react"
-import { AddBidModal } from "components/Bids/AddBidModal"
+import { AddBidModal } from "components/AddBidModal"
 import Image from "next/image"
 import LinesEllipsis from "react-lines-ellipsis"
 import { collection, query, orderBy, limit } from "firebase/firestore"
@@ -32,9 +32,10 @@ export function Quest(): JSX.Element {
   const imageRef = ref(storage, `quests/${quest?.image}`)
   const { data: imageURL } = useStorageDownloadURL(imageRef)
 
-  const biddersRef = collection(firestore, `quests/${quest?.id}/bids`)
-  const biddersQuery = query(biddersRef, orderBy("amount", "asc"), limit(1))
-  const { data: bids } = useFirestoreCollectionData(biddersQuery)
+  const bidsRef = collection(firestore, `quests/${questId}/bids`)
+  const topBidsQuery = query(bidsRef, orderBy("amount", "asc"), limit(1))
+  const { data: topBids } = useFirestoreCollectionData(topBidsQuery)
+  const topBid = topBids?.[0]
 
   return (
     <Box>
@@ -48,11 +49,11 @@ export function Quest(): JSX.Element {
             justifyContent={"flex-end"}
             pr={"1rem"}
           >
-            {bids?.[0]?.amount && (
+            {topBid && (
               <Box>
                 <Chip
                   variant="outlined"
-                  label={"Top Bid- £" + bids?.[0]?.amount}
+                  label={"Top Bid- £" + topBid?.amount}
                 />
               </Box>
             )}
@@ -66,11 +67,13 @@ export function Quest(): JSX.Element {
                 basedOn="words"
               />
             </Typography>
-            <Stack direction="row" spacing={1}>
-              {quest?.tags.map((tag: TagType, idx) => (
-                <Tag key={idx} value={tag} />
+            <Grid container spacing={1}>
+              {quest?.tags?.map((tag: TagType, idx) => (
+                <Grid item key={idx}>
+                  <Tag value={tag} />
+                </Grid>
               ))}
-            </Stack>
+            </Grid>
             <Button
               variant="contained"
               sx={{ width: "30%" }}

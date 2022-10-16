@@ -34,7 +34,7 @@ export function AddBidModal({ modalOpen, setModalOpen }): JSX.Element {
           ...values,
           timeEstimate,
           questId,
-          userId: user.uid,
+          bidderId: user.uid,
           bidId: bidRef.id,
           status: "pending",
           createdAt: Timestamp.now(),

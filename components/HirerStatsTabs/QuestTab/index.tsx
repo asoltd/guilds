@@ -1,6 +1,6 @@
 import { useFirestore, useUser, useFirestoreCollectionData } from "reactfire"
 import { collection, query, where } from "firebase/firestore"
-import { Stack } from "@mui/material"
+import { Stack, Box } from "@mui/material"
 import { PendingBids } from "./PendingBids"
 import { Quest } from "storage/quest"
 
@@ -14,9 +14,13 @@ export function QuestPanel() {
 
   return (
     <Stack spacing={4}>
-      {userQuests?.map((quest: Quest, idx) => (
-        <PendingBids key={idx} quest={quest} />
-      ))}
+      {userQuestsStatus === "loading" ? (
+        <Box>Loading bids</Box>
+      ) : (
+        userQuests?.map((quest: Quest, idx) => (
+          <PendingBids key={idx} quest={quest} />
+        ))
+      )}
     </Stack>
   )
 }

@@ -1,4 +1,4 @@
-import { Stack } from "@mui/system"
+import { Stack, Box } from "@mui/system"
 import { useFirestore, useFirestoreCollectionData } from "reactfire"
 import { collection, query, where } from "firebase/firestore"
 import { PendingBid } from "./PendingBid"
@@ -17,9 +17,13 @@ export function PendingBids({ quest }: PendingBidProps) {
 
   return (
     <Stack spacing={4}>
-      {pendingBids?.map((bid: Bid, idx) => (
-        <PendingBid key={idx} bid={bid} quest={quest} />
-      ))}
+      {pendingBidsStatus === "loading" ? (
+        <Box>Loading bids</Box>
+      ) : (
+        pendingBids?.map((bid: Bid, idx) => (
+          <PendingBid key={idx} bid={bid} quest={quest} />
+        ))
+      )}
     </Stack>
   )
 }

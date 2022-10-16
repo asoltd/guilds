@@ -19,19 +19,15 @@ import { collection, query, orderBy, limit } from "firebase/firestore"
 
 export function Quest(): JSX.Element {
   const [modalOpen, setModalOpen] = useState(false)
-
   const router = useRouter()
   const { questId } = router.query
-
   const firestore = useFirestore()
   const storage = useStorage()
 
   const questRef = doc(firestore, `quests/${questId}`)
   const { status: questStatus, data: quest } = useFirestoreDocData(questRef)
-
   const imageRef = ref(storage, `quests/${quest?.image}`)
   const { data: imageURL } = useStorageDownloadURL(imageRef)
-
   const bidsRef = collection(firestore, `quests/${questId}/bids`)
   const topBidsQuery = query(bidsRef, orderBy("amount", "asc"), limit(1))
   const { data: topBids } = useFirestoreCollectionData(topBidsQuery)

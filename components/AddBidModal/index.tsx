@@ -1,4 +1,4 @@
-import { Formik, Form } from "formik"
+import { Formik, Form, FormikProps } from "formik"
 import { useRouter } from "next/router"
 import { useFirestore, useUser } from "reactfire"
 import {
@@ -71,7 +71,11 @@ export function AddBidModal({ modalOpen, setModalOpen }): JSX.Element {
           initialValues={{ amount: 0, timeEstimate: 0 }}
           onSubmit={(values) => handleSubmit(values)}
         >
-          {({ handleSubmit, handleChange, values }) => (
+          {({
+            handleSubmit,
+            handleChange,
+            values,
+          }: FormikProps<FormValues>) => (
             <Form onSubmit={handleSubmit}>
               <Stack spacing={8}>
                 <Typography variant="h2">Add Bid</Typography>

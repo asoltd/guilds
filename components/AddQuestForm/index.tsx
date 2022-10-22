@@ -1,4 +1,4 @@
-import { Formik, Form } from "formik"
+import { Formik, Form, FormikProps } from "formik"
 import { Tag } from "storage/quest"
 import TagSelect from "./TagSelect"
 import { useFirestore, useUser, useStorage } from "reactfire"
@@ -74,7 +74,7 @@ export function AddQuest(): JSX.Element {
         }}
         onSubmit={(values) => onSubmit(values)}
       >
-        {({ handleSubmit, handleChange, values }) => (
+        {({ handleSubmit, handleChange, values }: FormikProps<FormValues>) => (
           <Form onSubmit={handleSubmit}>
             <Stack spacing={2}>
               <Typography variant="h4">Add Quest</Typography>

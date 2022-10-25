@@ -34,11 +34,11 @@ export function QuestTabPanel({ value, index, ...other }: TabPanelProps) {
           {biddingQuestsStatus && (
             <>
               {biddingQuestsStatus === "loading" ? (
-                <Typography>loading bids</Typography>
+                <Typography>loading jobs</Typography>
               ) : (
                 <>
                   <Divider orientation="horizontal" />
-                  {biddingQuests ? (
+                  {!biddingQuests.length ? (
                     biddingQuests.map((quest, idx) => (
                       <AcceptedBids
                         path={quest.id}
@@ -61,7 +61,7 @@ export function QuestTabPanel({ value, index, ...other }: TabPanelProps) {
               ) : (
                 <>
                   <Divider orientation="horizontal" />
-                  {biddingQuests ? (
+                  {!biddingQuests.length ? (
                     biddingQuests.map((quest, idx) => (
                       <PendingBids
                         path={quest.id}

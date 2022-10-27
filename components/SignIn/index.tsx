@@ -8,8 +8,8 @@ export function index() {
     <Stack>
       <EmailSignIn />
       <ProvidersSignIn />
-      <Stack direction="row" justifyContent="center">
-        <Typography variant="body1">Did't have an account?</Typography>
+      <Stack direction="row" justifyContent="center" spacing={1}>
+        <Typography variant="body1">Don't have an account?</Typography>
         <Link href="#">Sign up</Link>
       </Stack>
     </Stack>

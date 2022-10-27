@@ -10,11 +10,17 @@ import {
 import { Stack } from "@mui/system"
 import { useAuth } from "reactfire"
 import { signInWithEmailAndPassword } from "firebase/auth"
-import { Form, Formik } from "formik"
+import { Form, Formik, FormikFormProps, FormikProps } from "formik"
+
+interface FormValues {
+  email: string
+  password: string
+  remember: boolean
+}
 
 export function EmailSignIn() {
   const auth = useAuth()
-  const handleSubmit = (values) => {
+  const handleSubmit = (values: FormValues) => {
     const { email, password } = values
     console.log("values", values)
     try {
@@ -46,7 +52,7 @@ export function EmailSignIn() {
         }}
         onSubmit={(values) => handleSubmit(values)}
       >
-        {({ handleSubmit, handleChange, values }) => (
+        {({ handleSubmit, handleChange, values }: FormikProps<FormValues>) => (
           <Form onSubmit={handleSubmit}>
             <Stack spacing={2}>
               <Stack>
@@ -56,7 +62,7 @@ export function EmailSignIn() {
                   value={values.email}
                   size="small"
                   sx={{ width: "22rem" }}
-                  type="text"
+                  type="email"
                   name="email"
                   placeholder="Email"
                 />

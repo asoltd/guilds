@@ -10,7 +10,7 @@ import {
 import { Stack } from "@mui/system"
 import { useAuth } from "reactfire"
 import { signInWithEmailAndPassword } from "firebase/auth"
-import { Form, Formik, FormikFormProps, FormikProps } from "formik"
+import { Form, Formik, FormikProps } from "formik"
 
 interface FormValues {
   email: string
@@ -23,11 +23,14 @@ export function EmailSignIn() {
   const handleSubmit = (values: FormValues) => {
     const { email, password } = values
     console.log("values", values)
-    try {
-      signInWithEmailAndPassword(auth, email, password)
-    } catch (error) {
-      alert("Error:" + error.message)
-    }
+
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        alert("Logged in as:" + userCredential.user.email)
+      })
+      .catch((error) => {
+        alert("Error:" + error.message)
+      })
   }
 
   return (
@@ -41,7 +44,7 @@ export function EmailSignIn() {
       <Typography fontWeight="600" variant="h4">
         Log in to your account
       </Typography>
-      <Typography variant="h6" sx={{ color: "text.secondary" }}>
+      <Typography variant="body1" sx={{ color: "text.secondary" }}>
         Welcome back! Please enter your details
       </Typography>
       <Formik
@@ -54,14 +57,13 @@ export function EmailSignIn() {
       >
         {({ handleSubmit, handleChange, values }: FormikProps<FormValues>) => (
           <Form onSubmit={handleSubmit}>
-            <Stack spacing={2}>
+            <Stack spacing={2} sx={{ width: "25rem" }}>
               <Stack>
                 <Typography variant="body1">Email</Typography>
                 <TextField
                   onChange={handleChange}
                   value={values.email}
                   size="small"
-                  sx={{ width: "22rem" }}
                   type="email"
                   name="email"
                   placeholder="Email"
@@ -73,7 +75,6 @@ export function EmailSignIn() {
                   onChange={handleChange}
                   value={values.password}
                   size="small"
-                  sx={{ width: "22rem" }}
                   type="password"
                   name="password"
                   placeholder="••••••••"
@@ -91,7 +92,7 @@ export function EmailSignIn() {
                   control={<Checkbox />}
                   label="Remember for 30 days"
                 />
-                <Link href="#">Forgot password</Link>
+                <Link href="forgot-password">Forgot password</Link>
               </Stack>
               <Button
                 variant="contained"

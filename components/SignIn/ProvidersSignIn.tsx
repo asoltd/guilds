@@ -1,19 +1,18 @@
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth"
 import { useAuth } from "reactfire"
 import {
-  EmailAuthProvider,
   GoogleAuthProvider,
   TwitterAuthProvider,
   GithubAuthProvider,
   FacebookAuthProvider,
   PhoneAuthProvider,
 } from "firebase/auth"
+import { Stack } from "@mui/system"
 
 const uiConfig = {
   signInFlow: "popup",
   signInSuccessUrl: "/",
   signInOptions: [
-    EmailAuthProvider.PROVIDER_ID,
     GoogleAuthProvider.PROVIDER_ID,
     FacebookAuthProvider.PROVIDER_ID,
     TwitterAuthProvider.PROVIDER_ID,
@@ -22,7 +21,11 @@ const uiConfig = {
   ],
 }
 
-export function SignIn() {
+export function ProvidersSignIn() {
   const auth = useAuth()
-  return <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={auth} />
+  return (
+    <Stack>
+      <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={auth} />
+    </Stack>
+  )
 }

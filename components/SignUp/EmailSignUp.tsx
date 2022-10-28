@@ -63,7 +63,7 @@ export function EmailSignUp() {
       spacing={3}
       width="100%"
     >
-      <Image width="50" height="50" src={"/GuildsLogoGrey.svg"} />
+      <Image width={50} height={50} src="/GuildsLogoGrey.svg" />
       <Typography fontWeight="600" variant="h4">
         Create an account
       </Typography>
@@ -89,7 +89,7 @@ export function EmailSignUp() {
           touched,
         }: FormikProps<FormValues>) => (
           <Form onSubmit={handleSubmit}>
-            <Stack spacing={2} sx={{ width: "25rem" }}>
+            <Stack spacing={2} width="25rem">
               <Stack>
                 <Typography variant="body1">Name*</Typography>
                 <TextField

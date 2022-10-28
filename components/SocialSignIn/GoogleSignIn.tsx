@@ -1,4 +1,4 @@
-import { Button } from "@mui/material"
+import { Button, Typography } from "@mui/material"
 import { Stack } from "@mui/system"
 import {
   getAuth,
@@ -6,8 +6,9 @@ import {
   GoogleAuthProvider,
   UserCredential,
 } from "firebase/auth"
+import Image from "next/image"
 
-export function GoogleSignIn() {
+export function GoogleSignIn(text) {
   const auth = getAuth()
   const googleProvider = new GoogleAuthProvider()
   const SignInWithGoogle = (provider: GoogleAuthProvider) => {
@@ -28,7 +29,18 @@ export function GoogleSignIn() {
 
   return (
     <Stack width="25rem" m="auto">
-      <Button onClick={() => SignInWithGoogle(googleProvider)}>CHUJ</Button>
+      <Button
+        variant="outlined"
+        sx={{ p: "0.5rem" }}
+        onClick={() => SignInWithGoogle(googleProvider)}
+      >
+        <Stack direction="row" spacing={2}>
+          <Image width="24" height="24" src="/GoogleIcon.svg"></Image>
+          <Typography textTransform="none" variant="body1" color="text.primary">
+            Sign in with google
+          </Typography>
+        </Stack>
+      </Button>
     </Stack>
   )
 }

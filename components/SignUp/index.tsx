@@ -4,7 +4,7 @@ import { EmailSignUp } from "./EmailSignUp"
 
 export function SignUp() {
   return (
-    <Stack m="auto" width="25rem">
+    <Stack m="auto" width="25rem" spacing="1rem">
       <EmailSignUp />
       <GoogleSignIn />
       <Stack direction="row" justifyContent="center" spacing={1} mt="2rem">

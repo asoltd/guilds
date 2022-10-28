@@ -19,6 +19,7 @@ interface FormValues {
   password: string
   confirmPassword: string
   remember: boolean
+  name: string
 }
 
 const SignupSchema = Yup.object().shape({
@@ -36,6 +37,7 @@ const SignupSchema = Yup.object().shape({
     .required("Password required")
     .oneOf([Yup.ref("password"), null], "Passwords must match"),
   email: Yup.string().email("Invalid email").required("Email required"),
+  name: Yup.string().required("Name required"),
 })
 
 export function EmailSignUp() {
@@ -74,6 +76,7 @@ export function EmailSignUp() {
           password: "",
           confirmPassword: "",
           remember: false,
+          name: "",
         }}
         validationSchema={SignupSchema}
         onSubmit={(values) => handleSubmit(values)}
@@ -87,6 +90,17 @@ export function EmailSignUp() {
         }: FormikProps<FormValues>) => (
           <Form onSubmit={handleSubmit}>
             <Stack spacing={2} sx={{ width: "25rem" }}>
+              <Stack>
+                <Typography variant="body1">Name*</Typography>
+                <TextField
+                  onChange={handleChange}
+                  value={values.name}
+                  size="small"
+                  name="name"
+                  placeholder="Enter your name"
+                />
+                {errors.name && touched.name ? <div>{errors.name}</div> : null}
+              </Stack>
               <Stack>
                 <Typography variant="body1">Email*</Typography>
                 <TextField

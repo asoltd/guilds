@@ -1,9 +1,18 @@
 import Image from "next/image"
-import { Button, TextField, Typography } from "@mui/material"
+import * as Yup from "yup"
+import {
+  Button,
+  IconButton,
+  InputAdornment,
+  TextField,
+  Typography,
+} from "@mui/material"
 import { Stack } from "@mui/system"
 import { useAuth } from "reactfire"
 import { createUserWithEmailAndPassword } from "firebase/auth"
 import { Form, Formik, FormikProps } from "formik"
+import { useState } from "react"
+import { Visibility, VisibilityOff } from "@mui/icons-material"
 
 interface FormValues {
   email: string
@@ -12,7 +21,25 @@ interface FormValues {
   remember: boolean
 }
 
+const SignupSchema = Yup.object().shape({
+  password: Yup.string()
+    .min(8, "Too Short!")
+    .max(20, "Too Long!")
+    .required("Password required")
+    .matches(/(?=.*[0-9])/, "Password must contain a number.")
+    .matches(/(?=.*[a-z])/, "Password must contain a lowercase letter.")
+    .matches(/(?=.*[A-Z])/, "Password must contain a uppercase letter.")
+    .matches(/(?=.*[!@#$%^&*])/, "Password must contain a special character."),
+  confirmPassword: Yup.string()
+    .min(2, "Too Short!")
+    .max(20, "Too Long!")
+    .required("Password required")
+    .oneOf([Yup.ref("password"), null], "Passwords must match"),
+  email: Yup.string().email("Invalid email").required("Email required"),
+})
+
 export function EmailSignUp() {
+  const [showPassword, setShowPassword] = useState(false)
   const auth = useAuth()
   const handleSubmit = (values: FormValues) => {
     const { email, password } = values
@@ -48,9 +75,16 @@ export function EmailSignUp() {
           confirmPassword: "",
           remember: false,
         }}
+        validationSchema={SignupSchema}
         onSubmit={(values) => handleSubmit(values)}
       >
-        {({ handleSubmit, handleChange, values }: FormikProps<FormValues>) => (
+        {({
+          handleSubmit,
+          handleChange,
+          values,
+          errors,
+          touched,
+        }: FormikProps<FormValues>) => (
           <Form onSubmit={handleSubmit}>
             <Stack spacing={2} sx={{ width: "25rem" }}>
               <Stack>
@@ -63,6 +97,9 @@ export function EmailSignUp() {
                   name="email"
                   placeholder="Email"
                 />
+                {errors.email && touched.email ? (
+                  <div>{errors.email}</div>
+                ) : null}
               </Stack>
               <Stack>
                 <Typography variant="body1">Password*</Typography>
@@ -70,10 +107,24 @@ export function EmailSignUp() {
                   onChange={handleChange}
                   value={values.password}
                   size="small"
-                  type="password"
+                  type={showPassword ? "text" : "password"}
                   name="password"
                   placeholder="••••••••"
+                  InputProps={{
+                    endAdornment: (
+                      <InputAdornment position="start">
+                        <IconButton
+                          onClick={() => setShowPassword(!showPassword)}
+                        >
+                          {showPassword ? <Visibility /> : <VisibilityOff />}
+                        </IconButton>
+                      </InputAdornment>
+                    ),
+                  }}
                 />
+                {errors.password && touched.password ? (
+                  <div>{errors.password}</div>
+                ) : null}
               </Stack>
               <Stack>
                 <Typography variant="body1">Password*</Typography>
@@ -81,10 +132,13 @@ export function EmailSignUp() {
                   onChange={handleChange}
                   value={values.confirmPassword}
                   size="small"
-                  type="password"
+                  type={showPassword ? "text" : "password"}
                   name="confirmPassword"
                   placeholder="••••••••"
                 />
+                {errors.confirmPassword && touched.confirmPassword ? (
+                  <div>{errors.confirmPassword}</div>
+                ) : null}
               </Stack>
               <Stack>
                 <Typography variant="body1" sx={{ color: "text.secondary" }}>

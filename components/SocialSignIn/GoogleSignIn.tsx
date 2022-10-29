@@ -1,15 +1,22 @@
-import { Button, Typography } from "@mui/material"
+import styled from "styled-components"
+import { Button } from "@mui/material"
 import { Stack } from "@mui/system"
 import {
-  getAuth,
   signInWithPopup,
   GoogleAuthProvider,
   UserCredential,
 } from "firebase/auth"
 import Image from "next/image"
+import { useAuth } from "reactfire"
 
-export function GoogleSignIn(text) {
-  const auth = getAuth()
+const GoogleButton = styled(Button)({
+  ":hover": {
+    backgroundColor: "#FFFFFF",
+  },
+})
+
+export function GoogleSignIn() {
+  const auth = useAuth()
   const googleProvider = new GoogleAuthProvider()
   const SignInWithGoogle = (provider: GoogleAuthProvider) => {
     signInWithPopup(auth, provider)
@@ -17,30 +24,24 @@ export function GoogleSignIn(text) {
         const credential = GoogleAuthProvider.credentialFromResult(result)
         const token = credential.accessToken
         const user = result.user
-        alert("Logged in as:" + user.email)
       })
       .catch((error) => {
-        alert("Error code:" + error.code)
         alert("Error:" + error.message)
-        alert("Email error:" + error.customData.email)
         const credential = GoogleAuthProvider.credentialFromError(error)
       })
   }
 
   return (
-    <Stack width="25rem" m="auto">
-      <Button
-        variant="outlined"
-        sx={{ p: "0.5rem" }}
+    <Stack m="auto">
+      <GoogleButton
+        variant="contained"
+        sx={{ p: "0.5rem", bgcolor: "background.default" }}
         onClick={() => SignInWithGoogle(googleProvider)}
       >
         <Stack direction="row" spacing={2}>
           <Image width="24" height="24" src="/GoogleIcon.svg"></Image>
-          <Typography textTransform="none" variant="body1" color="text.primary">
-            Sign in with google
-          </Typography>
         </Stack>
-      </Button>
+      </GoogleButton>
     </Stack>
   )
 }

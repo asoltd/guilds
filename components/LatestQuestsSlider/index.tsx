@@ -26,6 +26,7 @@ export function LatestQuestsSlider() {
     useFirestoreCollectionData(questsQuery)
 
   const latestQuestsRefs = useRef([])
+  const latestQuestsContainerRef = useRef()
 
   const isMobile = useMediaQuery("(max-width: 600px)")
 
@@ -51,46 +52,48 @@ export function LatestQuestsSlider() {
             )}
           </Stack>
           <Stack spacing={6}>
-            <LatestQuestsStack
-              direction="row"
-              sx={{
-                overflow: mouseScrollDisabled ? "hidden" : "auto",
-                pr: "500rem",
-              }}
-              onMouseEnter={() => setMouseScrollDisabled(true)}
-              onMouseLeave={() => setMouseScrollDisabled(false)}
-            >
-              <Stack direction="row" spacing={0}>
-                <Stack direction="row" spacing={3}>
-                  {questsStatus === "success" ? (
-                    quests &&
-                    quests?.map((quest: Quest, idx) => (
-                      <Box
-                        key={idx}
-                        ref={(ref) => {
-                          latestQuestsRefs.current[idx] = ref
-                        }}
-                      >
-                        <LatestQuest quest={quest} />
-                      </Box>
-                    ))
-                  ) : (
-                    <Typography>Loading...</Typography>
-                  )}
-                </Stack>
-              </Stack>
-              <Box width={"100vw"} />
-            </LatestQuestsStack>
+            <Stack direction="row">
+              <LatestQuestsStack
+                direction="row"
+                spacing={3}
+                ref={latestQuestsContainerRef}
+                sx={{
+                  scrollBehavior: "smooth",
+                  overflow: mouseScrollDisabled ? "hidden" : "scroll",
+                  pr: "100vw",
+                }}
+                onMouseEnter={() => setMouseScrollDisabled(true)}
+                onMouseLeave={() => setMouseScrollDisabled(false)}
+              >
+                {questsStatus === "success" ? (
+                  quests &&
+                  quests?.map((quest: Quest, idx) => (
+                    <Box
+                      key={idx}
+                      ref={(ref) => {
+                        latestQuestsRefs.current[idx] = ref
+                      }}
+                    >
+                      <LatestQuest quest={quest} />
+                    </Box>
+                  ))
+                ) : (
+                  <Typography>Loading...</Typography>
+                )}
+              </LatestQuestsStack>
+            </Stack>
             <Stack direction="row" spacing={3}>
               <ScrollLeft
                 scrolledValue={scrolledQuest}
                 setScrolledValue={setScrolledQuest}
                 refs={latestQuestsRefs}
+                containerRef={latestQuestsContainerRef}
               />
               <ScrollRight
                 scrolledValue={scrolledQuest}
                 setScrolledValue={setScrolledQuest}
                 refs={latestQuestsRefs}
+                containerRef={latestQuestsContainerRef}
               />
             </Stack>
             {isMobile && (

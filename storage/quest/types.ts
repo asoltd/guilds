@@ -1,13 +1,13 @@
 import { URL, UUID } from "../common"
 
 export enum Tag {
-  Design = "design",
-  Management = "management",
-  Research = "research",
-  Presentation = "presentation",
-  SoftwareDevelopment = "softwareDevelopment",
-  CustomerSuccess = "customerSuccess",
-  Leadership = "leadership",
+  Design = "Design",
+  Management = "Management",
+  Research = "Research",
+  Presentation = "Presentation",
+  SoftwareDevelopment = "Software Development",
+  CustomerSuccess = "Customer Success",
+  Leadership = "Leadership",
 }
 
 export interface Quest {
@@ -20,12 +20,13 @@ export interface Quest {
   image?: URL
   bidders?: string[]
   status: string
+  createdAt: Date
 }
 
 export interface Bid {
   id: UUID
   questId: UUID
-  userId: UUID
+  bidderId: UUID
   amount: number
   timeEstimate: string
   createdAt: Date

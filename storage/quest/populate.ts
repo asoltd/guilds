@@ -5,34 +5,36 @@ import {
   QueryDocumentSnapshot,
   DocumentData,
   setDoc,
+  updateDoc,
   doc,
+  arrayUnion,
 } from "firebase/firestore"
-import { Quest, Bid, Tag } from "../../storage/quest"
 import { faker } from "@faker-js/faker"
+import { Quest, Bid, Tag } from "../../storage/quest"
 
 const populateQuests = async (firestore: Firestore) => {
   try {
     const promises = []
     for (let i = 0; i < 3; i++) {
+      const tags = Object.values(Tag).filter(() => Math.random() > 0.5)
       const developerIds = [
         "imZrHGqnOCfGy44ya596jOyNHIG3",
         "QfABV59rDVWcUDBvtiaZCrQ8mTJ2",
         "zfUtzkbpCdRVjBKHACyT5pjg1bb2",
       ]
       const userId = developerIds[faker.datatype.number({ min: 0, max: 2 })]
-      const bidders = developerIds.filter((id) => id !== userId)
       const questsRef = collection(firestore, "quests")
       const questRef = doc(questsRef)
       const quest: Quest = {
         id: questRef.id,
         userId: userId,
-        image: faker.image.imageUrl(),
+        image: "office.jpeg",
         reward: faker.datatype.number({ min: 1, max: 1000 }),
         title: faker.lorem.sentence(5),
         description: faker.lorem.sentences(5),
-        tags: [Object.values(Tag)[faker.datatype.number(6)]],
-        bidders: bidders,
+        tags: tags,
         status: ["open", "closed"][faker.datatype.number(1)],
+        createdAt: faker.date.past(),
       }
       promises.push(setDoc(questRef, quest))
     }
@@ -49,27 +51,34 @@ const populateBids = async (firestore: Firestore) => {
     const questsRef = collection(firestore, `quests`)
     const quests = await getDocs(questsRef)
     const promises = []
-    quests.docs.forEach((quest: QueryDocumentSnapshot<DocumentData>) => {
-      for (let i = 0; i < 3; i++) {
-        const bidsRef = collection(firestore, `quests/${quest.id}/bids`)
+    quests?.docs?.forEach((quest: QueryDocumentSnapshot<DocumentData>) => {
+      const questRef = doc(firestore, `quests/${quest?.data().id}`)
+      for (let i = 0; i < 2; i++) {
+        const developerIds = [
+          "imZrHGqnOCfGy44ya596jOyNHIG3",
+          "QfABV59rDVWcUDBvtiaZCrQ8mTJ2",
+          "zfUtzkbpCdRVjBKHACyT5pjg1bb2",
+        ]
+        const bidderId = developerIds[faker.datatype.number({ min: 0, max: 2 })]
+        const bidsRef = collection(firestore, `quests/${quest?.id}/bids`)
         const bidRef = doc(bidsRef)
         const bid: Bid = {
-          id: bidRef.id,
-          questId: quest.data().id,
-          userId:
-            quest.data().bidders[faker.datatype.number({ min: 0, max: 1 })],
+          id: bidRef?.id,
+          questId: quest?.data().id,
+          bidderId: bidderId,
           amount: faker.datatype.number({ min: 1, max: 1000 }),
           timeEstimate: `${faker.datatype.number({ min: 1, max: 100 })} days`,
           createdAt: faker.date.past(),
-          status: ["pending", "accepted", "rejected"][
-            faker.datatype.number({ min: 0, max: 2 })
-          ],
+          status: "pending",
         }
-        promises.push(setDoc(bidRef, bid))
+        promises.push(
+          setDoc(bidRef, bid),
+          updateDoc(questRef, { bidders: arrayUnion(bidderId) })
+        )
       }
     })
     const results = await Promise.all(promises)
-    alert("Bids created: " + results.length)
+    alert("Bids created: " + results?.length)
   } catch (e) {
     console.log(e)
     alert("Error: " + e)

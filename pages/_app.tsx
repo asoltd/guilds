@@ -50,8 +50,6 @@ function MyApp({ Component, pageProps }) {
     [prefersDarkMode]
   )
 
-  console.log(prefersDarkMode)
-
   return (
     <>
       <Head>
@@ -64,7 +62,7 @@ function MyApp({ Component, pageProps }) {
         <FirebaseSDKProviders>
           <ThemeProvider theme={theme}>
             <CssBaseline />
-            <Component {...pageProps} />;
+            <Component {...pageProps} />
           </ThemeProvider>
         </FirebaseSDKProviders>
       </FirebaseAppProvider>

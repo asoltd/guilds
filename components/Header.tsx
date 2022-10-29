@@ -16,6 +16,7 @@ import {
 import MenuIcon from "@mui/icons-material/Menu"
 import { useRouter } from "next/router"
 import { useAuth, useSigninCheck } from "reactfire"
+import Link from "next/link"
 
 export function Header(): JSX.Element {
   const auth = useAuth()
@@ -90,7 +91,11 @@ export function Header(): JSX.Element {
           </Menu>
 
           <Typography variant="h6" sx={{ flexGrow: 1 }}>
-            Guilds
+            <Link href="/">
+              <a style={{ textDecoration: 'none', color: 'inherit' }}>
+                Guilds
+              </a>
+            </Link>
           </Typography>
 
           <Box sx={{ flexGrow: 0 }}>

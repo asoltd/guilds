@@ -9,7 +9,11 @@ import {
 } from "@mui/material"
 import { Stack } from "@mui/system"
 import { useAuth } from "reactfire"
-import { createUserWithEmailAndPassword } from "firebase/auth"
+import {
+  createUserWithEmailAndPassword,
+  getAuth,
+  sendEmailVerification,
+} from "firebase/auth"
 import { Form, Formik, FormikProps } from "formik"
 import { useState } from "react"
 import { Visibility, VisibilityOff } from "@mui/icons-material"
@@ -26,26 +30,26 @@ const SignupSchema = Yup.object().shape({
   password: Yup.string()
     .min(8, "Too Short!")
     .max(20, "Too Long!")
-    .required("Password required")
-    .matches(/(?=.*[0-9])/, "Password must contain a number.")
-    .matches(/(?=.*[a-z])/, "Password must contain a lowercase letter.")
-    .matches(/(?=.*[A-Z])/, "Password must contain a uppercase letter.")
-    .matches(/(?=.*[!@#$%^&*])/, "Password must contain a special character."),
+    .required("Password required!")
+    .matches(/(?=.*[0-9])/, "Password must contain a number!")
+    .matches(/(?=.*[a-z])/, "Password must contain a lowercase letter!")
+    .matches(/(?=.*[A-Z])/, "Password must contain a uppercase letter!")
+    .matches(/(?=.*[!@#$%^&*])/, "Password must contain a special character!"),
   confirmPassword: Yup.string()
     .min(2, "Too Short!")
     .max(20, "Too Long!")
-    .required("Password required")
-    .oneOf([Yup.ref("password"), null], "Passwords must match"),
-  email: Yup.string().email("Invalid email").required("Email required"),
-  name: Yup.string().required("Name required"),
+    .required("Password required!")
+    .oneOf([Yup.ref("password"), null], "Passwords must match!"),
+  email: Yup.string().email("Invalid email!").required("Email required!"),
+  name: Yup.string().required("Name required!"),
 })
 
 export function EmailSignUp() {
   const [showPassword, setShowPassword] = useState(false)
-  const auth = useAuth()
+  const auth = getAuth()
+
   const handleSubmit = (values: FormValues) => {
     const { email, password } = values
-    console.log("values", values)
 
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
@@ -53,6 +57,11 @@ export function EmailSignUp() {
       })
       .catch((error) => {
         alert("Error:" + error.message)
+      })
+      .then(() => {
+        sendEmailVerification(auth.currentUser).then(() => {
+          alert("Email verification sent!")
+        })
       })
   }
 
@@ -99,7 +108,9 @@ export function EmailSignUp() {
                   name="name"
                   placeholder="Enter your name"
                 />
-                {errors.name && touched.name ? <div>{errors.name}</div> : null}
+                {errors.name && touched.name ? (
+                  <Typography color="#ff0000">{errors.name}</Typography>
+                ) : null}
               </Stack>
               <Stack>
                 <Typography variant="body1">Email*</Typography>
@@ -112,7 +123,7 @@ export function EmailSignUp() {
                   placeholder="Email"
                 />
                 {errors.email && touched.email ? (
-                  <div>{errors.email}</div>
+                  <Typography color="#ff0000">{errors.email}</Typography>
                 ) : null}
               </Stack>
               <Stack>
@@ -137,7 +148,7 @@ export function EmailSignUp() {
                   }}
                 />
                 {errors.password && touched.password ? (
-                  <div>{errors.password}</div>
+                  <Typography color="#ff0000">{errors.password}</Typography>
                 ) : null}
               </Stack>
               <Stack>
@@ -151,7 +162,9 @@ export function EmailSignUp() {
                   placeholder="••••••••"
                 />
                 {errors.confirmPassword && touched.confirmPassword ? (
-                  <div>{errors.confirmPassword}</div>
+                  <Typography color="#ff0000">
+                    {errors.confirmPassword}
+                  </Typography>
                 ) : null}
               </Stack>
               <Stack>

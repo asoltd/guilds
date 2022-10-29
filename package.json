@@ -27,7 +27,8 @@
     "styled-components": "^5.3.5",
     "styled-css-grid": "^1.2.1",
     "typesense": "^1.4.0",
-    "typesense-instantsearch-adapter": "^2.4.1"
+    "typesense-instantsearch-adapter": "^2.4.1",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "@types/chai": "^4.3.3",

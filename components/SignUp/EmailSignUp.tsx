@@ -8,15 +8,14 @@ import {
   Typography,
 } from "@mui/material"
 import { Stack } from "@mui/system"
-import { useAuth } from "reactfire"
 import {
   createUserWithEmailAndPassword,
-  getAuth,
   sendEmailVerification,
 } from "firebase/auth"
 import { Form, Formik, FormikProps } from "formik"
 import { useState } from "react"
 import { Visibility, VisibilityOff } from "@mui/icons-material"
+import { useAuth } from "reactfire"
 
 interface FormValues {
   email: string
@@ -46,7 +45,7 @@ const SignupSchema = Yup.object().shape({
 
 export function EmailSignUp() {
   const [showPassword, setShowPassword] = useState(false)
-  const auth = getAuth()
+  const auth = useAuth()
 
   const handleSubmit = (values: FormValues) => {
     const { email, password } = values

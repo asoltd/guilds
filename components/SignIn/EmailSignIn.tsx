@@ -5,17 +5,27 @@ import {
   FormControlLabel,
   TextField,
   Typography,
-  Link,
 } from "@mui/material"
 import { Stack } from "@mui/system"
 import { useAuth } from "reactfire"
-import { signInWithEmailAndPassword } from "firebase/auth"
+import {
+  sendEmailVerification,
+  signInWithEmailAndPassword,
+} from "firebase/auth"
 import { Form, Formik, FormikProps } from "formik"
+import Link from "next/link"
 
 interface FormValues {
   email: string
   password: string
   remember: boolean
+}
+
+export function ResetPassword() {
+  const auth = useAuth()
+  sendEmailVerification(auth.currentUser).then(() => {
+    alert("Email sent!")
+  })
 }
 
 export function EmailSignIn() {
@@ -92,7 +102,7 @@ export function EmailSignIn() {
                   control={<Checkbox />}
                   label="Remember for 30 days"
                 />
-                <Link href="forgot-password">Forgot password</Link>
+                <Link href="/">Forgot password</Link>
               </Stack>
               <Button
                 variant="contained"

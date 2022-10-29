@@ -27,7 +27,7 @@ export function ScrollLeft({
     <IconButton
       size="large"
       sx={{ border: "1px solid", borderColor: "text.secondary" }}
-      onClick={() => scrollLeft()}
+      onClick={scrollLeft}
       disabled={scrolledValue === 0}
     >
       <ArrowBackIcon />

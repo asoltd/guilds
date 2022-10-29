@@ -39,7 +39,7 @@ export function TwitterSignIn() {
         onClick={() => SignInWithTwitter(twitterProvider)}
       >
         <Stack direction="row" spacing={2}>
-          <Image width="24" height="24" src="/TwitterIconWhite.svg"></Image>
+          <Image width={28} height={28} src="/TwitterIconWhite.svg"></Image>
         </Stack>
       </TwitterButton>
     </Stack>

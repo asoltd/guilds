@@ -39,7 +39,7 @@ export function GoogleSignIn() {
         onClick={() => SignInWithGoogle(googleProvider)}
       >
         <Stack direction="row" spacing={2}>
-          <Image width="24" height="24" src="/GoogleIcon.svg"></Image>
+          <Image width={24} height={24} src="/GoogleIcon.svg"></Image>
         </Stack>
       </GoogleButton>
     </Stack>

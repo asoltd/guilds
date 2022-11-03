@@ -1,20 +1,20 @@
-import { QuestHits } from "./QuestHits"
+import { TeamHits } from "./TeamHits"
 import { useFirestore } from "reactfire"
-import { populateQuests, populateBids } from "storage/quest"
-import { questsSearchClient } from "typesense/insantsearch"
+import { teamsSearchClient } from "typesense/insantsearch"
 import { InstantSearch } from "react-instantsearch-dom"
 import { RefinementList, Pagination, SearchBox } from "../SearchComponents"
 import { Button, Stack, Divider, Container } from "@mui/material"
-import { FindQuestBanner } from "./FindQuestBanner"
+import { populateMembers, populateTeams } from "storage/team"
+import { FindTeamBanner } from "./FindTeamBanner"
 
-export function Quests(): JSX.Element {
+export function Teams(): JSX.Element {
   const firestore = useFirestore()
 
   return (
     <Stack>
-      <FindQuestBanner />
+      <FindTeamBanner />
       <Container>
-        <InstantSearch searchClient={questsSearchClient} indexName="quests">
+        <InstantSearch searchClient={teamsSearchClient} indexName="teams">
           <Stack
             direction="column"
             justifyContent="space-around"
@@ -24,21 +24,22 @@ export function Quests(): JSX.Element {
             <Stack direction="row" spacing={6}>
               <Stack direction="column" spacing={4}>
                 <SearchBox />
-                <RefinementList attribute="tags" label="Quest categories" />
+                <RefinementList attribute="roles" label="Role categories" />
+                <RefinementList attribute="industry" label="Industry" />
                 <Button
                   variant="outlined"
-                  onClick={() => populateQuests(firestore)}
+                  onClick={() => populateTeams(firestore)}
                 >
-                  populate quests
+                  populate teams
                 </Button>
                 <Button
                   variant="outlined"
-                  onClick={() => populateBids(firestore)}
+                  onClick={() => populateMembers(firestore)}
                 >
-                  populate bids
+                  populate memabers
                 </Button>
               </Stack>
-              <QuestHits />
+              <TeamHits />
             </Stack>
             <Divider />
             <Pagination />

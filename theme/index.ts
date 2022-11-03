@@ -1,5 +1,9 @@
 import { ThemeOptions } from "@mui/material/styles"
 
+const typography: ThemeOptions["typography"] = {
+  fontFamily: "Plus Jakarta Sans, sans-serif",
+}
+
 export const lightThemeOptions: ThemeOptions = {
   palette: {
     mode: "light",
@@ -20,6 +24,7 @@ export const lightThemeOptions: ThemeOptions = {
       secondary: "#667085",
     },
   },
+  typography,
 }
 
 export const darkThemeOptions: ThemeOptions = {
@@ -42,4 +47,5 @@ export const darkThemeOptions: ThemeOptions = {
       secondary: "#EAECF0",
     },
   },
+  typography,
 }

@@ -22,7 +22,7 @@ function CustomSearchBox({ currentRefinement, refine }) {
         InputProps={{
           startAdornment: (
             <InputAdornment position="start">
-              <Image src="/search.svg" width={20} height={20} />
+              <Image src="/search.svg" width={20} height={20} alt="Search" />
             </InputAdornment>
           ),
         }}

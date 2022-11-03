@@ -14,7 +14,7 @@ const CustomListItemButton = styled(ListItemButton)({
   borderRadius: "0.5rem",
 })
 
-function CustomRefinementList({ items, refine, currentRefinement }) {
+function CustomRefinementList({ items, refine, currentRefinement, label }) {
   const sortedItems = _.orderBy(items, ["label"], ["desc", "asc"])
 
   const refinementItemStyle = (condition: boolean) => ({
@@ -29,7 +29,7 @@ function CustomRefinementList({ items, refine, currentRefinement }) {
         variant="body2"
         sx={{ fontWeight: 600, color: "primary.main" }}
       >
-        Quest categories
+        {label}
       </Typography>
       <Box sx={refinementItemStyle(!currentRefinement.length)}>
         <CustomListItemButton onClick={() => refine([])}>

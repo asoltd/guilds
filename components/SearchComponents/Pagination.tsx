@@ -11,7 +11,7 @@ import {
 
 interface PaginationProps {
   currentRefinement: number
-  nbPages: number
+  nbPages?: number
   refine: (page: number) => void
 }
 

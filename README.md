@@ -25,26 +25,6 @@
 bun install
 ```
 
-There is an issue with one of the modules resulting in a build error, as a
-workaround update the `registerFunctions` call in
-`/node_modules/@firebase/functions/dist/index.esm2017.js`:
-
-```tsx
-...
-/**
- * Cloud Functions for Firebase
- *
- * @packageDocumentation
- */
-if (fetch?.bind !== undefined) {
-    registerFunctions(fetch?.bind(self));
-}
-```
-
-I already submitted a PR for the main firebase package, but it might take some
-time before it's up and running, so for now got to use the workaround to benefit
-from the amazingly fast `bun install` and `bun test`.
-
 ## Usage
 
 First, install the firebase tools if you haven't already:

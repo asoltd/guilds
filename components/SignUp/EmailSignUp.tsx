@@ -20,6 +20,7 @@ import { Form, Formik, FormikProps } from "formik"
 import { SyntheticEvent, useState } from "react"
 import { Visibility, VisibilityOff } from "@mui/icons-material"
 import { useAuth } from "reactfire"
+import { validationSchemas } from "./ValidationSchemas"
 
 interface FormValues {
   email: string
@@ -56,12 +57,6 @@ function TabPanel(props: TabPanelProps) {
   )
 }
 
-declare global {
-  interface Window {
-    example: string
-  }
-}
-
 function a11yProps(index: number) {
   return {
     id: `simple-tab-${index}`,
@@ -71,73 +66,34 @@ function a11yProps(index: number) {
 
 export function EmailSignUp() {
   const [showPassword, setShowPassword] = useState(false)
-  const [value, setValue] = useState(0)
-  const [defaultValues, setDefaultValues] = useState({
-    email: "",
-    phone: "",
-    password: "",
-    confirmPassword: "",
-    remember: false,
-    name: "",
-  })
+  const [selectedTab, setSelectedTab] = useState(0)
   const auth = useAuth()
-  auth.languageCode = "it"
 
-  const validationSchema = {
-    password: Yup.string()
-      .min(8, "Too Short!")
-      .max(20, "Too Long!")
-      .required("Password required!")
-      .matches(/(?=.*[0-9])/, "Password must contain a number!")
-      .matches(/(?=.*[a-z])/, "Password must contain a lowercase letter!")
-      .matches(/(?=.*[A-Z])/, "Password must contain a uppercase letter!")
-      .matches(
-        /(?=.*[!@#$%^&*])/,
-        "Password must contain a special character!"
-      ),
-    confirmPassword: Yup.string()
-      .min(2, "Too Short!")
-      .max(20, "Too Long!")
-      .required("Password required!")
-      .oneOf([Yup.ref("password"), null], "Passwords must match!"),
-    name: Yup.string().required("Name required!"),
-  }
-  const validationSchemas = [
-    {
-      ...validationSchema,
-      email: Yup.string().email("Invalid email!").required("Email required!"),
-    },
-    {
-      ...validationSchema,
-      phone: Yup.string().required("Phone number required!"),
-    },
-  ]
-  const SignupSchema = Yup.object().shape(validationSchemas[value])
+  const SignupSchema = Yup.object().shape(validationSchemas[selectedTab])
 
   const handleSubmit = (values: FormValues) => {
     const { email, password } = values
     console.log("values", values)
-
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        alert("Logged in as:" + userCredential.user.email)
-      })
-      .catch((error) => {
-        alert("Error:" + error.message)
-      })
-      .then(() => {
-        sendEmailVerification(auth.currentUser).then(() => {
-          alert("Email verification sent!")
+    if (selectedTab === 0) {
+      createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          alert("Logged in as:" + userCredential.user.email)
         })
-      })
+        .catch((error) => {
+          alert("Error:" + error.message)
+        })
+        .then(() => {
+          sendEmailVerification(auth.currentUser).then(() => {
+            alert("Email verification sent!")
+          })
+        })
+    } else {
+      alert("Not implemented yet!")
+    }
   }
 
   const handleTabsChange = (event: SyntheticEvent, newValue: number) => {
-    setValue(newValue)
-  }
-
-  function handlePhoneChange(value: string) {
-    setDefaultValues({ ...defaultValues, phone: value })
+    setSelectedTab(newValue)
   }
 
   return (
@@ -147,12 +103,7 @@ export function EmailSignUp() {
       spacing={3}
       width="100%"
     >
-      <Image
-        width={50}
-        height={50}
-        src="/GuildsLogo2.svg"
-        alt={"Guilds logo"}
-      />
+      <Image width={50} height={50} src="/GuildsLogo2.svg" alt="Guilds logo" />
       <Typography fontWeight="600" variant="h4">
         Create an account
       </Typography>
@@ -162,7 +113,7 @@ export function EmailSignUp() {
       <Box width="100%">
         <Tabs
           variant="fullWidth"
-          value={value}
+          value={selectedTab}
           onChange={handleTabsChange}
           sx={{ border: "10px" }}
         >
@@ -179,7 +130,14 @@ export function EmailSignUp() {
         </Tabs>
       </Box>
       <Formik
-        initialValues={defaultValues}
+        initialValues={{
+          email: "",
+          phone: "",
+          password: "",
+          confirmPassword: "",
+          remember: false,
+          name: "",
+        }}
         validationSchema={SignupSchema}
         onSubmit={(values) => handleSubmit(values)}
       >
@@ -189,6 +147,7 @@ export function EmailSignUp() {
           values,
           errors,
           touched,
+          setFieldValue,
         }: FormikProps<FormValues>) => (
           <Form onSubmit={handleSubmit}>
             <Stack spacing={2} width="25rem">
@@ -205,7 +164,7 @@ export function EmailSignUp() {
                   <Typography color="#ff0000">{errors.name}</Typography>
                 ) : null}
               </Stack>
-              <TabPanel value={value} index={0}>
+              <TabPanel value={selectedTab} index={0}>
                 <Stack>
                   <Typography variant="body1">Email*</Typography>
                   <TextField
@@ -221,14 +180,14 @@ export function EmailSignUp() {
                   ) : null}
                 </Stack>
               </TabPanel>
-              <TabPanel value={value} index={1}>
+              <TabPanel value={selectedTab} index={1}>
                 <Stack>
                   <Typography variant="body1">Phone*</Typography>
                   <MuiPhoneNumber
                     required
                     variant="outlined"
-                    onChange={(value) => handlePhoneChange(value)}
-                    value={defaultValues.phone}
+                    onChange={(e) => setFieldValue("phone", e)}
+                    value={values.phone}
                     type="phone"
                     name="phone"
                     defaultCountry="us"

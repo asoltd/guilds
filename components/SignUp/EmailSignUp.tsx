@@ -1,5 +1,6 @@
 import Image from "next/image"
 import * as Yup from "yup"
+import MuiPhoneNumber from "material-ui-phone-number"
 import {
   Box,
   Button,
@@ -55,6 +56,12 @@ function TabPanel(props: TabPanelProps) {
   )
 }
 
+declare global {
+  interface Window {
+    example: string
+  }
+}
+
 function a11yProps(index: number) {
   return {
     id: `simple-tab-${index}`,
@@ -62,31 +69,54 @@ function a11yProps(index: number) {
   }
 }
 
-const SignupSchema = Yup.object().shape({
-  password: Yup.string()
-    .min(8, "Too Short!")
-    .max(20, "Too Long!")
-    .required("Password required!")
-    .matches(/(?=.*[0-9])/, "Password must contain a number!")
-    .matches(/(?=.*[a-z])/, "Password must contain a lowercase letter!")
-    .matches(/(?=.*[A-Z])/, "Password must contain a uppercase letter!")
-    .matches(/(?=.*[!@#$%^&*])/, "Password must contain a special character!"),
-  confirmPassword: Yup.string()
-    .min(2, "Too Short!")
-    .max(20, "Too Long!")
-    .required("Password required!")
-    .oneOf([Yup.ref("password"), null], "Passwords must match!"),
-  email: Yup.string().email("Invalid email!").required("Email required!"),
-  name: Yup.string().required("Name required!"),
-  phone: Yup.string().required("Phone number required!"),
-})
-
 export function EmailSignUp() {
   const [showPassword, setShowPassword] = useState(false)
+  const [value, setValue] = useState(0)
+  const [defaultValues, setDefaultValues] = useState({
+    email: "",
+    phone: "",
+    password: "",
+    confirmPassword: "",
+    remember: false,
+    name: "",
+  })
   const auth = useAuth()
+  auth.languageCode = "it"
+
+  const validationSchema = {
+    password: Yup.string()
+      .min(8, "Too Short!")
+      .max(20, "Too Long!")
+      .required("Password required!")
+      .matches(/(?=.*[0-9])/, "Password must contain a number!")
+      .matches(/(?=.*[a-z])/, "Password must contain a lowercase letter!")
+      .matches(/(?=.*[A-Z])/, "Password must contain a uppercase letter!")
+      .matches(
+        /(?=.*[!@#$%^&*])/,
+        "Password must contain a special character!"
+      ),
+    confirmPassword: Yup.string()
+      .min(2, "Too Short!")
+      .max(20, "Too Long!")
+      .required("Password required!")
+      .oneOf([Yup.ref("password"), null], "Passwords must match!"),
+    name: Yup.string().required("Name required!"),
+  }
+  const validationSchemas = [
+    {
+      ...validationSchema,
+      email: Yup.string().email("Invalid email!").required("Email required!"),
+    },
+    {
+      ...validationSchema,
+      phone: Yup.string().required("Phone number required!"),
+    },
+  ]
+  const SignupSchema = Yup.object().shape(validationSchemas[value])
 
   const handleSubmit = (values: FormValues) => {
     const { email, password } = values
+    console.log("values", values)
 
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
@@ -101,10 +131,15 @@ export function EmailSignUp() {
         })
       })
   }
-  const [value, setValue] = useState(0)
+
   const handleTabsChange = (event: SyntheticEvent, newValue: number) => {
     setValue(newValue)
   }
+
+  function handlePhoneChange(value: string) {
+    setDefaultValues({ ...defaultValues, phone: value })
+  }
+
   return (
     <Stack
       alignItems="center"
@@ -112,7 +147,12 @@ export function EmailSignUp() {
       spacing={3}
       width="100%"
     >
-      <Image width={50} height={50} src="/GuildsLogoGrey.svg" />
+      <Image
+        width={50}
+        height={50}
+        src="/GuildsLogo2.svg"
+        alt={"Guilds logo"}
+      />
       <Typography fontWeight="600" variant="h4">
         Create an account
       </Typography>
@@ -139,14 +179,7 @@ export function EmailSignUp() {
         </Tabs>
       </Box>
       <Formik
-        initialValues={{
-          email: "",
-          phone: "",
-          password: "",
-          confirmPassword: "",
-          remember: false,
-          name: "",
-        }}
+        initialValues={defaultValues}
         validationSchema={SignupSchema}
         onSubmit={(values) => handleSubmit(values)}
       >
@@ -191,13 +224,23 @@ export function EmailSignUp() {
               <TabPanel value={value} index={1}>
                 <Stack>
                   <Typography variant="body1">Phone*</Typography>
-                  <TextField
-                    onChange={handleChange}
-                    value={values.phone}
-                    size="small"
+                  <MuiPhoneNumber
+                    required
+                    variant="outlined"
+                    onChange={(value) => handlePhoneChange(value)}
+                    value={defaultValues.phone}
                     type="phone"
                     name="phone"
-                    placeholder="Phone"
+                    defaultCountry="us"
+                    sx={{
+                      "& .MuiOutlinedInput-root": {
+                        width: "100%",
+                        backgroundColor: "background.default",
+                      },
+                      "& .MuiOutlinedInput-input": {
+                        padding: "0.5rem 1rem",
+                      },
+                    }}
                   />
                   {errors.phone && touched.phone ? (
                     <Typography color="#ff0000">{errors.phone}</Typography>
@@ -247,7 +290,7 @@ export function EmailSignUp() {
               </Stack>
               <Stack>
                 <Typography variant="body1" sx={{ color: "text.secondary" }}>
-                  Must be at least 8 charakters
+                  Must be at least 8 characters
                 </Typography>
               </Stack>
               <Button

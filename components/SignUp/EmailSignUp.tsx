@@ -72,7 +72,8 @@ export function EmailSignUp() {
   const SignupSchema = Yup.object().shape(validationSchemas[selectedTab])
 
   const handleSubmit = (values: FormValues) => {
-    const { email, password } = values
+    const { email, password, phone } = values
+
     console.log("values", values)
     if (selectedTab === 0) {
       createUserWithEmailAndPassword(auth, email, password)
@@ -88,7 +89,7 @@ export function EmailSignUp() {
           })
         })
     } else {
-      alert("Not implemented yet!")
+      alert("Phone number: " + phone)
     }
   }
 

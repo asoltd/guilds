@@ -50,7 +50,12 @@ export function EmailSignIn() {
       spacing={3}
       width="100%"
     >
-      <Image width="50" height="50" src={"/GuildsLogoGrey.svg"} />
+      <Image
+        width="50"
+        height="50"
+        src={"/GuildsLogo2.svg"}
+        alt="Guilds logo"
+      />
       <Typography fontWeight="600" variant="h4">
         Log in to your account
       </Typography>

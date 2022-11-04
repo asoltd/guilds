@@ -6,14 +6,14 @@ export function UnderMaintenance() {
   return (
     <Stack
       direction="row"
-      spacing={{ xs: 0, sm: 0, md: 0, lg: 10, xl: 10 }}
+      spacing={{ xs: 0, sm: 0, md: 7, lg: 10, xl: 10 }}
       sx={{
         alignItems: "center",
         justifyContent: "center",
         flexDirection: {
-          xs: "column",
-          sm: "column",
-          md: "column",
+          xs: "column-reverse",
+          sm: "column-reverse",
+          md: "row",
           lg: "row",
           xl: "row",
         },
@@ -48,6 +48,19 @@ export function UnderMaintenance() {
           <Button variant="contained">Search</Button>
         </Stack>
       </Stack>
+      <Box
+        sx={{
+          display: {
+            xs: "block",
+            sm: "block",
+            md: "block",
+            lg: "none",
+            xl: "none",
+          },
+        }}
+      >
+        <Image src="/404.svg" width={400} height={180} alt="404 error" />
+      </Box>
       <Box
         sx={{
           display: {

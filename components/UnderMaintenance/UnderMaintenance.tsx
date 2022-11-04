@@ -1,6 +1,6 @@
+import Image from "next/image"
 import { Button, Stack, TextField, Typography } from "@mui/material"
 import { Box } from "@mui/system"
-import Image from "next/image"
 
 export function UnderMaintenance() {
   return (
@@ -17,7 +17,6 @@ export function UnderMaintenance() {
           lg: "row",
           xl: "row",
         },
-        mt: 10,
       }}
     >
       <Stack spacing={3}>

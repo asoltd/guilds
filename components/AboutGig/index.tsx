@@ -1,12 +1,12 @@
-import { Typography } from "@mui/material"
 import { Stack } from "@mui/system"
+import { GigDescription } from "./GigDescription"
+import { GigHeading } from "./GigHeading"
 
 export function AboutGig() {
   return (
-    <Stack>
-      <Stack>
-        <Typography variant="body1">Level 1 Quest</Typography>
-      </Stack>
+    <Stack spacing={7}>
+      <GigHeading />
+      <GigDescription />
     </Stack>
   )
 }

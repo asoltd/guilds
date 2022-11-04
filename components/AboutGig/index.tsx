@@ -1,12 +1,61 @@
+import { Typography } from "@mui/material"
 import { Stack } from "@mui/system"
-import { GigDescription } from "./GigDescription"
-import { GigHeading } from "./GigHeading"
 
-export function AboutGig() {
+export function AboutGig({ quest }) {
   return (
-    <Stack spacing={7}>
-      <GigHeading />
-      <GigDescription />
+    <Stack
+      spacing={4}
+      sx={{
+        alignItems: "start",
+      }}
+      mt={10}
+    >
+      <Stack
+        spacing={3}
+        sx={{
+          p: { xs: "1rem", sm: "1rem", md: "1rem", lg: "0rem", xl: "0rem" },
+        }}
+      >
+        <Stack spacing={1}>
+          <Typography
+            variant="body1"
+            sx={{ color: "primary.main", fontWeight: "600" }}
+          >
+            Level {quest.level} Quest
+          </Typography>
+          <Typography
+            variant="h3"
+            sx={{
+              maxWidth: {
+                xs: "25rem",
+                sm: "35rem",
+                md: "100%",
+                lg: "100%",
+                xl: "100%",
+              },
+            }}
+          >
+            About {quest?.title}
+          </Typography>
+        </Stack>
+        <Typography variant="body1" sx={{ color: "text.secondary" }}>
+          {quest.summary}.
+        </Typography>
+      </Stack>
+      <Typography
+        variant="body1"
+        sx={{
+          columnCount: { xs: 1, sm: 1, md: 2, lg: 2, xl: 2 },
+          lineHeight: "1.8rem",
+          columnGap: 4,
+          columnWidth: "50%",
+          height: "900px",
+          color: "text.secondary",
+          p: { xs: "1rem", sm: "1rem", md: "1rem", lg: "0rem", xl: "0rem" },
+        }}
+      >
+        {quest?.description}
+      </Typography>
     </Stack>
   )
 }

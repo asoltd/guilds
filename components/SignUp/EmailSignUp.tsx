@@ -24,6 +24,7 @@ import { Form, Formik, FormikProps } from "formik"
 import { SyntheticEvent, useState } from "react"
 import { Visibility, VisibilityOff } from "@mui/icons-material"
 import { validationSchemas } from "./ValidationSchemas"
+import { useRouter } from "next/router"
 
 interface FormValues {
   email: string
@@ -78,6 +79,7 @@ export function EmailSignUp() {
   const [showPassword, setShowPassword] = useState(false)
   const [selectedTab, setSelectedTab] = useState(0)
   const auth = getAuth()
+  const router = useRouter()
 
   const SignupSchema = Yup.object().shape(validationSchemas[selectedTab])
 
@@ -117,12 +119,14 @@ export function EmailSignUp() {
     const result = await confirmationResult.confirm(code)
   }
 
-  const handleSubmit = (values: FormValues) => {
+  const handleSubmit = async (values: FormValues) => {
     const { email, password, phone } = values
     if (selectedTab === 0) {
-      signInWithEmail(email, password)
+      await signInWithEmail(email, password)
+      router.push("/")
     } else {
-      onSignInSubmit(phone)
+      await onSignInSubmit(phone)
+      router.push("/")
     }
   }
 
@@ -166,11 +170,11 @@ export function EmailSignUp() {
       <Formik
         initialValues={{
           email: "",
-          phone: "+48609571311",
-          password: "Piotrek!23",
-          confirmPassword: "Piotrek!23",
+          phone: "",
+          password: "",
+          confirmPassword: "",
           remember: false,
-          name: "Jakub Frąckowiak",
+          name: "",
         }}
         validationSchema={SignupSchema}
         onSubmit={(values) => handleSubmit(values)}

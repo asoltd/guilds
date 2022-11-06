@@ -1,4 +1,5 @@
 import Image from "next/image"
+import Link from "next/link"
 import {
   Button,
   Checkbox,
@@ -13,7 +14,6 @@ import {
   signInWithEmailAndPassword,
 } from "firebase/auth"
 import { Form, Formik, FormikProps } from "formik"
-import Link from "next/link"
 
 interface FormValues {
   email: string

@@ -2,7 +2,7 @@ import { Container, Box } from "@mui/material"
 
 import { Header } from "../components/Header"
 import { Footer } from "../components/Footer"
-import { SignIn } from "components/SignIn"
+import { SignUp } from "components/SignUp"
 
 export default function Login() {
   return (
@@ -15,7 +15,7 @@ export default function Login() {
     >
       <Header />
       <Container>
-        <SignIn />
+        <SignUp />
       </Container>
       <Footer />
     </Box>

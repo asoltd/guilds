@@ -1,26 +1,20 @@
-import { Typography, Link } from "@mui/material"
-import { Stack } from "@mui/system"
-import {
-  FacebookSignIn,
-  GithubSignIn,
-  TwitterSignIn,
-} from "components/SocialSignIn"
-import { GoogleSignIn } from "components/SocialSignIn/GoogleSignIn"
+import { Stack, Typography, Link } from "@mui/material"
+import { SocialSignIn } from "components/SocialSignIn"
 import { EmailSignIn } from "./EmailSignIn"
+import { providers } from "../SocialSignIn/providers"
 
 export function SignIn() {
   return (
     <Stack m="auto" width="25rem" spacing="1rem">
       <EmailSignIn />
       <Stack direction="row">
-        <GoogleSignIn />
-        <TwitterSignIn />
-        <GithubSignIn />
-        <FacebookSignIn />
+        {providers.map((provider) => (
+          <SocialSignIn key={provider.image} {...provider} />
+        ))}
       </Stack>
       <Stack direction="row" justifyContent="center" spacing={1} mt="2rem">
         <Typography variant="body1">Don't have an account?</Typography>
-        <Link href="#">Sign up</Link>
+        <Link href="/signup">Sign up</Link>
       </Stack>
     </Stack>
   )

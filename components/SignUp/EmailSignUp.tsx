@@ -13,8 +13,12 @@ import {
 } from "@mui/material"
 import { Stack } from "@mui/system"
 import {
+  ConfirmationResult,
   createUserWithEmailAndPassword,
+  getAuth,
+  RecaptchaVerifier,
   sendEmailVerification,
+  signInWithPhoneNumber,
 } from "firebase/auth"
 import { Form, Formik, FormikProps } from "formik"
 import { SyntheticEvent, useState } from "react"
@@ -35,6 +39,13 @@ interface TabPanelProps {
   children?: React.ReactNode
   index: number
   value: number
+}
+
+declare global {
+  interface Window {
+    recaptchaVerifier: RecaptchaVerifier
+    confirmationResult: ConfirmationResult
+  }
 }
 
 function TabPanel(props: TabPanelProps) {
@@ -67,29 +78,64 @@ function a11yProps(index: number) {
 export function EmailSignUp() {
   const [showPassword, setShowPassword] = useState(false)
   const [selectedTab, setSelectedTab] = useState(0)
-  const auth = useAuth()
+  const auth = getAuth()
 
   const SignupSchema = Yup.object().shape(validationSchemas[selectedTab])
 
+  const signInWithEmail = (email, password) => {
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        alert("Logged in as:" + userCredential.user.email)
+      })
+      .catch((error) => {
+        alert("Error:" + error.message)
+      })
+      .then(() => {
+        sendEmailVerification(auth.currentUser).then(() => {
+          alert("Email verification sent!")
+        })
+      })
+  }
+
+  const setUpRecaptcha = (phone) => {
+    console.log("phone", phone)
+    window.recaptchaVerifier = new RecaptchaVerifier(
+      "sign-in-button",
+      {
+        size: "invisible",
+        callback: (response) => {
+          console.log("response", response)
+          onSignInSubmit(phone)
+        },
+      },
+      auth
+    )
+  }
+
+  const onSignInSubmit = (phone) => {
+    setUpRecaptcha(phone)
+    const phoneNumber = phone
+    const appVerifier = window.recaptchaVerifier
+    console.log("appVerifier", appVerifier)
+
+    signInWithPhoneNumber(auth, phoneNumber, appVerifier).then(
+      (confirmationResult) => {
+        window.confirmationResult = confirmationResult
+        const code = window.prompt("Enter OTP")
+        confirmationResult.confirm(code).then((result) => {
+          const user = result.user
+        })
+      }
+    )
+  }
+
   const handleSubmit = (values: FormValues) => {
     const { email, password, phone } = values
-
     console.log("values", values)
     if (selectedTab === 0) {
-      createUserWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-          alert("Logged in as:" + userCredential.user.email)
-        })
-        .catch((error) => {
-          alert("Error:" + error.message)
-        })
-        .then(() => {
-          sendEmailVerification(auth.currentUser).then(() => {
-            alert("Email verification sent!")
-          })
-        })
+      signInWithEmail(email, password)
     } else {
-      alert("Phone number: " + phone)
+      onSignInSubmit("+48609571311")
     }
   }
 
@@ -254,6 +300,7 @@ export function EmailSignUp() {
                 </Typography>
               </Stack>
               <Button
+                className="sign-in-button"
                 variant="contained"
                 type="submit"
                 sx={{

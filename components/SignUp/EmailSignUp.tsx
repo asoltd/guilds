@@ -23,7 +23,6 @@ import {
 import { Form, Formik, FormikProps } from "formik"
 import { SyntheticEvent, useState } from "react"
 import { Visibility, VisibilityOff } from "@mui/icons-material"
-import { useAuth } from "reactfire"
 import { validationSchemas } from "./ValidationSchemas"
 
 interface FormValues {
@@ -82,7 +81,7 @@ export function EmailSignUp() {
 
   const SignupSchema = Yup.object().shape(validationSchemas[selectedTab])
 
-  const signInWithEmail = (email, password) => {
+  const signInWithEmail = (email: string, password: string) => {
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         alert("Logged in as:" + userCredential.user.email)
@@ -98,11 +97,10 @@ export function EmailSignUp() {
   }
 
   const setUpRecaptcha = (phone) => {
-    console.log("phone", phone)
     window.recaptchaVerifier = new RecaptchaVerifier(
-      "sign-in-button",
+      "recaptcha-container",
       {
-        size: "invisible",
+        size: "large",
         callback: (response) => {
           console.log("response", response)
           onSignInSubmit(phone)
@@ -121,7 +119,7 @@ export function EmailSignUp() {
     signInWithPhoneNumber(auth, phoneNumber, appVerifier).then(
       (confirmationResult) => {
         window.confirmationResult = confirmationResult
-        const code = window.prompt("Enter OTP")
+        const code = window.prompt("Enter OTP", "")
         confirmationResult.confirm(code).then((result) => {
           const user = result.user
         })
@@ -135,7 +133,7 @@ export function EmailSignUp() {
     if (selectedTab === 0) {
       signInWithEmail(email, password)
     } else {
-      onSignInSubmit("+48609571311")
+      onSignInSubmit(phone)
     }
   }
 
@@ -178,12 +176,12 @@ export function EmailSignUp() {
       </Box>
       <Formik
         initialValues={{
-          email: "",
-          phone: "",
-          password: "",
-          confirmPassword: "",
+          email: "piotr.jp.ostrowski@gmail.com",
+          phone: "+48602490248",
+          password: "Piotrek!23",
+          confirmPassword: "Piotrek!23",
           remember: false,
-          name: "",
+          name: "Piotr Ostrowski",
         }}
         validationSchema={SignupSchema}
         onSubmit={(values) => handleSubmit(values)}
@@ -314,6 +312,7 @@ export function EmailSignUp() {
           </Form>
         )}
       </Formik>
+      <div id="recaptcha-container" />
     </Stack>
   )
 }

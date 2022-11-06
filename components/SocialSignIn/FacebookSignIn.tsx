@@ -35,7 +35,7 @@ export function FacebookSignIn() {
     <Stack m="auto">
       <GoogleButton
         variant="contained"
-        sx={{ p: "0.5rem", bgcolor: " #4267B2 " }}
+        sx={{ p: "0.5rem", bgcolor: " #4267B2" }}
         onClick={() => SignInWithFacebook(facebookProvider)}
       >
         <Stack direction="row" spacing={2}>

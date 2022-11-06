@@ -170,11 +170,11 @@ export function EmailSignUp() {
       <Formik
         initialValues={{
           email: "",
-          phone: "",
-          password: "",
-          confirmPassword: "",
+          phone: "+48696969696",
+          password: "Qweerty123!",
+          confirmPassword: "Qweerty123!",
           remember: false,
-          name: "",
+          name: "Jakub Frąckowiak",
         }}
         validationSchema={SignupSchema}
         onSubmit={(values) => handleSubmit(values)}

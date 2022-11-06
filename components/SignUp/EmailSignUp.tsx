@@ -81,28 +81,21 @@ export function EmailSignUp() {
 
   const SignupSchema = Yup.object().shape(validationSchemas[selectedTab])
 
-  const signInWithEmail = (email: string, password: string) => {
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        alert("Logged in as:" + userCredential.user.email)
-      })
-      .catch((error) => {
-        alert("Error:" + error.message)
-      })
-      .then(() => {
-        sendEmailVerification(auth.currentUser).then(() => {
-          alert("Email verification sent!")
-        })
-      })
+  const signInWithEmail = async (email: string, password: string) => {
+    const userCredential = await createUserWithEmailAndPassword(
+      auth,
+      email,
+      password
+    )
+    await sendEmailVerification(userCredential.user)
   }
 
-  const setUpRecaptcha = (phone) => {
+  const setUpRecaptcha = (phone: string) => {
     window.recaptchaVerifier = new RecaptchaVerifier(
       "recaptcha-container",
       {
         size: "large",
-        callback: (response) => {
-          console.log("response", response)
+        callback: (response: string) => {
           onSignInSubmit(phone)
         },
       },
@@ -110,26 +103,22 @@ export function EmailSignUp() {
     )
   }
 
-  const onSignInSubmit = (phone) => {
+  const onSignInSubmit = async (phone: string) => {
     setUpRecaptcha(phone)
     const phoneNumber = phone
     const appVerifier = window.recaptchaVerifier
-    console.log("appVerifier", appVerifier)
-
-    signInWithPhoneNumber(auth, phoneNumber, appVerifier).then(
-      (confirmationResult) => {
-        window.confirmationResult = confirmationResult
-        const code = window.prompt("Enter OTP", "")
-        confirmationResult.confirm(code).then((result) => {
-          const user = result.user
-        })
-      }
+    const confirmationResult = await signInWithPhoneNumber(
+      auth,
+      phoneNumber,
+      appVerifier
     )
+    window.confirmationResult = confirmationResult
+    const code = window.prompt("Enter OTP", "")
+    const result = await confirmationResult.confirm(code)
   }
 
   const handleSubmit = (values: FormValues) => {
     const { email, password, phone } = values
-    console.log("values", values)
     if (selectedTab === 0) {
       signInWithEmail(email, password)
     } else {
@@ -176,12 +165,12 @@ export function EmailSignUp() {
       </Box>
       <Formik
         initialValues={{
-          email: "piotr.jp.ostrowski@gmail.com",
-          phone: "+48602490248",
+          email: "",
+          phone: "+48609571311",
           password: "Piotrek!23",
           confirmPassword: "Piotrek!23",
           remember: false,
-          name: "Piotr Ostrowski",
+          name: "Jakub Frąckowiak",
         }}
         validationSchema={SignupSchema}
         onSubmit={(values) => handleSubmit(values)}

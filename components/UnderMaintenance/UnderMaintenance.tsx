@@ -11,73 +11,75 @@ import {
 
 export function UnderMaintenance() {
   return (
-    <Stack
-      p="5rem"
-      direction="row"
-      alignItems="center"
-      justifyContent="center"
-      spacing={{ xs: 0, sm: 0, md: 7, lg: 10, xl: 10 }}
-      flexDirection={{
-        xs: "column-reverse",
-        sm: "column-reverse",
-        md: "row",
-        lg: "row",
-        xl: "row",
-      }}
-    >
-      <Stack spacing={3}>
-        <Stack spacing={1}>
-          <Typography variant="body1" color="primary.main">
-            404 error
+    <Box py="5rem">
+      <Stack
+        p="5rem"
+        direction="row"
+        alignItems="center"
+        justifyContent="center"
+        spacing={{ xs: 0, sm: 0, md: 7, lg: 10, xl: 10 }}
+        flexDirection={{
+          xs: "column-reverse",
+          sm: "column-reverse",
+          md: "row",
+          lg: "row",
+          xl: "row",
+        }}
+      >
+        <Stack spacing={3}>
+          <Stack spacing={1}>
+            <Typography variant="body1" color="primary.main">
+              404 error
+            </Typography>
+            <Typography variant="h3">Under maintenance</Typography>
+          </Stack>
+          <Typography variant="body1" color="text.secondary" maxWidth="25rem">
+            Sorry, the page you are looking for doesn't exist or has been moved.
+            Try searching our site:
           </Typography>
-          <Typography variant="h3">Under maintenance</Typography>
+          <Stack direction="row" spacing={2}>
+            <TextField
+              label="Search our site"
+              type="text"
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <SearchIcon />
+                  </InputAdornment>
+                ),
+              }}
+              sx={{
+                "& .MuiOutlinedInput-root": {
+                  width: "17rem",
+                },
+              }}
+            />
+            <Button variant="contained">Search</Button>
+          </Stack>
         </Stack>
-        <Typography variant="body1" color="text.secondary" maxWidth="25rem">
-          Sorry, the page you are looking for doesn't exist or has been moved.
-          Try searching our site:
-        </Typography>
-        <Stack direction="row" spacing={2}>
-          <TextField
-            label="Search our site"
-            type="text"
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position="start">
-                  <SearchIcon />
-                </InputAdornment>
-              ),
-            }}
-            sx={{
-              "& .MuiOutlinedInput-root": {
-                width: "17rem",
-              },
-            }}
-          />
-          <Button variant="contained">Search</Button>
-        </Stack>
+        <Box
+          display={{
+            xs: "block",
+            sm: "block",
+            md: "block",
+            lg: "none",
+            xl: "none",
+          }}
+        >
+          <Image src="/404.svg" width={400} height={180} alt="404 error" />
+        </Box>
+        <Box
+          display={{
+            xs: "none",
+            sm: "none",
+            md: "none",
+            lg: "block",
+            xl: "block",
+          }}
+        >
+          <Image src="/404.svg" width={500} height={180} alt="404 error" />
+        </Box>
       </Stack>
-      <Box
-        display={{
-          xs: "block",
-          sm: "block",
-          md: "block",
-          lg: "none",
-          xl: "none",
-        }}
-      >
-        <Image src="/404.svg" width={400} height={180} alt="404 error" />
-      </Box>
-      <Box
-        display={{
-          xs: "none",
-          sm: "none",
-          md: "none",
-          lg: "block",
-          xl: "block",
-        }}
-      >
-        <Image src="/404.svg" width={500} height={180} alt="404 error" />
-      </Box>
-    </Stack>
+    </Box>
   )
 }

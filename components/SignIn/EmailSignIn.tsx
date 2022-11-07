@@ -6,8 +6,8 @@ import {
   FormControlLabel,
   TextField,
   Typography,
+  Stack,
 } from "@mui/material"
-import { Stack } from "@mui/system"
 import { useAuth } from "reactfire"
 import {
   sendEmailVerification,
@@ -32,7 +32,6 @@ export function EmailSignIn() {
   const auth = useAuth()
   const handleSubmit = (values: FormValues) => {
     const { email, password } = values
-    console.log("values", values)
 
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
@@ -59,7 +58,7 @@ export function EmailSignIn() {
       <Typography fontWeight="600" variant="h4">
         Log in to your account
       </Typography>
-      <Typography variant="body1" sx={{ color: "text.secondary" }}>
+      <Typography variant="body1" color="text.secondary">
         Welcome back! Please enter your details
       </Typography>
       <Formik
@@ -72,7 +71,7 @@ export function EmailSignIn() {
       >
         {({ handleSubmit, handleChange, values }: FormikProps<FormValues>) => (
           <Form onSubmit={handleSubmit}>
-            <Stack spacing={2} sx={{ width: "25rem" }}>
+            <Stack spacing={2} width="25rem">
               <Stack>
                 <Typography variant="body1">Email</Typography>
                 <TextField

@@ -1,5 +1,6 @@
 import Image from "next/image"
 import SearchIcon from "@mui/icons-material/Search"
+import { useTheme } from "@mui/material/styles"
 import {
   Button,
   InputAdornment,
@@ -7,24 +8,22 @@ import {
   TextField,
   Typography,
   Box,
+  useMediaQuery,
 } from "@mui/material"
 
 export function UnderMaintenance() {
+  const theme = useTheme()
+  const isMedium = useMediaQuery(theme.breakpoints.down("lg"))
+  const isSmall = useMediaQuery(theme.breakpoints.down("md"))
+
   return (
     <Box py="5rem">
       <Stack
         p="5rem"
-        direction="row"
+        direction={isSmall ? "column-reverse" : "row"}
         alignItems="center"
         justifyContent="center"
-        spacing={{ xs: 0, sm: 0, md: 7, lg: 10, xl: 10 }}
-        flexDirection={{
-          xs: "column-reverse",
-          sm: "column-reverse",
-          md: "row",
-          lg: "row",
-          xl: "row",
-        }}
+        spacing={{ md: 7, lg: 10, xl: 10 }}
       >
         <Stack spacing={3}>
           <Stack spacing={1}>
@@ -57,28 +56,12 @@ export function UnderMaintenance() {
             <Button variant="contained">Search</Button>
           </Stack>
         </Stack>
-        <Box
-          display={{
-            xs: "block",
-            sm: "block",
-            md: "block",
-            lg: "none",
-            xl: "none",
-          }}
-        >
-          <Image src="/404.svg" width={400} height={180} alt="404 error" />
-        </Box>
-        <Box
-          display={{
-            xs: "none",
-            sm: "none",
-            md: "none",
-            lg: "block",
-            xl: "block",
-          }}
-        >
-          <Image src="/404.svg" width={500} height={180} alt="404 error" />
-        </Box>
+        <Image
+          src="/404.svg"
+          width={isMedium ? 400 : 500}
+          height={180}
+          alt="404 error"
+        />
       </Stack>
     </Box>
   )

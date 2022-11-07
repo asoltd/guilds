@@ -1,10 +1,18 @@
 import Image from "next/image"
-import { Button, Stack, TextField, Typography } from "@mui/material"
+import SearchIcon from "@mui/icons-material/Search"
+import {
+  Button,
+  InputAdornment,
+  Stack,
+  TextField,
+  Typography,
+} from "@mui/material"
 import { Box } from "@mui/system"
 
 export function UnderMaintenance() {
   return (
     <Stack
+      p="5rem"
       direction="row"
       spacing={{ xs: 0, sm: 0, md: 7, lg: 10, xl: 10 }}
       sx={{
@@ -38,6 +46,13 @@ export function UnderMaintenance() {
           <TextField
             label="Search our site"
             type="text"
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <SearchIcon />
+                </InputAdornment>
+              ),
+            }}
             sx={{
               "& .MuiOutlinedInput-root": {
                 width: "17rem",

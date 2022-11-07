@@ -33,7 +33,7 @@ export function Header(): JSX.Element {
           </Box>
           <Box
             sx={{
-              flexGrow: { sm: 1, md: 0.5 },
+              flexGrow: { xs: 1, sm: 1, md: 0.5 },
               display: { md: "flex" },
               justifyContent: "center",
             }}
@@ -43,6 +43,7 @@ export function Header(): JSX.Element {
           <Box
             sx={{
               display: {
+                xs: "none",
                 sm: "none",
                 md: "flex",
               },

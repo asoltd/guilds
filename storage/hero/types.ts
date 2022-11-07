@@ -15,6 +15,7 @@ export interface Hero {
   quests?: Quest[] // only readable by signed in users
   portfolio?: URL[]
   experience?: Experience[]
+  rating?: number
 }
 
 export type Location = {

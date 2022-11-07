@@ -1,6 +1,7 @@
 import { URL, UUID } from "../common"
+import { Hero } from "../hero/types"
 
-export enum Role {
+export enum RoleTitle {
   Designer = "Designer",
   ProductDesigner = "Product Designer",
   SoftwareDevelopment = "Software Development",
@@ -20,9 +21,32 @@ export interface Team {
   title: string
   description: string
   highlight: string
-  roles: Role[]
   industry: Industry
   image?: URL
   timeEstimate: string
   createdAt: Date
+}
+
+export interface Role {
+  id: UUID
+  title: RoleTitle
+  description: string
+  status: string
+  createdAt: Date
+  thumbnail?: URL
+}
+
+export interface TeamMember extends Hero {
+  role: UUID
+}
+
+export interface Bid {
+  id: UUID
+  teamId: UUID
+  bidderId: UUID
+  amount: number
+  timeEstimate: string
+  createdAt: Date
+  updatedAt?: Date
+  status?: string
 }

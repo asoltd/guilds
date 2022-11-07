@@ -4,7 +4,7 @@ import { teamsSearchClient } from "typesense/insantsearch"
 import { InstantSearch } from "react-instantsearch-dom"
 import { RefinementList, Pagination, SearchBox } from "../SearchComponents"
 import { Button, Stack, Divider, Container } from "@mui/material"
-import { populateMembers, populateTeams } from "storage/team"
+import { populate } from "storage/team/populate"
 import { FindTeamBanner } from "./FindTeamBanner"
 
 export function Teams(): JSX.Element {
@@ -26,17 +26,8 @@ export function Teams(): JSX.Element {
                 <SearchBox />
                 <RefinementList attribute="roles" label="Role categories" />
                 <RefinementList attribute="industry" label="Industry" />
-                <Button
-                  variant="outlined"
-                  onClick={() => populateTeams(firestore)}
-                >
+                <Button variant="outlined" onClick={() => populate(firestore)}>
                   populate teams
-                </Button>
-                <Button
-                  variant="outlined"
-                  onClick={() => populateMembers(firestore)}
-                >
-                  populate memabers
                 </Button>
               </Stack>
               <TeamHits />

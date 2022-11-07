@@ -10,8 +10,8 @@ import {
   Tabs,
   TextField,
   Typography,
+  Stack,
 } from "@mui/material"
-import { Stack } from "@mui/system"
 import {
   ConfirmationResult,
   createUserWithEmailAndPassword,
@@ -52,7 +52,7 @@ function TabPanel(props: TabPanelProps) {
   const { children, value, index, ...other } = props
 
   return (
-    <div
+    <Box
       role="tabpanel"
       hidden={value !== index}
       id={`simple-tabpanel-${index}`}
@@ -64,7 +64,7 @@ function TabPanel(props: TabPanelProps) {
           <Typography>{children}</Typography>
         </Box>
       )}
-    </div>
+    </Box>
   )
 }
 
@@ -145,7 +145,7 @@ export function EmailSignUp() {
       <Typography fontWeight="600" variant="h4">
         Create an account
       </Typography>
-      <Typography variant="body1" sx={{ color: "text.secondary" }}>
+      <Typography variant="body1" color="text.secondary">
         Start your 30-days trial.
       </Typography>
       <Box width="100%">
@@ -153,18 +153,9 @@ export function EmailSignUp() {
           variant="fullWidth"
           value={selectedTab}
           onChange={handleTabsChange}
-          sx={{ border: "10px" }}
         >
-          <Tab
-            label="Email"
-            {...a11yProps(0)}
-            sx={{ textTransform: "none" }}
-          ></Tab>
-          <Tab
-            label="Phone"
-            {...a11yProps(1)}
-            sx={{ textTransform: "none" }}
-          ></Tab>
+          <Tab label="Email" {...a11yProps(0)} sx={{ textTransform: "none" }} />
+          <Tab label="Phone" {...a11yProps(1)} sx={{ textTransform: "none" }} />
         </Tabs>
       </Box>
       <Formik
@@ -224,7 +215,7 @@ export function EmailSignUp() {
                   <MuiPhoneNumber
                     required
                     variant="outlined"
-                    onChange={(e) => setFieldValue("phone", e)}
+                    onChange={(e: unknown) => setFieldValue("phone", e)}
                     value={values.phone}
                     type="phone"
                     name="phone"

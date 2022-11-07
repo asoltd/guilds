@@ -23,12 +23,14 @@ export function TeamMembers({ team }: TeamMemberProps) {
   const firestore = useFirestore()
   const membersRef = collection(firestore, `teams/${team.id}/members`)
   const { data: members } = useFirestoreCollectionData(membersRef)
+  const rolesRef = collection(firestore, `teams/${team.id}/roles`)
+  const { data: roles } = useFirestoreCollectionData(rolesRef)
 
   return (
     <Stack direction="row" spacing={1}>
-      {team.roles.map((role, idx) =>
+      {roles.map((role, idx) =>
         members && members[idx] ? (
-          <MemberIcon storagePath="teams/team.jpeg" />
+          <MemberIcon storagePath="teams/team.jpeg" key={idx} />
         ) : (
           <Box
             sx={{
@@ -37,6 +39,7 @@ export function TeamMembers({ team }: TeamMemberProps) {
               borderRadius: "50%",
               backgroundColor: (theme) => theme.palette.grey[200],
             }}
+            key={idx}
           />
         )
       )}

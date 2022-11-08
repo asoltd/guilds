@@ -14,9 +14,6 @@ export function AboutGig({ quest }) {
             maxWidth={{
               xs: "25rem",
               sm: "35rem",
-              md: "100%",
-              lg: "100%",
-              xl: "100%",
             }}
           >
             About {quest?.title}

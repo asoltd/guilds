@@ -1,4 +1,4 @@
-import { Stack, Typography, Link, Box } from "@mui/material"
+import { Stack, Typography, Link } from "@mui/material"
 import { SocialSignIn } from "components/SocialSignIn"
 import { EmailSignUp } from "./EmailSignUp"
 import { providers } from "../SocialSignIn/providers"

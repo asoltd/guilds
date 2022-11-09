@@ -29,7 +29,7 @@ export interface Team {
 
 export interface Role {
   id: UUID
-  title: RoleTitle
+  title: RoleTitle | string
   description: string
   status: string
   createdAt: Date

@@ -9,13 +9,15 @@ import { HeroAvatar } from "components/HeroAvatar"
 import { LatestQuest } from "components/LatestQuestsSlider/LatestQuest"
 import { SliderButtons } from "components/ReusableComponents/ReusableSlider/SliderButtons"
 import { SliderHeader } from "./SliderHeader"
+import { Role } from "components/RolesAvailableSlider/Role"
+import { Role as RoleType } from "storage/team"
 
-interface Item extends Hero, Team, Quest {}
+interface Item extends Hero, Team, Quest, RoleType {}
 
 interface ReusableSliderProps {
-  variant: "hero" | "team" | "quest"
+  variant: "hero" | "team" | "quest" | "role"
   status: "loading" | "success" | "error"
-  items: Hero[] | Team[] | Quest[]
+  items: Hero[] | Team[] | Quest[] | RoleType[]
 }
 
 export function ReusableSlider({
@@ -37,6 +39,8 @@ export function ReusableSlider({
         return <LatestTeam team={item} />
       case "quest":
         return <LatestQuest quest={item} />
+      case "role":
+        return <Role role={item} teamId={""} />
     }
   }
 

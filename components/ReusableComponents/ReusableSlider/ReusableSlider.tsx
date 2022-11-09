@@ -45,7 +45,11 @@ export function ReusableSlider({
       <Container>
         <Stack spacing={6}>
           <Stack spacing={6}>
-            <Stack direction="row" justifyContent="space-between">
+            <Stack
+              direction="row"
+              justifyContent="space-between"
+              alignItems="center"
+            >
               <SliderHeader variant={variant} />
               {!isMobile && <SliderButtons variant={variant} />}
             </Stack>

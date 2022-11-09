@@ -1,4 +1,3 @@
-import styled from "styled-components"
 import { useFirestore, useFirestoreCollectionData } from "reactfire"
 import { collection, limit, orderBy, query } from "firebase/firestore"
 import { Stack } from "@mui/material"

@@ -1,7 +1,7 @@
 import { Stack, Typography } from "@mui/material"
 
 interface Variant {
-  variant: "hero" | "quest" | "team"
+  variant: "hero" | "quest" | "team" | "role"
 }
 
 function HeroesSliderHeader() {
@@ -35,6 +35,21 @@ function QuestsSliderHeader() {
   )
 }
 
+function RolesSliderHeader() {
+  return (
+    <Stack direction="row" justifyContent="space-between" alignItems="center">
+      <Stack spacing={2}>
+        <Typography variant="h4" fontWeight={600}>
+          Roles available
+        </Typography>
+        <Typography variant="body1" color="text.secondary">
+          Current roles available within this team.
+        </Typography>
+      </Stack>
+    </Stack>
+  )
+}
+
 function TeamsSliderHeader() {
   return (
     <Stack direction="row" justifyContent="space-between" alignItems="center">
@@ -59,6 +74,8 @@ export function SliderHeader({ variant }: Variant) {
         return <QuestsSliderHeader />
       case "team":
         return <TeamsSliderHeader />
+      case "role":
+        return <RolesSliderHeader />
     }
   }
   return renderHeader()

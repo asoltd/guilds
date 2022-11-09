@@ -2,7 +2,7 @@ import Link from "next/link"
 import { Button, Stack, Typography } from "@mui/material"
 
 interface Variant {
-  variant: "hero" | "quest" | "team"
+  variant: "hero" | "quest" | "team" | "role"
 }
 
 function HeroesSliderButtons() {
@@ -118,6 +118,8 @@ export function SliderButtons({ variant }: Variant) {
         return <QuestsSliderButtons />
       case "team":
         return <TeamsSliderButtons />
+      case "role":
+        return null
     }
   }
   return renderButtons()

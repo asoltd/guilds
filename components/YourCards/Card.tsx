@@ -25,14 +25,30 @@ export function Card({ card }) {
         </Stack>
         <Stack direction="row" justifyContent="space-between" alignItems="end">
           <Stack spacing={1}>
-            <Stack direction="row" spacing={7}>
+            <Stack
+              direction="row"
+              justifyContent="space-between"
+              maxWidth="15rem"
+              spacing={2}
+              alignItems="center"
+              sx={{
+                wordSpacing: "0.2rem",
+              }}
+            >
               <Typography variant="body2" textTransform="uppercase">
                 {card.owner}
               </Typography>
               <Typography variant="body2">{card.date}</Typography>
             </Stack>
-            <Stack direction="row" spacing={7}>
-              <Typography variant="body1">{card.number}</Typography>
+            <Stack direction="row">
+              <Typography
+                variant="body1"
+                sx={{
+                  wordSpacing: "0.5rem",
+                }}
+              >
+                {card.number}
+              </Typography>
             </Stack>
           </Stack>
           <Image

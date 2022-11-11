@@ -1,4 +1,15 @@
-export const cards = {
+export interface Variant {
+  titleColor: string
+  dataColor: string
+  image: string
+  company: string
+}
+
+export interface Cards {
+  [variant: string]: Variant
+}
+
+export const cards: Cards = {
   transparent: {
     titleColor: "#FFFFFF",
     dataColor: "#FFFFFF",
@@ -36,26 +47,26 @@ export const cards = {
     company: "/mastercard-transparent-color.svg",
   },
   lightgreen: {
-    titleColor: (theme) => theme.palette.grey[900],
-    dataColor: (theme) => theme.palette.grey[900],
+    titleColor: "#344054",
+    dataColor: "#344054",
     image: "/cards/lightgreen.svg",
     company: "/mastercard-white-color.svg",
   },
   lightgreenLines: {
-    titleColor: (theme) => theme.palette.grey[900],
-    dataColor: (theme) => theme.palette.grey[900],
+    titleColor: "#344054",
+    dataColor: "#344054",
     image: "/cards/lightgreen-lines.svg",
     company: "/mastercard-white-color.svg",
   },
   lightgreenGradient: {
-    titleColor: (theme) => theme.palette.grey[900],
-    dataColor: (theme) => theme.palette.grey[900],
+    titleColor: "#344054",
+    dataColor: "#344054",
     image: "/cards/lightgreen-gradient.svg",
     company: "/mastercard-white-color.svg",
   },
   lightgreenGradientLines: {
-    titleColor: (theme) => theme.palette.grey[900],
-    dataColor: (theme) => theme.palette.grey[900],
+    titleColor: "#344054",
+    dataColor: "#344054",
     image: "/cards/lightgreen-gradient-lines.svg",
     company: "/mastercard-white-color.svg",
   },
@@ -72,26 +83,26 @@ export const cards = {
     company: "/mastercard-transparent-color.svg",
   },
   grayLight: {
-    titleColor: (theme) => theme.palette.grey[900],
-    dataColor: (theme) => theme.palette.grey[900],
+    titleColor: "#344054",
+    dataColor: "#344054",
     image: "/cards/gray-light.svg",
     company: "/mastercard-white-color.svg",
   },
   grayLightLines: {
-    titleColor: (theme) => theme.palette.grey[900],
-    dataColor: (theme) => theme.palette.grey[900],
+    titleColor: "#344054",
+    dataColor: "#344054",
     image: "/cards/gray-light-lines.svg",
     company: "/mastercard-white-color.svg",
   },
   grayLightGradient: {
-    titleColor: (theme) => theme.palette.grey[900],
-    dataColor: (theme) => theme.palette.grey[900],
+    titleColor: "#344054",
+    dataColor: "#344054",
     image: "/cards/gray-light-gradient.svg",
     company: "/mastercard-white-color.svg",
   },
   grayLightGradientLines: {
-    titleColor: (theme) => theme.palette.grey[900],
-    dataColor: (theme) => theme.palette.grey[900],
+    titleColor: "#344054",
+    dataColor: "#344054",
     image: "/cards/gray-light-gradient-lines.svg",
     company: "/mastercard-white-color.svg",
   },
@@ -120,13 +131,13 @@ export const cards = {
     company: "/mastercard-transparent-white.svg",
   },
   grayStrip: {
-    titleColor: (theme) => theme.palette.grey[900],
+    titleColor: "#344054",
     dataColor: "#FFFFFF",
     image: "/cards/gray-strip.svg",
     company: "/mastercard-transparent-white.svg",
   },
   grayStripLines: {
-    titleColor: (theme) => theme.palette.grey[900],
+    titleColor: "#344054",
     dataColor: "#FFFFFF",
     image: "/cards/gray-strip-lines.svg",
     company: "/mastercard-transparent-white.svg",
@@ -144,13 +155,13 @@ export const cards = {
     company: "/mastercard-transparent-white.svg",
   },
   salmonStrip: {
-    titleColor: (theme) => theme.palette.grey[900],
+    titleColor: "#344054",
     dataColor: "#FFFFFF",
     image: "/cards/salmon-strip.svg",
     company: "/mastercard-transparent-white.svg",
   },
   salmonStripLines: {
-    titleColor: (theme) => theme.palette.grey[900],
+    titleColor: "#344054",
     dataColor: "#FFFFFF",
     image: "/cards/salmon-strip-lines.svg",
     company: "/mastercard-transparent-white.svg",

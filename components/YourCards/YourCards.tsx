@@ -12,10 +12,10 @@ import { useTheme } from "@mui/material/styles"
 import { cards } from "cards"
 
 const card = {
-  title: "102 metry",
-  owner: "Adam Malysz",
-  date: "06/24",
-  number: "1234 1234 1234 1234",
+  title: "Kremowka",
+  owner: "Papiez Polak",
+  date: "21/37",
+  number: "2137 2137 2137 2137",
 }
 
 export function YourCards() {
@@ -46,8 +46,8 @@ export function YourCards() {
           alignItems={isMobile ? "center" : "flex-start"}
           spacing={2}
         >
-          <Card card={card} variant={cards.gradientStripVertical} />
-          <Card card={card} variant={cards.greenLines} />
+          <Card card={card} variant={cards.salmonStripLines} />
+          <Card card={card} variant={cards.gradientStripVerticalLines} />
         </Stack>
       </Stack>
       <Divider />

@@ -1,7 +1,20 @@
 import Image from "next/image"
 import { Stack, Typography } from "@mui/material"
+import { Variant } from "cards"
 
-export function Card({ card, variant }) {
+interface Card {
+  title: string
+  owner: string
+  date: string
+  number: string
+}
+
+interface CardProps {
+  card: Card
+  variant: Variant
+}
+
+export function Card({ card, variant }: CardProps) {
   return (
     <Stack
       position="relative"

@@ -1,7 +1,6 @@
 import { Header } from "../components/Header"
 import { Footer } from "../components/Footer"
 import { Container, Box } from "@mui/material"
-import { YourCards } from "components/YourCards/YourCards"
 
 export default function Home() {
   return (
@@ -13,9 +12,7 @@ export default function Home() {
       }}
     >
       <Header />
-      <Container>
-        <YourCards />
-      </Container>
+      <Container></Container>
       <Footer />
     </Box>
   )

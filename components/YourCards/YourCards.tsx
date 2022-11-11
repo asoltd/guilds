@@ -9,21 +9,14 @@ import {
 } from "@mui/material"
 import { Card } from "components/YourCards/Card"
 import { useTheme } from "@mui/material/styles"
+import { cards } from "cards"
 
-const card = [
-  {
-    title: "Nic nie dalo",
-    owner: "Mariusz Pudzianowski",
-    date: "04/25",
-    number: "1234 1234 1234 1234",
-  },
-  {
-    title: "102 metry",
-    owner: "Adam Malysz",
-    date: "06/24",
-    number: "1234 1234 1234 1234",
-  },
-]
+const card = {
+  title: "102 metry",
+  owner: "Adam Malysz",
+  date: "06/24",
+  number: "1234 1234 1234 1234",
+}
 
 export function YourCards() {
   const theme = useTheme()
@@ -53,9 +46,8 @@ export function YourCards() {
           alignItems={isMobile ? "center" : "flex-start"}
           spacing={2}
         >
-          {card?.map((card, idx) => (
-            <Card card={card} />
-          ))}
+          <Card card={card} variant={cards.gradientStripVertical} />
+          <Card card={card} variant={cards.greenLines} />
         </Stack>
       </Stack>
       <Divider />

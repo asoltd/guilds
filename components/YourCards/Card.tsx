@@ -43,8 +43,9 @@ export function Card({ card }) {
             <Stack direction="row">
               <Typography
                 variant="body1"
+                fontWeight={600}
                 sx={{
-                  wordSpacing: "0.5rem",
+                  wordSpacing: "0.4rem",
                 }}
               >
                 {card.number}

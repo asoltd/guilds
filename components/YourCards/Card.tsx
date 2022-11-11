@@ -1,15 +1,16 @@
 import Image from "next/image"
 import { Stack, Typography } from "@mui/material"
 
-export function Card({ card }) {
+export function Card({ card, variant }) {
   return (
-    <Stack position="relative" width={302} height={182}>
-      <Image
-        src="/credit-card-green-lines.svg"
-        alt="Credit Card"
-        width={302}
-        height={182}
-      />
+    <Stack
+      position="relative"
+      width={316}
+      height={190}
+      borderRadius="20px"
+      overflow="hidden"
+    >
+      <Image src={variant.image} alt="Credit Card" width={316} height={190} />
       <Stack
         position="absolute"
         p="1rem"
@@ -18,13 +19,13 @@ export function Card({ card }) {
         justifyContent="space-between"
       >
         <Stack direction="row" justifyContent="space-between">
-          <Typography variant="h6" fontWeight={600}>
+          <Typography variant="h6" fontWeight={600} color={variant.titleColor}>
             {card.title}
           </Typography>
           <Image src="/vector.svg" alt="Vector" width={22} height={27} />
         </Stack>
         <Stack direction="row" justifyContent="space-between" alignItems="end">
-          <Stack spacing={1}>
+          <Stack spacing={1} color={variant.dataColor}>
             <Stack
               direction="row"
               justifyContent="space-between"
@@ -53,7 +54,7 @@ export function Card({ card }) {
             </Stack>
           </Stack>
           <Image
-            src="/mastercard-logo.svg"
+            src={variant.company}
             alt="Mastercard"
             width={44}
             height={31}

@@ -1,14 +1,12 @@
-import { Box, Stack, TextField } from "@mui/material"
-import { ReactEventHandler, useEffect, useRef, useState } from "react"
-import { useUser } from "reactfire"
+import { Stack, TextField } from "@mui/material"
+import { useEffect, useState } from "react"
 import {
   useChannelActionContext,
-  useMessageContext,
   useMessageInputContext,
 } from "stream-chat-react"
 import TextIcons from "./TextIcons"
 
-export function CustomMessageInput(props) {
+export function CustomMessageInput() {
   const [fontStyle, setFontStyle] = useState({
     fontSize: 14,
   })
@@ -26,14 +24,17 @@ export function CustomMessageInput(props) {
     if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault()
       if (text) {
-        sendMessage({ text: text, attachments: [fontStyle] })
+        sendMessage({ text })
       }
       setText("")
+    }
+    if (e.key === "Enter" && e.shiftKey) {
+      setText(text + "\n")
     }
   }
 
   return (
-    <Stack px="2rem" py="1.5rem" bgcolor="background.default" spacing={1}>
+    <Stack px="2rem" py="1rem" bgcolor="background.default" spacing={1}>
       <Stack direction="row" justifyContent="flex-end">
         <TextIcons
           fontStyle={fontStyle}
@@ -54,11 +55,13 @@ export function CustomMessageInput(props) {
             borderColor: (theme) => theme.palette.grey[300],
           },
           "& .MuiOutlinedInput-input": {
-            ...fontStyle,
+            height: "4rem",
           },
         }}
         value={text}
-        onChange={(e) => setText(e.target.value)}
+        onChange={(e) => {
+          setText(e.target.value)
+        }}
       />
     </Stack>
   )

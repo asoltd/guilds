@@ -8,7 +8,6 @@ import {
   Thread,
   ChannelList,
   LoadingIndicator,
-  VirtualizedMessageList,
   MessageList,
 } from "stream-chat-react"
 import "stream-chat-react/dist/css/index.css"
@@ -22,7 +21,6 @@ import { CustomChannelHeader } from "./ChannelHeader"
 import { CustomMessageInput } from "./MessageInput"
 import { CustomMessage } from "./Message"
 import { CustomDateSeparator } from "./DateSeparator"
-import { CustomMessageAvatar } from "./MessageAvatar"
 
 export function Messaging({ variant }) {
   const { status, data: currentUser } = useUser()

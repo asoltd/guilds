@@ -10,9 +10,6 @@ export default function TextIcons({ fontStyle, setFontStyle, text, setText }) {
         width: 14,
         height: 14,
       },
-      onClick: () => {
-        setText(text + "**")
-      },
     },
     {
       image: "/messageIcons/italic.svg",
@@ -20,9 +17,6 @@ export default function TextIcons({ fontStyle, setFontStyle, text, setText }) {
       size: {
         width: 14,
         height: 14,
-      },
-      onClick: () => {
-        setText(text + "*")
       },
     },
     {
@@ -32,8 +26,6 @@ export default function TextIcons({ fontStyle, setFontStyle, text, setText }) {
         width: 15,
         height: 15,
       },
-      onClick: () =>
-        setFontStyle({ ...fontStyle, fontSize: fontStyle.fontSize + 2 }),
     },
     {
       image: "/messageIcons/font-smaller.svg",
@@ -42,8 +34,6 @@ export default function TextIcons({ fontStyle, setFontStyle, text, setText }) {
         width: 12,
         height: 12,
       },
-      onClick: () =>
-        setFontStyle({ ...fontStyle, fontSize: fontStyle.fontSize - 2 }),
     },
     {
       image: "/messageIcons/quote.svg",

@@ -12,10 +12,10 @@ import { useTheme } from "@mui/material/styles"
 import { cards } from "cards"
 
 const card = {
-  title: "Kremowka",
-  owner: "Papiez Polak",
-  date: "21/37",
-  number: "2137 2137 2137 2137",
+  title: "My card",
+  owner: "Example User",
+  date: "06/24",
+  number: "1234 1234 1234 1234",
 }
 
 export function YourCards() {

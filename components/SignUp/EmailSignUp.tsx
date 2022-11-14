@@ -121,11 +121,11 @@ export function EmailSignUp() {
 
   const handleSubmit = async (values: FormValues) => {
     const { email, password, phone } = values
-    if (selectedTab === 0) {
-      await signInWithEmail(email, password)
+    if (selectedTab === 1) {
+      await onSignInSubmit(phone)
       router.push("/")
     } else {
-      await onSignInSubmit(phone)
+      await signInWithEmail(email, password)
       router.push("/")
     }
   }
@@ -193,22 +193,20 @@ export function EmailSignUp() {
                   <Typography color="#ff0000">{errors.name}</Typography>
                 ) : null}
               </Stack>
-              <TabPanel value={selectedTab} index={0}>
-                <Stack>
-                  <Typography variant="body1">Email*</Typography>
-                  <TextField
-                    onChange={handleChange}
-                    value={values.email}
-                    size="small"
-                    type="email"
-                    name="email"
-                    placeholder="Email"
-                  />
-                  {errors.email && touched.email ? (
-                    <Typography color="#ff0000">{errors.email}</Typography>
-                  ) : null}
-                </Stack>
-              </TabPanel>
+              <Stack>
+                <Typography variant="body1">Email*</Typography>
+                <TextField
+                  onChange={handleChange}
+                  value={values.email}
+                  size="small"
+                  type="email"
+                  name="email"
+                  placeholder="Email"
+                />
+                {errors.email && touched.email ? (
+                  <Typography color="#ff0000">{errors.email}</Typography>
+                ) : null}
+              </Stack>
               <TabPanel value={selectedTab} index={1}>
                 <Stack>
                   <Typography variant="body1">Phone*</Typography>

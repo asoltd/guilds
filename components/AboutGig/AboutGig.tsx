@@ -1,13 +1,17 @@
-import { Typography } from "@mui/material"
-import { Stack } from "@mui/system"
+import { Typography, Stack } from "@mui/material"
+import { Quest } from "storage/quest"
 
-export function AboutGig({ quest }) {
+interface QuestProps {
+  quest: Quest
+}
+
+export function AboutGig({ quest }: QuestProps) {
   return (
     <Stack spacing={4} alignItems="start">
       <Stack spacing={3} p={{ xs: "1rem", sm: "1rem", md: "1rem" }}>
         <Stack spacing={1}>
           <Typography variant="body1" color=" primary.main" fontWeight="600">
-            Level {quest?.level} Quest
+            Level {quest.level} Quest
           </Typography>
           <Typography
             variant="h3"
@@ -16,11 +20,11 @@ export function AboutGig({ quest }) {
               sm: "35rem",
             }}
           >
-            About {quest?.title}
+            About {quest.title}
           </Typography>
         </Stack>
         <Typography variant="body1" color="text.secondary">
-          {quest?.summary}
+          {quest.summary}
         </Typography>
       </Stack>
       <Typography
@@ -32,9 +36,10 @@ export function AboutGig({ quest }) {
           columnCount: { xs: 1, sm: 1, md: 2, lg: 2, xl: 2 },
           columnGap: 4,
           columnWidth: "50%",
+          textAlign: "justify",
         }}
       >
-        {quest?.description}
+        {quest.description}
       </Typography>
     </Stack>
   )

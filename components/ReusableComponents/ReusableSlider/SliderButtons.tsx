@@ -20,7 +20,7 @@ function HeroesSliderButtons() {
             height: "3rem",
             borderRadius: "0.5rem",
             borderColor: (theme) => theme.palette.grey[300],
-            width: "100%",
+            width: "11rem",
           }}
         >
           <Typography
@@ -38,9 +38,10 @@ function HeroesSliderButtons() {
         <Button
           variant="contained"
           sx={{
+            border: "1px solid black",
             height: "3rem",
             borderRadius: "0.5rem",
-            width: "100%",
+            width: "11rem",
           }}
         >
           <Typography

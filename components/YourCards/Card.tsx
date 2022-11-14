@@ -1,6 +1,6 @@
 import Image from "next/image"
 import { Stack, Typography } from "@mui/material"
-import { Variant } from "cards"
+import { CardVariant } from "cards"
 
 interface Card {
   title: string
@@ -11,7 +11,7 @@ interface Card {
 
 interface CardProps {
   card: Card
-  variant: Variant
+  variant: CardVariant
 }
 
 export function Card({ card, variant }: CardProps) {

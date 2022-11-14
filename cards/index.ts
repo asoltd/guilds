@@ -1,4 +1,4 @@
-export interface Variant {
+export interface CardVariant {
   titleColor: string
   dataColor: string
   image: string
@@ -6,7 +6,7 @@ export interface Variant {
 }
 
 export interface Cards {
-  [variant: string]: Variant
+  [variant: string]: CardVariant
 }
 
 export const cards: Cards = {

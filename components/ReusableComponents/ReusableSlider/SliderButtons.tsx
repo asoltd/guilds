@@ -111,17 +111,14 @@ function TeamsSliderButtons() {
 }
 
 export function SliderButtons({ variant }: Variant) {
-  const renderButtons = () => {
-    switch (variant) {
-      case "hero":
-        return <HeroesSliderButtons />
-      case "quest":
-        return <QuestsSliderButtons />
-      case "team":
-        return <TeamsSliderButtons />
-      case "role":
-        return null
-    }
+  switch (variant) {
+    case "hero":
+      return <HeroesSliderButtons />
+    case "quest":
+      return <QuestsSliderButtons />
+    case "team":
+      return <TeamsSliderButtons />
+    case "role":
+      return null
   }
-  return renderButtons()
 }

@@ -8,7 +8,7 @@ import { LatestTeam } from "components/LatestTeams/LatestTeam"
 import { HeroAvatar } from "components/HeroAvatar"
 import { LatestQuest } from "components/LatestQuests/LatestQuest"
 import { SliderButtons } from "components/ReusableComponents/ReusableSlider/SliderButtons"
-import { SliderHeader } from "./SliderHeader"
+import { SliderHeader } from "components/ReusableComponents/ReusableSlider/SliderHeader"
 import { Role } from "components/Role/Role"
 import { Role as RoleType } from "storage/team"
 
@@ -16,6 +16,12 @@ interface ReusableSliderProps {
   variant: "hero" | "team" | "quest" | "role"
   status: "loading" | "success" | "error"
   items: Hero[] | Team[] | Quest[] | RoleType[]
+}
+
+enum Status {
+  loading = "loading",
+  success = "success",
+  error = "error",
 }
 
 enum Variant {
@@ -78,7 +84,7 @@ export function ReusableSlider({
                 onMouseEnter={() => setMouseScrollDisabled(true)}
                 onMouseLeave={() => setMouseScrollDisabled(false)}
               >
-                {status === "success" ? (
+                {status === Status.success ? (
                   items?.map((item: Hero | Team | Quest | RoleType, idx) => (
                     <Box
                       key={idx}

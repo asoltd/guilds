@@ -12,12 +12,17 @@ import { SliderHeader } from "./SliderHeader"
 import { Role } from "components/Role/Role"
 import { Role as RoleType } from "storage/team"
 
-interface Item extends Hero, Team, Quest, RoleType {}
-
 interface ReusableSliderProps {
   variant: "hero" | "team" | "quest" | "role"
   status: "loading" | "success" | "error"
   items: Hero[] | Team[] | Quest[] | RoleType[]
+}
+
+enum Variant {
+  Hero = "hero",
+  Team = "team",
+  Quest = "quest",
+  Role = "role",
 }
 
 export function ReusableSlider({
@@ -31,16 +36,16 @@ export function ReusableSlider({
   const featuredCardsContainerRef = useRef()
   const isMobile = useMediaQuery("(max-width: 600px)")
 
-  const renderItem = (item: Item) => {
+  const renderItem = (item: Hero | Team | Quest | RoleType) => {
     switch (variant) {
-      case "hero":
-        return <HeroAvatar hero={item} size="small" />
-      case "team":
-        return <LatestTeam team={item} />
-      case "quest":
-        return <LatestQuest quest={item} />
-      case "role":
-        return <Role role={item} teamId={""} />
+      case Variant.Hero:
+        return <HeroAvatar hero={item as Hero} size="small" />
+      case Variant.Team:
+        return <LatestTeam team={item as Team} />
+      case Variant.Quest:
+        return <LatestQuest quest={item as Quest} />
+      case Variant.Role:
+        return <Role role={item as RoleType} teamId={""} />
     }
   }
 
@@ -74,7 +79,7 @@ export function ReusableSlider({
                 onMouseLeave={() => setMouseScrollDisabled(false)}
               >
                 {status === "success" ? (
-                  items?.map((item: Item, idx) => (
+                  items?.map((item: Hero | Team | Quest | RoleType, idx) => (
                     <Box
                       key={idx}
                       ref={(ref) => {

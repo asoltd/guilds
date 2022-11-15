@@ -59,7 +59,7 @@ export function HeroAvatar({ hero, size }: HeroAvatarProps) {
           <Typography
             variant={size == "small" ? "h4" : "h3"}
             fontWeight={600}
-            color="background.default"
+            color="#FFFFFF"
           >
             {`${hero?.name.first} ${hero?.name.last}`}
           </Typography>
@@ -70,23 +70,19 @@ export function HeroAvatar({ hero, size }: HeroAvatarProps) {
             readOnly
             sx={{
               "& .MuiRating-iconFilled": {
-                color: "background.default",
+                color: "#FFFFFF",
               },
               "& .MuiRating-iconEmpty": {
-                color: "background.default",
+                color: "#FFFFFF",
               },
             }}
           />
         </Stack>
         <Stack>
-          <Typography variant="h6" color="background.default" fontWeight={600}>
+          <Typography variant="h6" color="#FFFFFF" fontWeight={600}>
             {hero?.experience[0]?.company}
           </Typography>
-          <Typography
-            variant="body1"
-            color="background.default"
-            fontWeight={400}
-          >
+          <Typography variant="body1" color="#FFFFFF" fontWeight={400}>
             {hero?.experience[0].position}
           </Typography>
         </Stack>

@@ -1,82 +1,66 @@
 import { Stack, Typography } from "@mui/material"
 
-interface Variant {
+interface HeaderVariant {
   variant: "hero" | "quest" | "team" | "role"
 }
 
-function HeroesSliderHeader() {
+interface HeaderProps {
+  title: string
+  subtitle: string
+}
+
+enum Variant {
+  Hero = "hero",
+  Team = "team",
+  Quest = "quest",
+  Role = "role",
+}
+
+const title = {
+  hero: "Don't just take our word for it",
+  quest: "Latest quests",
+  team: "Featured teams",
+  role: "Roles available",
+}
+const subtitle = {
+  hero: "Hear from some of our amazing customers who are getting the job done faster.",
+  quest: "The latest quests that have been posted to Guilds",
+  team: "Teams that have recently joined the Guilds community",
+  role: "Current roles available within this team.",
+}
+
+function ReusableSliderHeader({ title, subtitle }: HeaderProps) {
   return (
     <Stack direction="row" justifyContent="space-between" alignItems="center">
       <Stack spacing={2}>
         <Typography variant="h4" fontWeight={600}>
-          Don't just take our word for it
+          {title}
         </Typography>
         <Typography variant="body1" color="text.secondary">
-          Hear from some of our amazing customers who are getting the job done
-          faster.
+          {subtitle}
         </Typography>
       </Stack>
     </Stack>
   )
 }
 
-function QuestsSliderHeader() {
-  return (
-    <Stack direction="row" justifyContent="space-between" alignItems="center">
-      <Stack spacing={2}>
-        <Typography variant="h4" fontWeight={600}>
-          Latest quests
-        </Typography>
-        <Typography variant="body1" color="text.secondary">
-          The latest quests that have been posted to Guilds
-        </Typography>
-      </Stack>
-    </Stack>
-  )
-}
-
-function RolesSliderHeader() {
-  return (
-    <Stack direction="row" justifyContent="space-between" alignItems="center">
-      <Stack spacing={2}>
-        <Typography variant="h4" fontWeight={600}>
-          Roles available
-        </Typography>
-        <Typography variant="body1" color="text.secondary">
-          Current roles available within this team.
-        </Typography>
-      </Stack>
-    </Stack>
-  )
-}
-
-function TeamsSliderHeader() {
-  return (
-    <Stack direction="row" justifyContent="space-between" alignItems="center">
-      <Stack spacing={2}>
-        <Typography variant="h4" fontWeight={600}>
-          Featured teams
-        </Typography>
-        <Typography variant="body1" color="text.secondary">
-          Teams that have recently joined the Guilds community
-        </Typography>
-      </Stack>
-    </Stack>
-  )
-}
-
-export function SliderHeader({ variant }: Variant) {
-  const renderHeader = () => {
-    switch (variant) {
-      case "hero":
-        return <HeroesSliderHeader />
-      case "quest":
-        return <QuestsSliderHeader />
-      case "team":
-        return <TeamsSliderHeader />
-      case "role":
-        return <RolesSliderHeader />
-    }
+export function SliderHeader({ variant }: HeaderVariant) {
+  switch (variant) {
+    case Variant.Hero:
+      return (
+        <ReusableSliderHeader title={title.hero} subtitle={subtitle.hero} />
+      )
+    case Variant.Quest:
+      return (
+        <ReusableSliderHeader title={title.quest} subtitle={subtitle.quest} />
+      )
+    case Variant.Team:
+      return (
+        <ReusableSliderHeader title={title.team} subtitle={subtitle.team} />
+      )
+    case Variant.Role:
+      return (
+        <ReusableSliderHeader title={title.role} subtitle={subtitle.role} />
+      )
   }
-  return renderHeader()
 }

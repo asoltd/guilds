@@ -1,15 +1,12 @@
 import { Stack, Typography } from "@mui/material"
-
-interface HeaderVariant {
-  variant: "hero" | "quest" | "team" | "role"
-}
+import { Variant } from "components/ReusableComponents/ReusableSlider/ReusableSlider"
 
 interface HeaderProps {
   title: string
   subtitle: string
 }
 
-enum Variant {
+enum SliderVariant {
   Hero = "hero",
   Team = "team",
   Quest = "quest",
@@ -44,21 +41,21 @@ function ReusableSliderHeader({ title, subtitle }: HeaderProps) {
   )
 }
 
-export function SliderHeader({ variant }: HeaderVariant) {
+export function SliderHeader({ variant }: Variant) {
   switch (variant) {
-    case Variant.Hero:
+    case SliderVariant.Hero:
       return (
         <ReusableSliderHeader title={title.hero} subtitle={subtitle.hero} />
       )
-    case Variant.Quest:
+    case SliderVariant.Quest:
       return (
         <ReusableSliderHeader title={title.quest} subtitle={subtitle.quest} />
       )
-    case Variant.Team:
+    case SliderVariant.Team:
       return (
         <ReusableSliderHeader title={title.team} subtitle={subtitle.team} />
       )
-    case Variant.Role:
+    case SliderVariant.Role:
       return (
         <ReusableSliderHeader title={title.role} subtitle={subtitle.role} />
       )

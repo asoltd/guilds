@@ -12,6 +12,10 @@ import { SliderHeader } from "components/ReusableComponents/ReusableSlider/Slide
 import { Role } from "components/Role/Role"
 import { Role as RoleType } from "storage/team"
 
+export interface Variant {
+  variant: "hero" | "quest" | "team" | "role"
+}
+
 interface ReusableSliderProps {
   variant: "hero" | "team" | "quest" | "role"
   status: "loading" | "success" | "error"
@@ -24,7 +28,7 @@ enum Status {
   error = "error",
 }
 
-enum Variant {
+enum SliderVariant {
   Hero = "hero",
   Team = "team",
   Quest = "quest",
@@ -44,13 +48,13 @@ export function ReusableSlider({
 
   const renderItem = (item: Hero | Team | Quest | RoleType) => {
     switch (variant) {
-      case Variant.Hero:
+      case SliderVariant.Hero:
         return <HeroAvatar hero={item as Hero} size="small" />
-      case Variant.Team:
+      case SliderVariant.Team:
         return <LatestTeam team={item as Team} />
-      case Variant.Quest:
+      case SliderVariant.Quest:
         return <LatestQuest quest={item as Quest} />
-      case Variant.Role:
+      case SliderVariant.Role:
         return <Role role={item as RoleType} teamId={""} />
     }
   }

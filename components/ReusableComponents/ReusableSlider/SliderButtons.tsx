@@ -1,9 +1,6 @@
 import Link from "next/link"
 import { Button, Stack, Typography } from "@mui/material"
-
-interface Variant {
-  variant: "hero" | "quest" | "team" | "role"
-}
+import { Variant } from "components/ReusableComponents/ReusableSlider/ReusableSlider"
 
 function HeroesSliderButtons() {
   return (

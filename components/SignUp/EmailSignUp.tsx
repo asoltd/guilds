@@ -121,11 +121,11 @@ export function EmailSignUp() {
 
   const handleSubmit = async (values: FormValues) => {
     const { email, password, phone } = values
-    if (selectedTab === 1) {
-      await onSignInSubmit(phone)
+    if (selectedTab === 0) {
+      await signInWithEmail(email, password)
       router.push("/")
     } else {
-      await signInWithEmail(email, password)
+      await onSignInSubmit(phone)
       router.push("/")
     }
   }
@@ -146,7 +146,7 @@ export function EmailSignUp() {
         Create an account
       </Typography>
       <Typography variant="body1" color="text.secondary">
-        Start your 30-days trial.
+        Start your 30-day s trial.
       </Typography>
       <Box width="100%">
         <Tabs
@@ -193,20 +193,22 @@ export function EmailSignUp() {
                   <Typography color="#ff0000">{errors.name}</Typography>
                 ) : null}
               </Stack>
-              <Stack>
-                <Typography variant="body1">Email*</Typography>
-                <TextField
-                  onChange={handleChange}
-                  value={values.email}
-                  size="small"
-                  type="email"
-                  name="email"
-                  placeholder="Email"
-                />
-                {errors.email && touched.email ? (
-                  <Typography color="#ff0000">{errors.email}</Typography>
-                ) : null}
-              </Stack>
+              <TabPanel value={selectedTab} index={0}>
+                <Stack>
+                  <Typography variant="body1">Email*</Typography>
+                  <TextField
+                    onChange={handleChange}
+                    value={values.email}
+                    size="small"
+                    type="email"
+                    name="email"
+                    placeholder="Email"
+                  />
+                  {errors.email && touched.email ? (
+                    <Typography color="#ff0000">{errors.email}</Typography>
+                  ) : null}
+                </Stack>
+              </TabPanel>
               <TabPanel value={selectedTab} index={1}>
                 <Stack>
                   <Typography variant="body1">Phone*</Typography>

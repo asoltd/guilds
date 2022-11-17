@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { Stack, Typography, Chip } from "@mui/material"
-import { navigation, NavigationItem, NavigationColumn } from "./navigation"
+import { navigation, NavigationItem, NavigationColumn } from "../../navigation"
 
 export function FooterLink({ label, href, displayNewChip }: NavigationItem) {
   if (displayNewChip) {
@@ -53,9 +53,11 @@ export function FooterLink({ label, href, displayNewChip }: NavigationItem) {
 }
 
 export function LinkColumns() {
+  const navigationArray = Object.values(navigation)
+
   return (
     <Stack direction="row">
-      {navigation.map((column: NavigationColumn) => (
+      {navigationArray.map((column: NavigationColumn) => (
         <Stack
           spacing={1.5}
           color="background.default"

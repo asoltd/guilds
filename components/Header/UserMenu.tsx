@@ -7,6 +7,8 @@ import {
   Menu,
   MenuItem,
   Avatar,
+  Stack,
+  Button,
 } from "@mui/material"
 import { useAuth, useSigninCheck } from "reactfire"
 import Link from "next/link"
@@ -63,12 +65,48 @@ export const UserMenu = () => {
             </Menu>
           </Box>
         ) : (
-          <Link
-            href="/login"
-            style={{ textDecoration: "none", color: "inherit" }}
-          >
-            <Typography textAlign="center">Login</Typography>
-          </Link>
+          <Stack direction="row" spacing={3}>
+            <Link
+              href="/login"
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
+              <Button sx={{ height: "3rem", borderRadius: "0.5rem" }}>
+                <Typography
+                  textAlign="center"
+                  fontWeight={500}
+                  textTransform="none"
+                  px="0.6rem"
+                  variant="body1"
+                  color={(theme) =>
+                    theme.palette.mode == "light"
+                      ? theme.palette.grey[600]
+                      : theme.palette.grey[300]
+                  }
+                >
+                  Log in
+                </Typography>
+              </Button>
+            </Link>
+            <Link
+              href="/signup"
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
+              <Button
+                variant="contained"
+                sx={{ height: "3rem", borderRadius: "0.5rem" }}
+              >
+                <Typography
+                  textAlign="center"
+                  textTransform="none"
+                  px="0.6rem"
+                  fontWeight={500}
+                  variant="body1"
+                >
+                  Sign up
+                </Typography>
+              </Button>
+            </Link>
+          </Stack>
         )}
       </Tooltip>
     </Box>

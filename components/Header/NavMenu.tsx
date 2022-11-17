@@ -1,4 +1,5 @@
 import MenuIcon from "@mui/icons-material/Menu"
+import Link from "next/link"
 import { useState, MouseEvent } from "react"
 import {
   Box,
@@ -8,14 +9,13 @@ import {
   Tooltip,
   Typography,
 } from "@mui/material"
-import Link from "next/link"
-import { Page } from "./Header"
+import { NavigationColumn } from "../../navigation"
 
-interface Props {
-  pages: Page[]
+interface NavMenuProps {
+  pages: NavigationColumn
 }
 
-export const NavMenu = ({ pages }: Props) => {
+export const NavMenu = ({ pages }: NavMenuProps) => {
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null)
 
   const handleOpenNavMenu = (event: MouseEvent<HTMLElement>) => {
@@ -31,10 +31,8 @@ export const NavMenu = ({ pages }: Props) => {
         <IconButton
           size="large"
           edge="start"
-          color="inherit"
           aria-label="menu"
           aria-controls="menu-appbar"
-          sx={{ mr: 2 }}
           onClick={handleOpenNavMenu}
         >
           <MenuIcon />
@@ -61,13 +59,22 @@ export const NavMenu = ({ pages }: Props) => {
           },
         }}
       >
-        {pages.map((page) => (
-          <MenuItem key={page.name} onClick={handleCloseNavMenu}>
+        {pages.navigationItem.map((page) => (
+          <MenuItem key={page.href} onClick={handleCloseNavMenu}>
             <Link
-              href={page.path}
+              href={page.href}
               style={{ textDecoration: "none", color: "inherit" }}
             >
-              <Typography textAlign="center">{page.name}</Typography>
+              <Typography
+                textAlign="center"
+                color={(theme) =>
+                  theme.palette.mode == "light"
+                    ? theme.palette.grey[600]
+                    : theme.palette.grey[300]
+                }
+              >
+                {page.label}
+              </Typography>
             </Link>
           </MenuItem>
         ))}

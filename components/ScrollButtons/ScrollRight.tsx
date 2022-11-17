@@ -28,7 +28,7 @@ export function ScrollRight({
       size="large"
       sx={{ border: "1px solid", borderColor: "text.secondary" }}
       onClick={scrollRight}
-      disabled={scrolledValue === refs.current.length - 1}
+      disabled={scrolledValue === refs.current.length - 3}
     >
       <ArrowForwardIcon />
     </IconButton>

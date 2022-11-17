@@ -9,10 +9,15 @@ export interface NavigationColumn {
   navigationItem: NavigationItem[]
 }
 
-export type Navigation = NavigationColumn[]
+export interface Navigation {
+  quickLinks: NavigationColumn
+  quests: NavigationColumn
+  social: NavigationColumn
+  legal: NavigationColumn
+}
 
-export const navigation: Navigation = [
-  {
+export const navigation: Navigation = {
+  quickLinks: {
     title: "Quick links",
     navigationItem: [
       {
@@ -38,7 +43,7 @@ export const navigation: Navigation = [
       },
     ],
   },
-  {
+  quests: {
     title: "Quests",
     navigationItem: [
       {
@@ -63,7 +68,7 @@ export const navigation: Navigation = [
       },
     ],
   },
-  {
+  social: {
     title: "Social",
     navigationItem: [
       {
@@ -92,7 +97,7 @@ export const navigation: Navigation = [
       },
     ],
   },
-  {
+  legal: {
     title: "Legal",
     navigationItem: [
       {
@@ -121,4 +126,4 @@ export const navigation: Navigation = [
       },
     ],
   },
-]
+}

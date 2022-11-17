@@ -1,7 +1,7 @@
 import { Stack, Typography } from "@mui/material"
 import { Container } from "@mui/system"
 
-export function FindQuestBanner() {
+export function PageHeader({ greenSubtitle, header, greySubtitle }) {
   return (
     <Stack
       sx={{
@@ -20,13 +20,13 @@ export function FindQuestBanner() {
             variant="body1"
             sx={{ fontWeight: 600, color: "primary.main" }}
           >
-            Your journey awaits you
+            {greenSubtitle}
           </Typography>
           <Typography variant="h2" sx={{ fontWeight: 600 }}>
-            Find a new quest
+            {header}
           </Typography>
           <Typography variant="body1" sx={{ color: "text.secondary" }}>
-            All of the quests currently available for completion in Guilds
+            {greySubtitle}
           </Typography>
         </Stack>
       </Container>

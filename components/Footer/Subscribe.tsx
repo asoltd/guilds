@@ -42,12 +42,10 @@ export function Subscribe() {
               type="submit"
             >
               <Typography
-                sx={{
-                  textTransform: "none",
-                  px: "0.6rem",
-                  fontWeight: 500,
-                  fontSize: "1rem",
-                }}
+                textTransform="none"
+                px="0.6rem"
+                fontWeight={500}
+                variant="body1"
               >
                 Subscribe
               </Typography>

@@ -21,6 +21,8 @@ export interface Quest {
   bidders?: string[]
   status: string
   createdAt: Date
+  summary: string
+  level: number
 }
 
 export interface Bid {

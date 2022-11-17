@@ -5,14 +5,18 @@ import { questsSearchClient } from "typesense/insantsearch"
 import { InstantSearch } from "react-instantsearch-dom"
 import { RefinementList, Pagination, SearchBox } from "../SearchComponents"
 import { Button, Stack, Divider, Container } from "@mui/material"
-import { FindQuestBanner } from "./FindQuestBanner"
+import { PageHeader } from "../ReusableComponents/PageHeader"
 
 export function Quests(): JSX.Element {
   const firestore = useFirestore()
 
   return (
     <Stack>
-      <FindQuestBanner />
+      <PageHeader
+        greenSubtitle="Your journey awaits you"
+        header="Find a new quest"
+        greySubtitle="All of the quests currently available for completion in Guilds"
+      />
       <Container>
         <InstantSearch searchClient={questsSearchClient} indexName="quests">
           <Stack

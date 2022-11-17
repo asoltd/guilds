@@ -39,22 +39,18 @@ export function CourseCard({ course }: CourseCardProps) {
             readOnly
             sx={{
               "& .MuiRating-iconFilled": {
-                color: "background.default",
+                color: "#FFFFFF",
               },
               "& .MuiRating-iconEmpty": {
-                color: "background.default",
+                color: "#FFFFFF",
               },
             }}
           />
-          <Typography variant="h5" fontWeight={600} color="background.default">
+          <Typography variant="h5" fontWeight={600} color="#FFFFFF">
             {course?.title}
           </Typography>
           <Stack direction="row" justifyContent="space-between">
-            <Typography
-              variant="body1"
-              fontWeight={500}
-              color="background.default"
-            >
+            <Typography variant="body1" fontWeight={500} color="#FFFFFF">
               By {courseAuthor}
             </Typography>
             <Stack

@@ -1,103 +1,67 @@
-import { KeyboardArrowLeft, KeyboardArrowRight } from "@mui/icons-material"
-import {
-  Button,
-  Divider,
-  Grid,
-  IconButton,
-  Stack,
-  TextField,
-  Typography,
-} from "@mui/material"
-
-const weekDays = ["Mo", "Tu", "We", "Th", "Fr", "Sat", "Su"]
+import dayjs, { Dayjs } from "dayjs"
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs"
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider"
+import { CalendarPicker } from "@mui/x-date-pickers/CalendarPicker"
+import { useState } from "react"
+import { Button, Divider, Stack } from "@mui/material"
 
 export function SmallDatePicker() {
+  const currentDate = dayjs()
+  const [date, setDate] = useState<Dayjs | null>(dayjs(currentDate))
+
   return (
-    <Stack maxWidth="17rem" border=" 1px solid #F2F4F7" borderRadius="0.5rem">
-      <Stack spacing={1} p={2}>
-        <Stack
-          direction="row"
-          justifyContent="space-between"
-          alignItems="center"
-        >
-          <IconButton>
-            <KeyboardArrowLeft />
-          </IconButton>
-          <Typography>Month Year</Typography>
-          <IconButton>
-            <KeyboardArrowRight />
-          </IconButton>
-        </Stack>
-        <Stack
-          direction="row"
-          justifyContent="space-between"
-          alignItems="center"
-        >
-          <TextField
-            placeholder="Select Date"
-            sx={{
-              "& .MuiOutlinedInput-root": {
-                width: "9rem",
-                height: "2.5rem",
-                borderRadius: "0.5rem",
-                textAlign: "center",
-              },
-            }}
+    <Stack
+      bgcolor="background.default"
+      border={1}
+      borderRadius="0.5rem"
+      maxWidth="21rem"
+      borderColor={(theme) => theme.palette.grey[300]}
+      boxShadow="0px 20px 24px -4px #10182814"
+    >
+      <LocalizationProvider dateAdapter={AdapterDayjs}>
+        <Stack mb="-2rem">
+          <CalendarPicker
+            date={date}
+            onChange={(newDate) => setDate(newDate)}
           />
-          <Button
-            variant="outlined"
-            sx={{
-              textTransform: "none",
-              width: "5rem",
-              color: (theme) => theme.palette.grey[800],
-              borderRadius: "0.5rem",
-              borderColor: (theme) => theme.palette.grey[400],
-              height: "2.5rem",
-            }}
-          >
-            Today
-          </Button>
         </Stack>
-        <Stack direction="row" spacing={1} justifyContent="space-between" p={1}>
-          {weekDays.map((day) => (
-            <Typography
-              key={day}
-              variant="body2"
-              color={(theme) => theme.palette.grey[800]}
-            >
-              {day}
-            </Typography>
-          ))}
-        </Stack>
-      </Stack>
+      </LocalizationProvider>
       <Divider />
-      <Stack spacing={1} p={2}>
-        <Stack direction="row" justifyContent="space-between">
-          <Button
-            variant="outlined"
-            sx={{
-              textTransform: "none",
-              width: "7rem",
-              color: (theme) => theme.palette.grey[800],
-              borderRadius: "0.5rem",
-              borderColor: (theme) => theme.palette.grey[400],
-              height: "2.5rem",
-            }}
-          >
-            Cancel
-          </Button>
-          <Button
-            variant="contained"
-            sx={{
-              textTransform: "none",
-              width: "7rem",
-              borderRadius: "0.5rem",
-              height: "2.5rem",
-            }}
-          >
-            Apply
-          </Button>
-        </Stack>
+      <Stack
+        direction="row"
+        justifyContent="space-between"
+        padding={2}
+        spacing={2}
+      >
+        <Button
+          onClick={() => setDate(dayjs(currentDate))}
+          variant="outlined"
+          sx={{
+            borderRadius: "0.5rem",
+            borderColor: (theme) => theme.palette.grey[400],
+            color: (theme) => theme.palette.grey[800],
+            textTransform: "none",
+            flexGrow: 1,
+            height: "2.5rem",
+            "&:hover": {
+              borderColor: (theme) => theme.palette.grey[600],
+            },
+          }}
+        >
+          Cancel
+        </Button>
+        <Button
+          variant="contained"
+          sx={{
+            borderRadius: "0.5rem",
+            borderColor: (theme) => theme.palette.grey[400],
+            textTransform: "none",
+            flexGrow: 1,
+            height: "2.5rem",
+          }}
+        >
+          Apply
+        </Button>
       </Stack>
     </Stack>
   )

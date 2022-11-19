@@ -1,23 +1,19 @@
 import Link from "next/link"
 import { Button, Stack, Typography } from "@mui/material"
-import { Variant } from "components/ReusableComponents/ReusableSlider/ReusableSlider"
+import { Variant } from "components/ReusableComponents/ReusableSlider/Slider"
 
 function HeroesSliderButtons() {
   return (
-    <Stack
-      direction="row"
-      spacing={2}
-      sx={{ "& > *": { width: "100%" } }}
-      justifyContent={{ xs: "space-between" }}
-    >
+    <Stack direction="row" spacing={2} justifyContent={{ xs: "space-between" }}>
       <Link href="/heroes" style={{ textDecoration: "none" }}>
         <Button
           variant="outlined"
           sx={{
+            "& > *": { width: "100%" },
             height: "3rem",
             borderRadius: "0.5rem",
             borderColor: (theme) => theme.palette.grey[300],
-            width: "11rem",
+            whiteSpace: "nowrap",
           }}
         >
           <Typography
@@ -38,7 +34,7 @@ function HeroesSliderButtons() {
             border: "1px solid black",
             height: "3rem",
             borderRadius: "0.5rem",
-            width: "11rem",
+            whiteSpace: "nowrap",
           }}
         >
           <Typography
@@ -64,7 +60,7 @@ function QuestsSliderButtons() {
           sx={{
             height: "3rem",
             borderRadius: "0.5rem",
-            width: "100%",
+            whiteSpace: "nowrap",
           }}
         >
           <Typography
@@ -90,7 +86,7 @@ function TeamsSliderButtons() {
           sx={{
             height: "3rem",
             borderRadius: "0.5rem",
-            width: "100%",
+            whiteSpace: "nowrap",
           }}
         >
           <Typography

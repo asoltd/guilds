@@ -42,3 +42,6 @@ package-lock.json
 **/*.bun
 
 .env
+
+cypress/videos
+cypress/screenshots

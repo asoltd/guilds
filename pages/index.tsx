@@ -2,6 +2,8 @@ import { Header } from "../components/Header"
 import { Footer } from "../components/Footer"
 import { Container, Box } from "@mui/material"
 
+import { Error } from "../components/Error"
+
 export default function Home() {
   return (
     <Box
@@ -12,7 +14,9 @@ export default function Home() {
       }}
     >
       <Header />
-      <Container></Container>
+      <Container>
+        <Error />
+      </Container>
       <Footer />
     </Box>
   )

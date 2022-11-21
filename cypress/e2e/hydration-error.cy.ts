@@ -1,5 +1,10 @@
-describe('empty spec', () => {
-  it('passes', () => {
-    cy.visit('https://example.cypress.io')
+describe('Hydration error', () => {
+  it('no hydration error on the index page', () => {
+    cy.visit('/')
+
+    cy.reload()
+    cy.reload()
   })
 })
+
+export { }

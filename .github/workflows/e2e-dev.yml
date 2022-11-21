@@ -1,0 +1,28 @@
+name: "e2e-dev"
+on: [push, pull_request]
+
+jobs:
+  e2e:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Bun
+        uses: antongolub/action-setup-bun@v1
+
+      - name: Install dependencies
+        run: bun install
+
+      - name: Install Cypress binary
+        run: bun cypress install
+
+      - name: Run Cypress
+        uses: cypress-io/github-action@v4
+        with:
+          install: false
+          start: bun next dev
+          wait-on: "http://localhost:3000"
+        env:
+          NEXT_PUBLIC_TYPESENSE_API_KEY: ${{ secrets.NEXT_PUBLIC_TYPESENSE.API.KEY }}
+          NEXT_PUBLIC_CHAT_API: ${{ secrets.NEXT_PUBLIC_CHAT_API }}

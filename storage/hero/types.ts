@@ -17,6 +17,15 @@ export interface Hero {
   portfolio?: URL[]
   experience?: Experience[]
   rating?: number
+  isMentor?: boolean
+  mentor?: Mentor
+}
+
+export type Mentor = {
+  bio: string
+  skill: string
+  maxRate: string
+  minRate: string
 }
 
 export type Location = {

@@ -35,6 +35,8 @@ const populateQuests = async (firestore: Firestore) => {
         tags: tags,
         status: ["open", "closed"][faker.datatype.number(1)],
         createdAt: faker.date.past(),
+        summary: faker.lorem.words(10),
+        level: faker.datatype.number({ min: 1, max: 5 }),
       }
       promises.push(setDoc(questRef, quest))
     }

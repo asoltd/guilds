@@ -1,0 +1,1 @@
+export { AboutGig } from "./AboutGig"

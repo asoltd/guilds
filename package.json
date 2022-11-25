@@ -16,6 +16,7 @@
     "firebase": "^9.13.0",
     "formik": "^2.2.9",
     "loadash": "^1.0.0",
+    "material-ui-phone-number": "^3.0.0",
     "next": "^13.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -31,7 +32,8 @@
     "styled-components": "^5.3.5",
     "styled-css-grid": "^1.2.1",
     "typesense": "^1.4.2",
-    "typesense-instantsearch-adapter": "^2.4.1"
+    "typesense-instantsearch-adapter": "^2.4.1",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "@types/chai": "^4.3.3",

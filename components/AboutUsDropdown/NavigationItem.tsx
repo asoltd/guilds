@@ -22,7 +22,7 @@ export function NavigationItem({ navigation }: NavigationItemProps) {
             alt={navigation.title}
           />
           <Stack>
-            <Typography variant="body1" fontWeight={500} lineHeight={"30px"}>
+            <Typography variant="body1" fontWeight={500} lineHeight="30px">
               {navigation.title}
             </Typography>
             <Typography variant="body2" color="text.secondary">

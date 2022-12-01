@@ -10,6 +10,8 @@ export function MonthTopUsers({
   header,
   subheader,
   button,
+  link,
+  seeAll,
 }: TopUsersHeaderProps) {
   const firestore = useFirestore()
   const heroesRef = collection(firestore, "heroes")
@@ -24,6 +26,8 @@ export function MonthTopUsers({
         header={header}
         subheader={subheader}
         button={button}
+        link={link}
+        seeAll={seeAll}
       />
       <Grid container rowSpacing={4}>
         {heroes?.map((hero, key) => (

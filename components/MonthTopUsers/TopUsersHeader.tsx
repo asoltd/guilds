@@ -1,5 +1,5 @@
-import { Button, Stack, Typography } from "@mui/material"
 import Link from "next/link"
+import { Button, Stack, Typography } from "@mui/material"
 
 export interface TopUsersHeaderProps {
   info: string

@@ -1,5 +1,5 @@
 import { Stack, Typography } from "@mui/material"
-import { Variant } from "components/ReusableSlider/Slider"
+import { Variant } from "components/Slider/Slider"
 
 interface HeaderProps {
   title: string

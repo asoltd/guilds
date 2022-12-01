@@ -1,6 +1,6 @@
 import styled from "@emotion/styled"
 import { Formik, Form } from "formik"
-import { Tag } from "storage/quest"
+import { Tag } from "types/quest"
 import TagSelect from "./TagSelect"
 import { useFirestore, useUser } from "reactfire"
 import { doc, setDoc, collection, getDoc } from "firebase/firestore"

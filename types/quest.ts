@@ -1,4 +1,4 @@
-import { URL, UUID } from "../common"
+import { URL, UUID } from "./common"
 
 export enum Tag {
   Design = "Design",
@@ -12,13 +12,13 @@ export enum Tag {
 
 export interface Quest {
   id: UUID
-  userId: UUID
-  reward: number
+  creatorId: UUID
+  reward: string
   title: string
   description: string
   tags: Tag[]
   image?: URL
-  bidders?: string[]
+  bidders?: UUID[]
   status: string
   createdAt: Date
   summary: string
@@ -27,9 +27,8 @@ export interface Quest {
 
 export interface Bid {
   id: UUID
-  questId: UUID
   bidderId: UUID
-  amount: number
+  amount: string
   timeEstimate: string
   createdAt: Date
   updatedAt?: Date

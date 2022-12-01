@@ -1,7 +1,7 @@
-import styled from "styled-components"
+import styled from "@emotion/styled"
 import { Rating, Stack, Typography } from "@mui/material"
 import { StorageImage } from "reactfire"
-import { Course } from "storage/course"
+import { Course } from "types/course"
 import { ArrowUpward } from "@mui/icons-material"
 
 interface CourseCardProps {

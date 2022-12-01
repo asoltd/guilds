@@ -1,5 +1,5 @@
 import Image from "next/image"
-import styled from "styled-components"
+import styled from "@emotion/styled"
 import { connectSearchBox } from "react-instantsearch-dom"
 import { Box, InputAdornment, TextField } from "@mui/material"
 

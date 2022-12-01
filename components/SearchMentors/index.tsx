@@ -3,7 +3,7 @@ import { collection, query, where } from "firebase/firestore"
 import { Stack, Typography } from "@mui/material"
 import "firebase/firestore"
 import { Container } from "@mui/system"
-import { Hero } from "storage/hero"
+import { Hero } from "types/hero"
 import { MentorCard } from "./MentorCard"
 
 export function SearchMentors() {

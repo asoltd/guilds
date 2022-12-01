@@ -1,7 +1,7 @@
 import { useFirestore, useFirestoreCollectionData } from "reactfire"
 import { collection, query } from "firebase/firestore"
 import { Bid } from "./Bid"
-import { Bid as BidType } from "storage/quest"
+import { Bid as BidType } from "types/quest"
 
 export default function Bids({ path }): JSX.Element {
   const firestore = useFirestore()

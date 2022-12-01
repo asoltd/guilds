@@ -1,5 +1,5 @@
 import { connectHits } from "react-instantsearch-dom"
-import { Team } from "storage/team"
+import { Team } from "types/team"
 import { TeamHit } from "./TeamHit"
 import { Grid, Box } from "@mui/material"
 

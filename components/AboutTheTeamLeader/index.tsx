@@ -1,7 +1,7 @@
 import { Stack } from "@mui/system"
 import { HeroAvatar } from "components/HeroAvatar"
 import { TeamLeaderInfo } from "./TeamLeaderInfo"
-import { Hero } from "storage/hero"
+import { Hero } from "types/hero"
 
 interface AboutTheTeamLeaderProps {
   teamLeader: Hero

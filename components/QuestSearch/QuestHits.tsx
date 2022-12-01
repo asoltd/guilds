@@ -1,5 +1,5 @@
 import { connectHits } from "react-instantsearch-dom"
-import { Quest } from "storage/quest"
+import { Quest } from "types/quest"
 import { QuestHit } from "./QuestHit"
 import { Grid, Box } from "@mui/material"
 

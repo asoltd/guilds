@@ -1,7 +1,7 @@
 import Link from "next/link"
-import styled from "styled-components"
+import styled from "@emotion/styled"
 import { Button, Divider, Stack, Typography } from "@mui/material"
-import { Hero } from "storage/hero"
+import { Hero } from "types/hero"
 
 const TeamLeaderLink = styled(Link)`
   text-decoration: none;

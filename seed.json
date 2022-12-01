@@ -1,0 +1,1391 @@
+{
+  "meta": {
+    "format": "JSON",
+    "version": "1.1.0",
+    "projectId": "asoltd-guilds",
+    "resourcePath": [],
+    "recursive": false,
+    "creationTime": 1669237051,
+    "app": "firefoo"
+  },
+  "data": {
+    "__collections__": {
+      "teams": {
+        "K4qJTKLRToiP9HEGETOM": {
+          "id": "K4qJTKLRToiP9HEGETOM",
+          "createdAt": {
+            "__time__": "2022-08-06T19:24:04.794Z"
+          },
+          "creatorId": "6BxZRLLnIKROMglmxItnPWv5g9r2",
+          "description": "Looking for a team of people with various skill sets that are willing to contribute to building the shopping website. The products sold on the website would be imported from Asia and sold within the United States of America. The team would consist of a designer, a few developers and a person responsible for marketing.The preferred framework to be used by developers is React and supporting technologies we would use are to be discussed within the team. The project might turn out fairly time consuming so be ready for a full time job.",
+          "highlight": "Looking for a designer",
+          "image": "pexels-helena-lopes-1015568.jpg",
+          "industry": "Technology",
+          "timeEstimate": "10 months",
+          "title": "Shopping website",
+          "bidders": [
+            "2YM79stNWyXyX08J8vAL",
+            "imZrHGqnOCfGy44ya596jOyNHIG3",
+            "QfABV59rDVWcUDBvtiaZCrQ8mTJ2",
+            "zfUtzkbpCdRVjBKHACyT5pjg1bb2",
+            "0FdxGoe3fcy6v8Rd37VZ"
+          ],
+          "members": [
+            "imZrHGqnOCfGy44ya596jOyNHIG3",
+            "QfABV59rDVWcUDBvtiaZCrQ8mTJ2",
+            "0FdxGoe3fcy6v8Rd37VZ"
+          ],
+          "__collections__": {
+            "roles": {
+              "0FdxGoe3fcy6v8Rd37VZ": {
+                "id": "0FdxGoe3fcy6v8Rd37VZ",
+                "createdAt": {
+                  "__time__": "2022-08-06T19:24:04.794Z"
+                },
+                "title": "Web developer",
+                "description": "Looking for a developer with at least 2 years of experience in React, knowledge of git version control system and ability to learn new technologies and tools fairly quickly.",
+                "status": "free",
+                "image": "pexels-hitesh-choudhary-340152.jpg",
+                "__collections__": {
+                  "bids": {
+                    "yrVFqWHKa5kT3LStvBfd": {
+                      "id": "yrVFqWHKa5kT3LStvBfd",
+                      "createdAt": {
+                        "__time__": "2022-08-07T19:24:04.794Z"
+                      },
+                      "bidderId": "2YM79stNWyXyX08J8vAL",
+                      "amount": "£2400",
+                      "status": "pending",
+                      "timeEstimate": "3 months"
+                    }
+                  }
+                }
+              },
+              "1YiEN8YVYzRSMKShhKt7": {
+                "id": "1YiEN8YVYzRSMKShhKt7",
+                "createdAt": {
+                  "__time__": "2022-08-06T19:24:04.794Z"
+                },
+                "title": "Web developer",
+                "description": "Looking for a developer with at least 2 years of experience in React, knowledge of git version control system and ability to learn new technologies and tools fairly quickly.",
+                "status": "taken",
+                "image": "pexels-lukas-574071.jpg",
+                "memberId": "imZrHGqnOCfGy44ya596jOyNHIG3",
+                "__collections__": {
+                  "bids": {
+                    "yrVFqWHKa5kT3LStvBfd": {
+                      "id": "yrVFqWHKa5kT3LStvBfd",
+                      "createdAt": {
+                        "__time__": "2022-08-08T19:24:04.794Z"
+                      },
+                      "bidderId": "imZrHGqnOCfGy44ya596jOyNHIG3",
+                      "amount": "£2100",
+                      "status": "accepted",
+                      "timeEstimate": "2 months"
+                    }
+                  }
+                }
+              },
+              "3JTOJHO9EZKgT5JIcDRX": {
+                "id": "3JTOJHO9EZKgT5JIcDRX",
+                "createdAt": {
+                  "__time__": "2022-08-06T19:24:04.794Z"
+                },
+                "title": "Designer",
+                "description": "Looking for an experienced designer with an ability to collaborate with software developers.",
+                "status": "taken",
+                "image": "pexels-polina-zimmerman-3747266.jpg",
+                "memberId": "QfABV59rDVWcUDBvtiaZCrQ8mTJ2",
+                "__collections__": {
+                  "bids": {
+                    "EO8ZHUyqjhMBQtqR1k9t": {
+                      "id": "EO8ZHUyqjhMBQtqR1k9t",
+                      "createdAt": {
+                        "__time__": "2022-08-09T19:24:04.794Z"
+                      },
+                      "bidderId": "QfABV59rDVWcUDBvtiaZCrQ8mTJ2",
+                      "amount": "£2100",
+                      "status": "accepted",
+                      "timeEstimate": "2 months"
+                    },
+                    "JhI1qfsjRluExJeR2Tal": {
+                      "id": "JhI1qfsjRluExJeR2Tal",
+                      "createdAt": {
+                        "__time__": "2022-08-09T10:24:04.794Z"
+                      },
+                      "bidderId": "zfUtzkbpCdRVjBKHACyT5pjg1bb2",
+                      "amount": "£2700",
+                      "status": "rejected",
+                      "timeEstimate": "2 months"
+                    }
+                  }
+                }
+              },
+              "kBJp2JJ7tYWYKIQ0X3An": {
+                "id": "kBJp2JJ7tYWYKIQ0X3An",
+                "createdAt": {
+                  "__time__": "2022-08-06T19:24:04.794Z"
+                },
+                "title": "Marketing manageer",
+                "description": "Looking for a person that knows how to make people find out about our website.",
+                "status": "taken",
+                "image": "pexels-antoni-shkraba-4348403.jpg",
+                "memberId": "0FdxGoe3fcy6v8Rd37VZ",
+                "__collections__": {
+                  "bids": {
+                    "yrVFqWHKa5kT3LStvBfd": {
+                      "id": "yrVFqWHKa5kT3LStvBfd",
+                      "createdAt": {
+                        "__time__": "2022-08-09T19:24:04.794Z"
+                      },
+                      "bidderId": "0FdxGoe3fcy6v8Rd37VZ",
+                      "amount": "£600",
+                      "status": "accepted",
+                      "timeEstimate": "2 months"
+                    },
+                    "Bay7rtWNkMkZeWojyGzr": {
+                      "id": "Bay7rtWNkMkZeWojyGzr",
+                      "createdAt": {
+                        "__time__": "2022-08-11T19:24:04.794Z"
+                      },
+                      "bidderId": "QfABV59rDVWcUDBvtiaZCrQ8mTJ2",
+                      "amount": "£600",
+                      "status": "rejected",
+                      "timeEstimate": "2 months"
+                    },
+                    "nJ2iWgoGXvVELwVoAlLb": {
+                      "id": "nJ2iWgoGXvVELwVoAlLb",
+                      "createdAt": {
+                        "__time__": "2022-08-09T19:24:04.794Z"
+                      },
+                      "bidderId": "2YM79stNWyXyX08J8vAL",
+                      "amount": "£550",
+                      "status": "rejected",
+                      "timeEstimate": "2 months"
+                    },
+                    "FitF0g0wYN0WUKtzqJUV": {
+                      "id": "FitF0g0wYN0WUKtzqJUV",
+                      "createdAt": {
+                        "__time__": "2022-08-10T19:24:04.794Z"
+                      },
+                      "bidderId": "imZrHGqnOCfGy44ya596jOyNHIG3",
+                      "amount": "£800",
+                      "status": "rejected",
+                      "timeEstimate": "2 months"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "XILifoGwjlxCnVRyVObO": {
+          "id": "XILifoGwjlxCnVRyVObO",
+          "createdAt": {
+            "__time__": "2019-02-02T19:24:04.794Z"
+          },
+          "creatorId": "imZrHGqnOCfGy44ya596jOyNHIG3",
+          "description": "Hi, we are a news media company who develop digital apps for the big news companies, helping newspaper companies become digital and improve their business and following.",
+          "highlight": "Senior full-stack developer needed",
+          "image": "pexels-christina-morillo-1181622.jpg",
+          "industry": "Technology",
+          "timeEstimate": "3-4 weeks",
+          "title": "Digital news media company",
+          "bidders": [
+            "QfABV59rDVWcUDBvtiaZCrQ8mTJ2",
+            "zfUtzkbpCdRVjBKHACyT5pjg1bb2"
+          ],
+          "members": ["QfABV59rDVWcUDBvtiaZCrQ8mTJ2"],
+          "__collections__": {
+            "roles": {
+              "0FdxGoe3fcy6v8Rd37VZ": {
+                "id": "0FdxGoe3fcy6v8Rd37VZ",
+                "createdAt": {
+                  "__time__": "2022-02-02T19:24:04.794Z"
+                },
+                "title": "Front-end developer",
+                "description": "Need a front end developer to create the code for the front end from the figma designs that the designer will make.",
+                "status": "taken",
+                "image": "pexels-luis-gomes-546819.jpg",
+                "memberId": "QfABV59rDVWcUDBvtiaZCrQ8mTJ2",
+                "__collections__": {
+                  "bids": {
+                    "yrVFqWHKa5kT3LStvBfd": {
+                      "id": "yrVFqWHKa5kT3LStvBfd",
+                      "createdAt": {
+                        "__time__": "2022-02-04T19:24:04.794Z"
+                      },
+                      "bidderId": "QfABV59rDVWcUDBvtiaZCrQ8mTJ2",
+                      "amount": "£0",
+                      "status": "accepted",
+                      "timeEstimate": "40 hours"
+                    }
+                  }
+                }
+              },
+              "BNsmr0B2Iq5eq3V4jb9S": {
+                "id": "BNsmr0B2Iq5eq3V4jb9S",
+                "createdAt": {
+                  "__time__": "2022-02-02T19:24:04.794Z"
+                },
+                "title": "Back-end developer",
+                "description": "Need a back-end developer to develop the functionality and data structures of the news data and the site data preferably in firestore (not a requirement).",
+                "status": "free",
+                "image": "pexels-djordje-petrovic-2102416.jpg"
+              },
+              "DhWQyFA2zNFjxNZokhMT": {
+                "id": "DhWQyFA2zNFjxNZokhMT",
+                "createdAt": {
+                  "__time__": "2022-02-02T19:24:04.794Z"
+                },
+                "title": "Senior Full stack developer",
+                "description": "Need a full stack senior developer whose role it will be to manage all other developers code, such as reviewing their pull requests and polishing up any of the code they are pushing throughout the project to make sure its a high standard.",
+                "status": "free",
+                "image": "pexels-christina-morillo-1181263.jpg"
+              },
+              "VTb4bXqPX45wFGhgMPBY": {
+                "id": "VTb4bXqPX45wFGhgMPBY",
+                "createdAt": {
+                  "__time__": "2022-02-02T19:24:04.794Z"
+                },
+                "title": "UX/UI designer",
+                "description": "Looking for a UI designer that will make the page designs for the clients on figma, and be able to separate the design components so the front end developer has an easier time developing said components.",
+                "status": "free",
+                "image": "pexels-tranmautritam-326514.jpg"
+              },
+              "b093TxdxckzZNdBLFgIc": {
+                "id": "b093TxdxckzZNdBLFgIc",
+                "createdAt": {
+                  "__time__": "2022-02-02T19:24:04.794Z"
+                },
+                "title": "Project manager",
+                "description": "Need a project manager who will be able to manage the timelines and manage and unite all the team members to work towards a strong end product for a client, need to be able to speak to the client and deliver all the deliverables within scope and on time,will also manage the budget i will allocate for each project and keep track of other members contributions and whether they are earning their pay.",
+                "status": "free",
+                "image": "pexels-fox-1595391.jpg",
+                "__collections__": {
+                  "bids": {
+                    "yrVFqWHKa5kT3LStvBfd": {
+                      "id": "yrVFqWHKa5kT3LStvBfd",
+                      "createdAt": {
+                        "__time__": "2022-02-10T19:24:04.794Z"
+                      },
+                      "bidderId": "zfUtzkbpCdRVjBKHACyT5pjg1bb2",
+                      "amount": "£2400",
+                      "status": "pending",
+                      "timeEstimate": "3 months"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "sOwGvcjy601vz3k5amYg": {
+          "id": "sOwGvcjy601vz3k5amYg",
+          "createdAt": {
+            "__time__": "2021-03-16T19:24:04.794Z"
+          },
+          "creatorId": "QfABV59rDVWcUDBvtiaZCrQ8mTJ2",
+          "description": "Hello, I am gathering a set of engineers capable of making a project for the hull of a yacht. Based on the given main dimensions the task would be to design the hull using proper regulations. Having the project done we would make a model on a smaller scale and calculate the forces exerted on it in the modelling pool. Next step would be to make a 3D model in the (preferably) FEMAP software to calculate the hull strength and the stress that is present under the dynamic load. The model would be analysed by the software outputting the elements undergoing the biggest stress. The elements unable to undergo said stress would then be strengthened or thickened.",
+          "highlight": "Looking for ship engineers",
+          "image": "pexels-pixabay-416405.jpg",
+          "industry": "Construction",
+          "timeEstimate": "2 months",
+          "title": "Project of a yacht",
+          "bidders": [
+            "2YM79stNWyXyX08J8vAL",
+            "imZrHGqnOCfGy44ya596jOyNHIG3",
+            "zfUtzkbpCdRVjBKHACyT5pjg1bb2",
+            "0FdxGoe3fcy6v8Rd37VZ",
+            "6BxZRLLnIKROMglmxItnPWv5g9r2"
+          ],
+          "members": [
+            "0FdxGoe3fcy6v8Rd37VZ",
+            "6BxZRLLnIKROMglmxItnPWv5g9r2",
+            "imZrHGqnOCfGy44ya596jOyNHIG3"
+          ],
+          "__collections__": {
+            "roles": {
+              "0FdxGoe3fcy6v8Rd37VZ": {
+                "id": "0FdxGoe3fcy6v8Rd37VZ",
+                "createdAt": {
+                  "__time__": "2021-03-16T19:24:04.794Z"
+                },
+                "title": "Hydromechanics engineer",
+                "description": "Looking for an engineer capable of scaling down the project and calculating the forces exerted on it in the modelling pool.",
+                "status": "free",
+                "image": "blueprints-g00659a737_1920.jpg"
+              },
+              "U8SzdPhu6yhmIFLVIcqc": {
+                "id": "U8SzdPhu6yhmIFLVIcqc",
+                "createdAt": {
+                  "__time__": "2021-03-16T19:24:04.794Z"
+                },
+                "title": "Marine engineer",
+                "description": "Looking for an engineer with the ability to design the hull using the latest regulations of the national classification society.",
+                "status": "taken",
+                "image": "drawing-g101b5daa1_1920.jpg",
+                "memberId": "0FdxGoe3fcy6v8Rd37VZ",
+                "__collections__": {
+                  "bids": {
+                    "yrVFqWHKa5kT3LStvBfd": {
+                      "id": "yrVFqWHKa5kT3LStvBfd",
+                      "createdAt": {
+                        "__time__": "2021-03-20T19:24:04.794Z"
+                      },
+                      "bidderId": "0FdxGoe3fcy6v8Rd37VZ",
+                      "amount": "£2100",
+                      "status": "accepted",
+                      "timeEstimate": "1 month"
+                    }
+                  }
+                }
+              },
+              "X5VBErXjgfe1PH1daNjk": {
+                "id": "X5VBErXjgfe1PH1daNjk",
+                "createdAt": {
+                  "__time__": "2021-03-16T19:24:04.794Z"
+                },
+                "title": "Marine engineer assistant",
+                "description": "Looking for a person who would assist the hull designer with the calculations.",
+                "status": "taken",
+                "image": "bookkeeping-g42c75f25d_1920.jpg",
+                "memberId": "6BxZRLLnIKROMglmxItnPWv5g9r2",
+                "__collections__": {
+                  "bids": {
+                    "yrVFqWHKa5kT3LStvBfd": {
+                      "id": "yrVFqWHKa5kT3LStvBfd",
+                      "createdAt": {
+                        "__time__": "2021-03-20T19:24:04.794Z"
+                      },
+                      "bidderId": "6BxZRLLnIKROMglmxItnPWv5g9r2",
+                      "amount": "£1200",
+                      "status": "accepted",
+                      "timeEstimate": "1 month"
+                    },
+                    "qZXxdJj0xa45UlQcicQs": {
+                      "id": "qZXxdJj0xa45UlQcicQs",
+                      "createdAt": {
+                        "__time__": "2021-03-19T19:24:04.794Z"
+                      },
+                      "bidderId": "2YM79stNWyXyX08J8vAL",
+                      "amount": "£1400",
+                      "status": "rejected",
+                      "timeEstimate": "3 weeks"
+                    }
+                  }
+                }
+              },
+              "azjyb8sk26j18ZpkiN2E": {
+                "id": "azjyb8sk26j18ZpkiN2E",
+                "createdAt": {
+                  "__time__": "2021-03-16T19:24:04.794Z"
+                },
+                "title": "Mechanics engineer",
+                "description": "Looking for an engineer to do the 3D model of the project in the stress calculation software and analyse if the elements need to be strengthened.",
+                "status": "taken",
+                "image": "beams",
+                "memberId": "imZrHGqnOCfGy44ya596jOyNHIG3",
+                "__collections__": {
+                  "bids": {
+                    "yrVFqWHKa5kT3LStvBfd": {
+                      "id": "yrVFqWHKa5kT3LStvBfd",
+                      "createdAt": {
+                        "__time__": "2021-03-21T19:24:04.794Z"
+                      },
+                      "bidderId": "0FdxGoe3fcy6v8Rd37VZ",
+                      "amount": "£2000",
+                      "status": "rejected",
+                      "timeEstimate": "1 month"
+                    },
+                    "sVcVszVaMcwJ32tbYqf5": {
+                      "id": "sVcVszVaMcwJ32tbYqf5",
+                      "createdAt": {
+                        "__time__": "2021-03-19T19:24:04.794Z"
+                      },
+                      "bidderId": "zfUtzkbpCdRVjBKHACyT5pjg1bb2",
+                      "amount": "£1700",
+                      "status": "rejected",
+                      "timeEstimate": "3 months"
+                    },
+                    "3SOmV2XIO4k03XWacQwO": {
+                      "id": "3SOmV2XIO4k03XWacQwO",
+                      "createdAt": {
+                        "__time__": "2021-03-22T19:24:04.794Z"
+                      },
+                      "bidderId": "imZrHGqnOCfGy44ya596jOyNHIG3",
+                      "amount": "£2100",
+                      "status": "accepted",
+                      "timeEstimate": "2 months"
+                    },
+                    "qbqUNGzaiRrM3UInTjvm": {
+                      "id": "qbqUNGzaiRrM3UInTjvm",
+                      "createdAt": {
+                        "__time__": "2021-03-24T19:24:04.794Z"
+                      },
+                      "bidderId": "6BxZRLLnIKROMglmxItnPWv5g9r2",
+                      "amount": "£3400",
+                      "status": "rejected",
+                      "timeEstimate": "3 weeks"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "heroes": {
+        "2YM79stNWyXyX08J8vAL": {
+          "id": "2YM79stNWyXyX08J8vAL",
+          "bio": "Hi My name is Sam. I am a 22 year old marketing graduate from Newcastle University. My hobbies include 5 a side football and lego. My skills are catered towards brand management. If you wish to grow your brand in the modern age through social media posts, content and SEO methods I’m your guy!",
+          "email": "Samkaminsky@gmail.com",
+          "experience": [
+            {
+              "company": "Bradford bulls",
+              "endDate": "2022-03-15T19:24:04.794Z",
+              "position": "Brand manager",
+              "startDate": "2019-04-21T19:24:04.794Z"
+            }
+          ],
+          "isMentor": false,
+          "linkedin": "sKaminskyServices",
+          "location": {
+            "city": "Leeds",
+            "country": "UK"
+          },
+          "name": {
+            "first": "Sam",
+            "last": "Kaminsky"
+          },
+          "profilePicture": "entrepreneur-g8c2fb357d_1920.jpg",
+          "rating": 4.8,
+          "level": 3,
+          "twitter": "sKaminskyTwitter",
+          "website": "www.s-kaminsky.com",
+          "__collections__": {
+            "transactions": {
+              "qZXxdJj0xa45UlQcicQs": {
+                "id": "qZXxdJj0xa45UlQcicQs",
+                "amount": "-£2400",
+                "date": {
+                  "__time__": "2021-04-03T19:24:04.794Z"
+                },
+                "userId": "imZrHGqnOCfGy44ya596jOyNHIG3"
+              },
+              "U8SzdPhu6yhmIFLVIcqc": {
+                "id": "U8SzdPhu6yhmIFLVIcqc",
+                "amount": "+£1200",
+                "date": {
+                  "__time__": "2021-04-12T19:24:04.794Z"
+                },
+                "userId": "imZrHGqnOCfGy44ya596jOyNHIG3"
+              },
+              "sOwGvcjy601vz3k5amYg": {
+                "id": "sOwGvcjy601vz3k5amYg",
+                "amount": "-£1600",
+                "date": {
+                  "__time__": "2021-10-14T19:24:04.794Z"
+                },
+                "userId": "QfABV59rDVWcUDBvtiaZCrQ8mTJ2"
+              },
+              "nJ2iWgoGXvVELwVoAlLb": {
+                "id": "nJ2iWgoGXvVELwVoAlLb",
+                "amount": "-£100",
+                "date": {
+                  "__time__": "2022-08-02T19:24:04.794Z"
+                },
+                "userId": "zfUtzkbpCdRVjBKHACyT5pjg1bb2"
+              },
+              "kBJp2JJ7tYWYKIQ0X3An": {
+                "id": "kBJp2JJ7tYWYKIQ0X3An",
+                "amount": "+£3000",
+                "date": {
+                  "__time__": "2022-10-01T19:24:04.794Z"
+                },
+                "userId": "0FdxGoe3fcy6v8Rd37VZ"
+              },
+              "3JTOJHO9EZKgT5JIcDRX": {
+                "id": "3JTOJHO9EZKgT5JIcDRX",
+                "amount": "-£2100",
+                "date": {
+                  "__time__": "2020-06-20T19:24:04.794Z"
+                },
+                "userId": "zfUtzkbpCdRVjBKHACyT5pjg1bb2"
+              },
+              "yrVFqWHKa5kT3LStvBfd": {
+                "id": "yrVFqWHKa5kT3LStvBfd",
+                "amount": "+£1000",
+                "date": {
+                  "__time__": "2020-03-02T19:24:04.794Z"
+                },
+                "userId": "zfUtzkbpCdRVjBKHACyT5pjg1bb2"
+              },
+              "2YM79stNWyXyX08J8vAL": {
+                "id": "2YM79stNWyXyX08J8vAL",
+                "amount": "-£550",
+                "date": {
+                  "__time__": "2018-02-11T19:24:04.794Z"
+                },
+                "userId": "imZrHGqnOCfGy44ya596jOyNHIG3"
+              }
+            }
+          }
+        },
+        "imZrHGqnOCfGy44ya596jOyNHIG3": {
+          "id": "imZrHGqnOCfGy44ya596jOyNHIG3",
+          "bio": "Greetings, my name is Matthew. I’m a 28 year old graduate from Quebec University of Technology. Since I graduated I took up many different jobs to finally settle down with production management at the local shipyard. I’ve always been fond of sailing and sea engineering. If you’re looking for a person with engineering experience and scientific mind I’m the best candidate.",
+          "email": "matthew.turner94@gmail.com",
+          "experience": [
+            {
+              "company": "Davie Shipbuilding Quebec",
+              "endDate": "2014-01-22T19:24:04.794Z",
+              "position": "Production manager",
+              "startDate": "2017-08-02T19:24:04.794Z"
+            }
+          ],
+          "isMentor": false,
+          "linkedin": "mTurnerShipbuilding",
+          "location": {
+            "city": "Quebec",
+            "country": "Canada"
+          },
+          "name": {
+            "first": "Matthew",
+            "last": "Turner"
+          },
+          "profilePicture": "entrepreneur-ga84894035_1920.jpg",
+          "rating": 4.6,
+          "level": 2,
+          "twitter": "MatthewTurner94",
+          "website": "matthew-turner.coma",
+          "__collections__": {
+            "transactions": {
+              "qZXxdJj0xa45UlQcicQs": {
+                "id": "qZXxdJj0xa45UlQcicQs",
+                "amount": "+£1200",
+                "date": {
+                  "__time__": "2022-08-06T19:24:04.794Z"
+                },
+                "userId": "2YM79stNWyXyX08J8vAL"
+              },
+              "U8SzdPhu6yhmIFLVIcqc": {
+                "id": "U8SzdPhu6yhmIFLVIcqc",
+                "amount": "-£900",
+                "date": {
+                  "__time__": "2022-08-06T19:24:04.794Z"
+                },
+                "userId": "2YM79stNWyXyX08J8vAL"
+              },
+              "sOwGvcjy601vz3k5amYg": {
+                "id": "sOwGvcjy601vz3k5amYg",
+                "amount": "-£600",
+                "date": {
+                  "__time__": "2022-08-06T19:24:04.794Z"
+                },
+                "userId": "6BxZRLLnIKROMglmxItnPWv5g9r2"
+              },
+              "nJ2iWgoGXvVELwVoAlLb": {
+                "id": "nJ2iWgoGXvVELwVoAlLb",
+                "amount": "+£2050",
+                "date": {
+                  "__time__": "2022-08-06T19:24:04.794Z"
+                },
+                "userId": "6BxZRLLnIKROMglmxItnPWv5g9r2"
+              },
+              "kBJp2JJ7tYWYKIQ0X3An": {
+                "id": "kBJp2JJ7tYWYKIQ0X3An",
+                "amount": "+£150",
+                "date": {
+                  "__time__": "2022-08-06T19:24:04.794Z"
+                },
+                "userId": "6BxZRLLnIKROMglmxItnPWv5g9r2"
+              },
+              "3JTOJHO9EZKgT5JIcDRX": {
+                "id": "3JTOJHO9EZKgT5JIcDRX",
+                "amount": "+£3500",
+                "date": {
+                  "__time__": "2022-08-06T19:24:04.794Z"
+                },
+                "userId": "zfUtzkbpCdRVjBKHACyT5pjg1bb2"
+              },
+              "yrVFqWHKa5kT3LStvBfd": {
+                "id": "yrVFqWHKa5kT3LStvBfd",
+                "amount": "+£1200",
+                "date": {
+                  "__time__": "2022-08-06T19:24:04.794Z"
+                },
+                "userId": "QfABV59rDVWcUDBvtiaZCrQ8mTJ2"
+              },
+              "2YM79stNWyXyX08J8vAL": {
+                "id": "2YM79stNWyXyX08J8vAL",
+                "amount": "-£750",
+                "date": {
+                  "__time__": "2022-08-06T19:24:04.794Z"
+                },
+                "userId": "zfUtzkbpCdRVjBKHACyT5pjg1bb2"
+              }
+            }
+          }
+        },
+        "QfABV59rDVWcUDBvtiaZCrQ8mTJ2": {
+          "id": "QfABV59rDVWcUDBvtiaZCrQ8mTJ2",
+          "bio": "Hi, my name is Johnny Sullivan. I am a 26 years old student of graphics design in Australia at the University of Canberra. During my studies, I took part in many internships and worked as a freelancer. I designed websites as well as CD covers, announcements etc. I have always been passionate about graphics and already in high school I spent a lot of time drawing during school hours, then it turned into working with computers. I will be happy to make your project designed.",
+          "email": "JJSullivanD@gmail.com",
+          "experience": [
+            {
+              "company": "StudioIQ",
+              "endDate": "2017-04-06T19:24:04.794Z",
+              "position": "computer graphics apprentice",
+              "startDate": "ongoing"
+            }
+          ],
+          "isMentor": false,
+          "location": {
+            "city": "Canberra",
+            "country": "Australia"
+          },
+          "name": {
+            "first": "Johnny",
+            "last": "Sullivan",
+            "second": "James"
+          },
+          "profilePicture": "portrait-g1fc44a1a6_1920.jpg",
+          "rating": 4.9,
+          "level": 4,
+          "twitter": "JJSdesign",
+          "website": "www.JJSullivan.com ",
+          "__collections__": {
+            "transactions": {
+              "qZXxdJj0xa45UlQcicQs": {
+                "id": "qZXxdJj0xa45UlQcicQs",
+                "amount": "+£3900",
+                "date": {
+                  "__time__": "2022-08-06T19:24:04.794Z"
+                },
+                "userId": "6BxZRLLnIKROMglmxItnPWv5g9r2"
+              },
+              "U8SzdPhu6yhmIFLVIcqc": {
+                "id": "U8SzdPhu6yhmIFLVIcqc",
+                "amount": "+£4200",
+                "date": {
+                  "__time__": "2022-08-06T19:24:04.794Z"
+                },
+                "userId": "zfUtzkbpCdRVjBKHACyT5pjg1bb2"
+              },
+              "sOwGvcjy601vz3k5amYg": {
+                "id": "sOwGvcjy601vz3k5amYg",
+                "amount": "-£6000",
+                "date": {
+                  "__time__": "2022-08-06T19:24:04.794Z"
+                },
+                "userId": "0FdxGoe3fcy6v8Rd37VZ"
+              },
+              "nJ2iWgoGXvVELwVoAlLb": {
+                "id": "nJ2iWgoGXvVELwVoAlLb",
+                "amount": "-£950",
+                "date": {
+                  "__time__": "2022-08-06T19:24:04.794Z"
+                },
+                "userId": "0FdxGoe3fcy6v8Rd37VZ"
+              },
+              "kBJp2JJ7tYWYKIQ0X3An": {
+                "id": "kBJp2JJ7tYWYKIQ0X3An",
+                "amount": "+£3230",
+                "date": {
+                  "__time__": "2022-08-06T19:24:04.794Z"
+                },
+                "userId": "2YM79stNWyXyX08J8vAL"
+              },
+              "3JTOJHO9EZKgT5JIcDRX": {
+                "id": "3JTOJHO9EZKgT5JIcDRX",
+                "amount": "+£950",
+                "date": {
+                  "__time__": "2022-08-06T19:24:04.794Z"
+                },
+                "userId": "zfUtzkbpCdRVjBKHACyT5pjg1bb2"
+              },
+              "yrVFqWHKa5kT3LStvBfd": {
+                "id": "yrVFqWHKa5kT3LStvBfd",
+                "amount": "-£2200",
+                "date": {
+                  "__time__": "2022-08-06T19:24:04.794Z"
+                },
+                "userId": "2YM79stNWyXyX08J8vAL"
+              },
+              "2YM79stNWyXyX08J8vAL": {
+                "id": "2YM79stNWyXyX08J8vAL",
+                "amount": "-£630",
+                "date": {
+                  "__time__": "2022-08-06T19:24:04.794Z"
+                },
+                "userId": "zfUtzkbpCdRVjBKHACyT5pjg1bb2"
+              }
+            }
+          }
+        },
+        "zfUtzkbpCdRVjBKHACyT5pjg1bb2": {
+          "id": "zfUtzkbpCdRVjBKHACyT5pjg1bb2",
+          "bio": " Hi my name is Ross, I am a 24 year old business graduate from the University of norwich with honours. My hobbies include basketball and the gym. My can do attitude and open communication style means I'm always positive on the job and am always active to respond to any questions you may have about the progress of work. If youre looking for a freelance financial advisor for your company, big or small, I am your guy ! I have a variety of financial advice skills that will help small companies save a lot of money starting up but can also help individuals find out where they have leaks in their budgeting and savings to make you financially independent faster!",
+          "email": "Rossbaskind@gmail.com ",
+          "experience": [
+            {
+              "company": "PwC",
+              "endDate": "2019-02-14T19:24:04.794Z",
+              "position": "Junior financial advisor",
+              "startDate": "2022-04-15T19:24:04.794Z"
+            }
+          ],
+          "isMentor": true,
+          "location": {
+            "city": "Harrogate",
+            "country": "UK"
+          },
+          "mentor": {
+            "bio": "I will mentor any Junior financial advisors and will mentor any type of freelancer on how to increase their savings amount to help them use their freelance cashflow into sustainable savings.",
+            "maxRate": "£5/h",
+            "minRate": "£8/h",
+            "skill": "financial advice"
+          },
+          "name": {
+            "first": "Ross",
+            "last": "Baskind"
+          },
+          "profilePicture": "black-portrait_T8VNJRQH7F.jpeg",
+          "rating": 4.2,
+          "level": 8,
+          "twitter": "Rossbaskindtwitter",
+          "website": "Rossbaskindfinancialadvise.com",
+          "__collections__": {
+            "transactions": {
+              "qZXxdJj0xa45UlQcicQs": {
+                "id": "qZXxdJj0xa45UlQcicQs",
+                "amount": "+£750",
+                "date": {
+                  "__time__": "2022-04-02T19:24:04.794Z"
+                },
+                "userId": "0FdxGoe3fcy6v8Rd37VZ"
+              },
+              "U8SzdPhu6yhmIFLVIcqc": {
+                "id": "U8SzdPhu6yhmIFLVIcqc",
+                "amount": "+£1400",
+                "date": {
+                  "__time__": "2022-05-10T19:24:04.794Z"
+                },
+                "userId": "6BxZRLLnIKROMglmxItnPWv5g9r2"
+              },
+              "sOwGvcjy601vz3k5amYg": {
+                "id": "sOwGvcjy601vz3k5amYg",
+                "amount": "-£700",
+                "date": {
+                  "__time__": "2022-01-06T19:24:04.794Z"
+                },
+                "userId": "6BxZRLLnIKROMglmxItnPWv5g9r2"
+              },
+              "nJ2iWgoGXvVELwVoAlLb": {
+                "id": "nJ2iWgoGXvVELwVoAlLb",
+                "amount": "+£500",
+                "date": {
+                  "__time__": "2020-08-12T19:24:04.794Z"
+                },
+                "userId": "imZrHGqnOCfGy44ya596jOyNHIG3"
+              },
+              "kBJp2JJ7tYWYKIQ0X3An": {
+                "id": "kBJp2JJ7tYWYKIQ0X3An",
+                "amount": "+£1200",
+                "date": {
+                  "__time__": "2021-02-19T19:24:04.794Z"
+                },
+                "userId": "imZrHGqnOCfGy44ya596jOyNHIG3"
+              },
+              "3JTOJHO9EZKgT5JIcDRX": {
+                "id": "3JTOJHO9EZKgT5JIcDRX",
+                "amount": "-£300",
+                "date": {
+                  "__time__": "2018-04-19T19:24:04.794Z"
+                },
+                "userId": "2YM79stNWyXyX08J8vAL"
+              },
+              "yrVFqWHKa5kT3LStvBfd": {
+                "id": "yrVFqWHKa5kT3LStvBfd",
+                "amount": "+£2700",
+                "date": {
+                  "__time__": "2018-04-27T19:24:04.794Z"
+                },
+                "userId": "QfABV59rDVWcUDBvtiaZCrQ8mTJ2"
+              },
+              "2YM79stNWyXyX08J8vAL": {
+                "id": "2YM79stNWyXyX08J8vAL",
+                "amount": "+£400",
+                "date": {
+                  "__time__": "2020-04-28T19:24:04.794Z"
+                },
+                "userId": "2YM79stNWyXyX08J8vAL"
+              }
+            }
+          }
+        },
+        "0FdxGoe3fcy6v8Rd37VZ": {
+          "id": "0FdxGoe3fcy6v8Rd37VZ",
+          "bio": "Hi my name is jude cornish and im a business management graduate from Lancaster University. My hobbies include squash, running and the gym. The work is offer is high level UX/UI design, i have 5 years experience in this field and have honed my skills to a very high level, even designing the current skoda international site that is used.",
+          "email": "Judecornish1@gmail.com",
+          "experience": [
+            {
+              "company": "Skoda",
+              "endDate": "2012-10-17T19:24:04.794Z",
+              "position": "Senior UX/UI Designer",
+              "startDate": "2022-09-14T19:24:04.794Z"
+            },
+            {
+              "company": "HealthToken",
+              "endDate": "2022-10-06T19:24:04.794Z",
+              "position": "Lead Designer",
+              "startDate": "ongoing"
+            }
+          ],
+          "isMentor": true,
+          "location": {
+            "city": "Lancaster",
+            "country": "UK"
+          },
+          "mentor": {
+            "bio": "I am a senior UX/UI designer with 5 years experience and thousands earnt in freelance work, if you're starting up with freelance design i am the mentor for you. I will teach you the quickest ways to learn and improve to a high earning level and although my hourly fee is higher than most its because you will only need minimal hours to learn as efficiently as possible",
+            "maxRate": "£25/h",
+            "minRate": "£35/h",
+            "skill": "UX/UI designer"
+          },
+          "name": {
+            "first": "Jude",
+            "last": "Cornish"
+          },
+          "portfolio": ["HealthToken", "Skoda", "Skelftees", "Okemonos"],
+          "profilePicture": "confident-business_TMACJ6VLZH.jpeg",
+          "rating": 4.9,
+          "level": 15,
+          "website": "Judecornishdesigns.com",
+          "__collections__": {
+            "transactions": {
+              "qZXxdJj0xa45UlQcicQs": {
+                "id": "qZXxdJj0xa45UlQcicQs",
+                "amount": "-£1200",
+                "date": {
+                  "__time__": "2022-06-07T19:24:04.794Z"
+                },
+                "userId": "6BxZRLLnIKROMglmxItnPWv5g9r2"
+              },
+              "U8SzdPhu6yhmIFLVIcqc": {
+                "id": "U8SzdPhu6yhmIFLVIcqc",
+                "amount": "+£2200",
+                "date": {
+                  "__time__": "2021-08-12T19:24:04.794Z"
+                },
+                "userId": "QfABV59rDVWcUDBvtiaZCrQ8mTJ2"
+              },
+              "sOwGvcjy601vz3k5amYg": {
+                "id": "sOwGvcjy601vz3k5amYg",
+                "amount": "+£1200",
+                "date": {
+                  "__time__": "2021-02-24T19:24:04.794Z"
+                },
+                "userId": "2YM79stNWyXyX08J8vAL"
+              },
+              "nJ2iWgoGXvVELwVoAlLb": {
+                "id": "nJ2iWgoGXvVELwVoAlLb",
+                "amount": "-£165",
+                "date": {
+                  "__time__": "2021-06-20T19:24:04.794Z"
+                },
+                "userId": "2YM79stNWyXyX08J8vAL"
+              },
+              "kBJp2JJ7tYWYKIQ0X3An": {
+                "id": "kBJp2JJ7tYWYKIQ0X3An",
+                "amount": "-£75",
+                "date": {
+                  "__time__": "2018-08-15T19:24:04.794Z"
+                },
+                "userId": "6BxZRLLnIKROMglmxItnPWv5g9r2"
+              },
+              "3JTOJHO9EZKgT5JIcDRX": {
+                "id": "3JTOJHO9EZKgT5JIcDRX",
+                "amount": "+£750",
+                "date": {
+                  "__time__": "2018-01-23T19:24:04.794Z"
+                },
+                "userId": "QfABV59rDVWcUDBvtiaZCrQ8mTJ2"
+              },
+              "yrVFqWHKa5kT3LStvBfd": {
+                "id": "yrVFqWHKa5kT3LStvBfd",
+                "amount": "+£1150",
+                "date": {
+                  "__time__": "2018-01-26T19:24:04.794Z"
+                },
+                "userId": "imZrHGqnOCfGy44ya596jOyNHIG3"
+              },
+              "2YM79stNWyXyX08J8vAL": {
+                "id": "2YM79stNWyXyX08J8vAL",
+                "amount": "+£660",
+                "date": {
+                  "__time__": "2019-10-22T19:24:04.794Z"
+                },
+                "userId": "imZrHGqnOCfGy44ya596jOyNHIG3"
+              }
+            }
+          }
+        },
+        "6BxZRLLnIKROMglmxItnPWv5g9r2": {
+          "id": "6BxZRLLnIKROMglmxItnPWv5g9r2",
+          "bio": "Cześć, mam na imię Adrian. Od dziecka pasjonuję się piłką nożną. Dzięki ciężkiemu treningowi udało mi się dostać do lokalnej drużyny piłkarskiej na pozycji napastnika. Niestety w wyniku kontuzji musiałem porzucić karierę sportowca. Moją uwagę przykuł wtedy dopiero rozwijający się temat sztucznej inteligencji. Od tamtej pory moje zainteresowanie tym tematem umożliwiło mi zmianę zawodu. W tym momencie specjalizuję się w tworzeniu modeli bazujących na sztucznej inteligencji i z przyjemnością podzielę się swoimi umiejętnościami w twoim projekcie.",
+          "email": "adrian.szczutowski2001@gazeta.pl",
+          "experience": [
+            {
+              "company": "NVIDIA",
+              "endDate": "2021-08-14T19:24:04.794Z",
+              "position": "Junior developer",
+              "startDate": "2022-09-22T19:24:04.794Z"
+            }
+          ],
+          "isMentor": true,
+          "linkedin": "AdrianSzczuto",
+          "location": {
+            "city": "Płock",
+            "country": "Polska"
+          },
+          "mentor": {
+            "bio": "Podczas mojej kariery piłkarza udało mi się dowiedzieć wielu ciekawych rzeczy na ten temat. Niestety ja nie jestem w stanie wykorzystać tej wiedzy, więc bardzo chętnie podzielę się nią z innymi. Ponadto mogę doradzić jak zbudować model sztucznej inteligencji na podstawie tego czego nauczyłem się pracując w firmie NVIDIA. Mój grafik jest dosyć elastyczny więc jestem pewny, że damy radę znaleźć pasujące nam godziny",
+            "maxRate": "£15/h",
+            "minRate": "£25/h",
+            "skill": "Modelowanie sieci sztucznej inteligencji"
+          },
+          "name": {
+            "first": "Adrian",
+            "last": "Szczutowski"
+          },
+          "profilePicture": "soccer-athlete_VHCASPZSFE.jpeg",
+          "rating": 3.6,
+          "level": 7,
+          "website": "adrian-szczutowski.pl",
+          "__collections__": {
+            "transactions": {
+              "qZXxdJj0xa45UlQcicQs": {
+                "id": "qZXxdJj0xa45UlQcicQs",
+                "amount": "+£65",
+                "date": {
+                  "__time__": "2019-05-04T19:24:04.794Z"
+                },
+                "userId": "imZrHGqnOCfGy44ya596jOyNHIG3"
+              },
+              "U8SzdPhu6yhmIFLVIcqc": {
+                "id": "U8SzdPhu6yhmIFLVIcqc",
+                "amount": "+£160",
+                "date": {
+                  "__time__": "2019-05-06T19:24:04.794Z"
+                },
+                "userId": "imZrHGqnOCfGy44ya596jOyNHIG3"
+              },
+              "sOwGvcjy601vz3k5amYg": {
+                "id": "sOwGvcjy601vz3k5amYg",
+                "amount": "+£650",
+                "date": {
+                  "__time__": "2019-10-02T19:24:04.794Z"
+                },
+                "userId": "0FdxGoe3fcy6v8Rd37VZ"
+              },
+              "nJ2iWgoGXvVELwVoAlLb": {
+                "id": "nJ2iWgoGXvVELwVoAlLb",
+                "amount": "-£190",
+                "date": {
+                  "__time__": "2018-03-04T19:24:04.794Z"
+                },
+                "userId": "2YM79stNWyXyX08J8vAL"
+              },
+              "kBJp2JJ7tYWYKIQ0X3An": {
+                "id": "kBJp2JJ7tYWYKIQ0X3An",
+                "amount": "+£750",
+                "date": {
+                  "__time__": "2022-11-12T19:24:04.794Z"
+                },
+                "userId": "imZrHGqnOCfGy44ya596jOyNHIG3"
+              },
+              "3JTOJHO9EZKgT5JIcDRX": {
+                "id": "3JTOJHO9EZKgT5JIcDRX",
+                "amount": "-£220",
+                "date": {
+                  "__time__": "2022-01-22T19:24:04.794Z"
+                },
+                "userId": "0FdxGoe3fcy6v8Rd37VZ"
+              },
+              "yrVFqWHKa5kT3LStvBfd": {
+                "id": "yrVFqWHKa5kT3LStvBfd",
+                "amount": "+£660",
+                "date": {
+                  "__time__": "2017-09-09T19:24:04.794Z"
+                },
+                "userId": "2YM79stNWyXyX08J8vAL"
+              },
+              "2YM79stNWyXyX08J8vAL": {
+                "id": "2YM79stNWyXyX08J8vAL",
+                "amount": "+£35",
+                "date": {
+                  "__time__": "2021-11-22T19:24:04.794Z"
+                },
+                "userId": "imZrHGqnOCfGy44ya596jOyNHIG3"
+              }
+            }
+          }
+        }
+      },
+      "quests": {
+        "yrVFqWHKa5kT3LStvBfd": {
+          "id": "yrVFqWHKa5kT3LStvBfd",
+          "createdAt": {
+            "__time__": "2019-11-13T19:24:04.794Z"
+          },
+          "bidders": [
+            "imZrHGqnOCfGy44ya596jOyNHIG3",
+            "QfABV59rDVWcUDBvtiaZCrQ8mTJ2"
+          ],
+          "creatorId": "2YM79stNWyXyX08J8vAL",
+          "description": "Hi, my name is Jacob and I'm a young youtuber with 130k subscribers. Recently I decided to hire a designer.  I’ve got three videos that require thumbnails. If I like your job and you want a job like that, I might hire you for longer.",
+          "summary": "I need a designer to create 3 thumbnails for my youtube videos",
+          "image": "pexels-george-milton-7015034.jpg",
+          "reward": "£120",
+          "status": "in progress",
+          "level": 4,
+          "tags": ["Design"],
+          "title": "Youtube thumbnails needed",
+          "__collections__": {
+            "bids": {
+              "qZXxdJj0xa45UlQcicQs": {
+                "id": "qZXxdJj0xa45UlQcicQs",
+                "createdAt": {
+                  "__time__": "2019-11-15T19:24:04.794Z"
+                },
+                "bidderId": "imZrHGqnOCfGy44ya596jOyNHIG3",
+                "amount": "£180",
+                "status": "rejected",
+                "timeEstimate": "2 days"
+              },
+              "yrVFqWHKa5kT3LStvBfd": {
+                "id": "yrVFqWHKa5kT3LStvBfd",
+                "createdAt": {
+                  "__time__": "2019-11-16T19:24:04.794Z"
+                },
+                "bidderId": "QfABV59rDVWcUDBvtiaZCrQ8mTJ2",
+                "amount": "£120",
+                "status": "accepted",
+                "timeEstimate": "3 days"
+              }
+            }
+          }
+        },
+        "qZXxdJj0xa45UlQcicQs": {
+          "id": "qZXxdJj0xa45UlQcicQs",
+          "createdAt": {
+            "__time__": "2020-09-11T19:24:04.794Z"
+          },
+          "bidders": [
+            "2YM79stNWyXyX08J8vAL",
+            "QfABV59rDVWcUDBvtiaZCrQ8mTJ2",
+            "zfUtzkbpCdRVjBKHACyT5pjg1bb2",
+            "0FdxGoe3fcy6v8Rd37VZ"
+          ],
+          "creatorId": "imZrHGqnOCfGy44ya596jOyNHIG3",
+          "description": "Hi, My name is Felix, I am a rapper under the nickname Young Flexy. Recently I recorded a fire that I am sure will blow up. I got my clips recorded already, but I need a professional video editor to put it together.",
+          "summary": "I need a video editor to put together a music video for my song",
+          "image": "people-man_VPSJEO4B3U.jpeg",
+          "status": "open",
+          "level": 3,
+          "tags": ["Customer Success", "Presentation"],
+          "title": "Video editor needed for music clip",
+          "__collections__": {
+            "bids": {
+              "2YM79stNWyXyX08J8vAL": {
+                "id": "2YM79stNWyXyX08J8vAL",
+                "createdAt": {
+                  "__time__": "2020-09-12T19:24:04.794Z"
+                },
+                "bidderId": "2YM79stNWyXyX08J8vAL",
+                "amount": "£400",
+                "status": "rejected",
+                "timeEstimate": "10 days"
+              },
+              "nJ2iWgoGXvVELwVoAlLb": {
+                "id": "nJ2iWgoGXvVELwVoAlLb",
+                "createdAt": {
+                  "__time__": "2020-09-13T19:24:04.794Z"
+                },
+                "bidderId": "QfABV59rDVWcUDBvtiaZCrQ8mTJ2",
+                "amount": "£450",
+                "status": "rejected",
+                "timeEstimate": "15 days"
+              },
+              "qZXxdJj0xa45UlQcicQs": {
+                "id": "qZXxdJj0xa45UlQcicQs",
+                "createdAt": {
+                  "__time__": "2020-09-14T19:24:04.794Z"
+                },
+                "bidderId": "zfUtzkbpCdRVjBKHACyT5pjg1bb2",
+                "amount": "£500",
+                "status": "rejected",
+                "timeEstimate": "30 days"
+              },
+              "yrVFqWHKa5kT3LStvBfd": {
+                "id": "yrVFqWHKa5kT3LStvBfd",
+                "createdAt": {
+                  "__time__": "2020-09-13T19:24:04.794Z"
+                },
+                "bidderId": "0FdxGoe3fcy6v8Rd37VZ",
+                "amount": "£700",
+                "status": "pending",
+                "timeEstimate": "30 days"
+              }
+            }
+          }
+        },
+        "3JTOJHO9EZKgT5JIcDRX": {
+          "id": "3JTOJHO9EZKgT5JIcDRX",
+          "createdAt": {
+            "__time__": "2022-06-07T19:24:04.794Z"
+          },
+          "bidders": ["zfUtzkbpCdRVjBKHACyT5pjg1bb2", "0FdxGoe3fcy6v8Rd37VZ"],
+          "creatorId": "QfABV59rDVWcUDBvtiaZCrQ8mTJ2",
+          "description": "I need a crypto currency contract for a coin on the ethereum chain with specific contract requirements such as taxes and mint functions that we can talk about in the chats if your bid is adequate. Need to have ownership transferred to me after and be taught how to do all the steps to add liquidity ect.",
+          "summary": "Need a person with the abilty to create a crypto currency contract",
+          "image": "cryptocurrency-finance_MEMYJEJ4VB.jpeg",
+          "reward": "£200",
+          "status": "in progress",
+          "level": 10,
+          "tags": ["Software Development"],
+          "title": "Crypto contract for Etheruem coin",
+          "__collections__": {
+            "bids": {
+              "qZXxdJj0xa45UlQcicQs": {
+                "id": "qZXxdJj0xa45UlQcicQs",
+                "createdAt": {
+                  "__time__": "2022-06-08T19:24:04.794Z"
+                },
+                "bidderId": "zfUtzkbpCdRVjBKHACyT5pjg1bb2",
+                "amount": "£800",
+                "status": "rejected",
+                "timeEstimate": "1 day"
+              },
+              "yrVFqWHKa5kT3LStvBfd": {
+                "id": "yrVFqWHKa5kT3LStvBfd",
+                "createdAt": {
+                  "__time__": "2022-06-10T19:24:04.794Z"
+                },
+                "bidderId": "0FdxGoe3fcy6v8Rd37VZ",
+                "amount": "£200",
+                "status": "accepted",
+                "timeEstimate": "2 days"
+              }
+            }
+          }
+        },
+        "nJ2iWgoGXvVELwVoAlLb": {
+          "id": "nJ2iWgoGXvVELwVoAlLb",
+          "createdAt": {
+            "__time__": "2022-02-06T19:24:04.794Z"
+          },
+          "bidders": ["0FdxGoe3fcy6v8Rd37VZ", "6BxZRLLnIKROMglmxItnPWv5g9r2"],
+          "creatorId": "zfUtzkbpCdRVjBKHACyT5pjg1bb2",
+          "description": "Looking for a design for a freelance company called ‘ Guilds ‘ that is based around fantasy elements and XP for the freelancers. Needs to be minimalistic but still translate the message of the site. Design of the site itself has been made along with a colour scheme that you can use to match to make it look good.",
+          "summary": "I need a logo for my freelance company",
+          "image": "laptop-typing_JXHUVN906T.jpeg",
+          "status": "open",
+          "level": 5,
+          "tags": ["Design"],
+          "title": "Logo needed",
+          "__collections__": {
+            "bids": {
+              "qZXxdJj0xa45UlQcicQs": {
+                "id": "qZXxdJj0xa45UlQcicQs",
+                "createdAt": {
+                  "__time__": "2022-02-08T19:24:04.794Z"
+                },
+                "bidderId": "0FdxGoe3fcy6v8Rd37VZ",
+                "amount": "£50",
+                "status": "pending",
+                "timeEstimate": "3 days"
+              },
+              "yrVFqWHKa5kT3LStvBfd": {
+                "id": "yrVFqWHKa5kT3LStvBfd",
+                "createdAt": {
+                  "__time__": "2022-02-01T19:24:04.794Z"
+                },
+                "bidderId": "6BxZRLLnIKROMglmxItnPWv5g9r2",
+                "amount": "£70",
+                "status": "pending",
+                "timeEstimate": "5 days"
+              }
+            }
+          }
+        },
+        "sOwGvcjy601vz3k5amYg": {
+          "id": "sOwGvcjy601vz3k5amYg",
+          "createdAt": {
+            "__time__": "2022-02-08T19:24:04.794Z"
+          },
+          "bidders": ["2YM79stNWyXyX08J8vAL"],
+          "creatorId": "0FdxGoe3fcy6v8Rd37VZ",
+          "description": "I need a copywriter for my vegan friendly journalism page, the page will write articles about good friendly restaurants and locations in the area, we will need you to copyright the first draft of the site with all the notes we prepared on it around 3000 words on the whole site. If you are good then we will hire you to help write the journalistic content later on also and all site upgrades.",
+          "summary": "Copywriter needed for vegan friendly journalism site",
+          "image": "writing-writer_9QEVP5YHO3.jpeg",
+          "reward": "£170",
+          "status": "closed",
+          "level": 11,
+          "tags": ["Customer Success", "Presentation"],
+          "title": "Copywriter for one time website",
+          "__collections__": {
+            "bids": {
+              "yrVFqWHKa5kT3LStvBfd": {
+                "id": "yrVFqWHKa5kT3LStvBfd",
+                "createdAt": {
+                  "__time__": "2022-02-11T19:24:04.794Z"
+                },
+                "bidderId": "2YM79stNWyXyX08J8vAL",
+                "amount": "£170",
+                "status": "accepted",
+                "timeEstimate": "10 days"
+              }
+            }
+          }
+        },
+        "U8SzdPhu6yhmIFLVIcqc": {
+          "id": "U8SzdPhu6yhmIFLVIcqc",
+          "createdAt": {
+            "__time__": "2022-07-22T19:24:04.794Z"
+          },
+          "bidders": ["imZrHGqnOCfGy44ya596jOyNHIG3"],
+          "creatorId": "6BxZRLLnIKROMglmxItnPWv5g9r2",
+          "description": "I'm founding a company and need a lawyer to draft out a contract for me and the other founders. I just need a legally binding agreement for us to virtually sign. I'll explain the details to you in the messages after you bid.",
+          "summary": "Lawyer needed to draft out a contract for me and the other founders",
+          "image": "pexels-rodnae-productions-7841856.jpg",
+          "status": "open",
+          "level": 7,
+          "tags": ["Research", "Customer Success"],
+          "title": "Legal ownership contract agreement for a startup",
+          "__collections__": {
+            "bids": {
+              "yrVFqWHKa5kT3LStvBfd": {
+                "id": "yrVFqWHKa5kT3LStvBfd",
+                "createdAt": {
+                  "__time__": "2022-07-24T19:24:04.794Z"
+                },
+                "bidderId": "imZrHGqnOCfGy44ya596jOyNHIG3",
+                "amount": "£180",
+                "status": "pending",
+                "timeEstimate": "1 day"
+              }
+            }
+          }
+        },
+        "2PbU3GH1jt0CmeNBPp6Z": {
+          "id": "2PbU3GH1jt0CmeNBPp6Z",
+          "createdAt": {
+            "__time__": "2022-05-04T19:24:04.794Z"
+          },
+          "bidders": ["6BxZRLLnIKROMglmxItnPWv5g9r2"],
+          "creatorId": "2YM79stNWyXyX08J8vAL",
+          "description": "I need someone to design my webapp on figma to make it easier to give to my developers, the webapp is centred around fitness and necessary artwork would be provided as well as structure of the app. Probably around 10-12 pages on figma to design with guidance through the calls would expect a time estimate as well as price.",
+          "summary": "Webapp design needed on figma",
+          "image": "laptop-working_N14GO3XZE6.jpeg",
+          "reward": "£450",
+          "status": "closed",
+          "level": 9,
+          "tags": ["Design", "Customer Success", "Software Development"],
+          "title": "Design 10 Page webapp on Figma",
+          "__collections__": {
+            "bids": {
+              "yrVFqWHKa5kT3LStvBfd": {
+                "id": "yrVFqWHKa5kT3LStvBfd",
+                "createdAt": {
+                  "__time__": "2022-05-06T19:24:04.794Z"
+                },
+                "bidderId": "6BxZRLLnIKROMglmxItnPWv5g9r2",
+                "amount": "£450",
+                "status": "accepted",
+                "timeEstimate": "5 days"
+              }
+            }
+          }
+        },
+        "0FdxGoe3fcy6v8Rd37VZ": {
+          "id": "0FdxGoe3fcy6v8Rd37VZ",
+          "createdAt": {
+            "__time__": "2021-11-11T19:24:04.794Z"
+          },
+          "bidders": [
+            "2YM79stNWyXyX08J8vAL",
+            "imZrHGqnOCfGy44ya596jOyNHIG3",
+            "QfABV59rDVWcUDBvtiaZCrQ8mTJ2",
+            "0FdxGoe3fcy6v8Rd37VZ",
+            "6BxZRLLnIKROMglmxItnPWv5g9r2"
+          ],
+          "creatorId": "imZrHGqnOCfGy44ya596jOyNHIG3",
+          "description": "Need an accountant to go through the books and calculate all our accountancy records for our small company this year and calculate our taxes and see if there's any tax break schemes we can apply for don't want to hire anyone full time just come do our books on a one off and get it all through.",
+          "summary": "Accountant needed to make a yearly report for our company",
+          "image": "paperwork-desk_A5DG6YREVH.jpeg",
+          "status": "open",
+          "level": 2,
+          "tags": ["Management", "Customer Success"],
+          "title": "Yearly accountant report",
+          "__collections__": {
+            "bids": {
+              "sOwGvcjy601vz3k5amYg": {
+                "id": "sOwGvcjy601vz3k5amYg",
+                "createdAt": {
+                  "__time__": "2021-11-12T19:24:04.794Z"
+                },
+                "bidderId": "2YM79stNWyXyX08J8vAL",
+                "amount": "£1300",
+                "status": "pending",
+                "timeEstimate": "14 day"
+              },
+              "0FdxGoe3fcy6v8Rd37VZ": {
+                "id": "0FdxGoe3fcy6v8Rd37VZ",
+                "createdAt": {
+                  "__time__": "2021-11-14T19:24:04.794Z"
+                },
+                "bidderId": "imZrHGqnOCfGy44ya596jOyNHIG3",
+                "amount": "£1200",
+                "status": "pending",
+                "timeEstimate": "16 day"
+              },
+              "qZXxdJj0xa45UlQcicQs": {
+                "id": "qZXxdJj0xa45UlQcicQs",
+                "createdAt": {
+                  "__time__": "2021-11-13T19:24:04.794Z"
+                },
+                "bidderId": "QfABV59rDVWcUDBvtiaZCrQ8mTJ2",
+                "amount": "£2100",
+                "status": "pending",
+                "timeEstimate": "7 day"
+              },
+              "yrVFqWHKa5kT3LStvBfd": {
+                "id": "yrVFqWHKa5kT3LStvBfd",
+                "createdAt": {
+                  "__time__": "2021-11-12T19:24:04.794Z"
+                },
+                "bidderId": "0FdxGoe3fcy6v8Rd37VZ",
+                "amount": "£900",
+                "status": "pending",
+                "timeEstimate": "21 day"
+              },
+              "kBJp2JJ7tYWYKIQ0X3An": {
+                "id": "kBJp2JJ7tYWYKIQ0X3An",
+                "createdAt": {
+                  "__time__": "2021-11-16T19:24:04.794Z"
+                },
+                "bidderId": "6BxZRLLnIKROMglmxItnPWv5g9r2",
+                "amount": "£2500",
+                "status": "pending",
+                "timeEstimate": "12 day"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

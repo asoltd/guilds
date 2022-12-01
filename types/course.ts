@@ -1,4 +1,4 @@
-import { URL, UUID } from "../common"
+import { URL, UUID } from "./common"
 
 export interface Course {
   id: UUID

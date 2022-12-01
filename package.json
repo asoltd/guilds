@@ -11,6 +11,7 @@
     "@faker-js/faker": "^7.6.0",
     "@mui/icons-material": "^5.10.6",
     "@mui/material": "^5.10.6",
+    "@mui/x-date-pickers": "^5.0.8",
     "eslint-config-next": "^13.0.0",
     "firebase": "^9.13.0",
     "formik": "^2.2.9",
@@ -27,7 +28,6 @@
     "reactfire": "^4.2.2",
     "stream-chat": "7.1.0",
     "stream-chat-react": "10.1.1",
-    "styled-components": "^5.3.5",
     "styled-css-grid": "^1.2.1",
     "typesense": "^1.4.2",
     "typesense-instantsearch-adapter": "^2.4.1"
@@ -37,7 +37,6 @@
     "@types/node": "^18.7.7",
     "@types/react": "^18",
     "@types/react-select": "^5.0.1",
-    "@types/styled-components": "^5.1.26",
     "@typescript-eslint/eslint-plugin": "^5.33.1",
     "@typescript-eslint/parser": "^5.33.1",
     "bun-framework-next": "^12",

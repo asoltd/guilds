@@ -1,5 +1,5 @@
-import { Quest, Bid } from "../quest"
-import { URL, Email, ISODateString } from "../common"
+import { Quest, Bid } from "./quest"
+import { URL, Email, ISODateString } from "./common"
 
 export interface Hero {
   id: string

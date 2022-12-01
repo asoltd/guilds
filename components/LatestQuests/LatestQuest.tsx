@@ -1,10 +1,10 @@
 import Link from "next/link"
-import styled from "styled-components"
+import styled from "@emotion/styled"
 import Image from "next/image"
 import { Grid, Box, Stack, Typography } from "@mui/material"
 import { QuestTag } from "../QuestTag"
-import { Tag } from "storage/quest"
-import { Quest } from "storage/quest"
+import { Tag } from "types/quest"
+import { Quest } from "types/quest"
 import LinesElipsis from "react-lines-ellipsis"
 import {
   StorageImage,
@@ -46,7 +46,7 @@ export function LatestQuest({ quest }: LatestQuestProps) {
               variant="body2"
               sx={{ fontWeight: 600, color: "primary.main" }}
             >
-              {"Lowest price - £" + topBid?.amount}
+              {"Lowest price - " + topBid?.amount}
             </Typography>
           )}
           <Stack direction="row" justifyContent="space-between">

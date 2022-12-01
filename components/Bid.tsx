@@ -1,4 +1,4 @@
-import { Bid } from "storage/quest"
+import { Bid } from "types/quest"
 
 interface BidProps {
   value: Bid

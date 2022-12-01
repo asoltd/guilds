@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from "@emotion/styled"
 import _ from "lodash"
 import { connectRefinementList } from "react-instantsearch-dom"
 import { Box, ListItemButton, Stack, Typography } from "@mui/material"

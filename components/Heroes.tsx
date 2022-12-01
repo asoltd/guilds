@@ -1,7 +1,6 @@
 import { Grid } from "styled-css-grid"
 import { useFirestore, useFirestoreCollectionData } from "reactfire"
 import { collection, query } from "firebase/firestore"
-import { populateHeroes } from "../storage/hero"
 
 export default function Heroes(): JSX.Element {
   const firestore = useFirestore()
@@ -10,9 +9,6 @@ export default function Heroes(): JSX.Element {
 
   return (
     <>
-      <button onClick={() => populateHeroes(firestore)}>
-        populate heroes if not populated
-      </button>
       {status && (
         <>
           {status === "loading" ? (
@@ -34,7 +30,8 @@ export default function Heroes(): JSX.Element {
                       {hero?.name.last}
                     </div>
                     <div>
-                      location: {hero?.location.city}, {hero?.location.country}
+                      location: {hero?.location?.city},{" "}
+                      {hero?.location?.country}
                     </div>
                     <div>bio: {hero?.bio}</div>
                     <div>twitter: {hero?.twitter}</div>

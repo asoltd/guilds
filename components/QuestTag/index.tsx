@@ -1,4 +1,4 @@
-import { Tag as TagEnum } from "storage/quest"
+import { Tag as TagEnum } from "types/quest"
 import { Chip } from "@mui/material"
 import { useEffect, useState } from "react"
 

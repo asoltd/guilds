@@ -1,5 +1,5 @@
 import { Typography, Stack, useMediaQuery } from "@mui/material"
-import { Quest } from "storage/quest"
+import { Quest } from "types/quest"
 import { useTheme } from "@mui/material/styles"
 
 interface QuestProps {

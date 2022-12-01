@@ -1,12 +1,10 @@
-import { Tag as TagEnum } from "storage/quest"
-import styled from "styled-components"
+import { Box } from "@mui/material"
+import { Tag as TagEnum } from "types/quest"
 
 interface TagProps {
   value: TagEnum
 }
 
-const TagContainer = styled.div``
-
 export const Tag = ({ value }: TagProps) => {
-  return <TagContainer>{value}</TagContainer>
+  return <Box>{value}</Box>
 }

@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from "@emotion/styled"
 import { Grid, Box, Stack, Typography, Button } from "@mui/material"
 import LinesElipsis from "react-lines-ellipsis"
 import {
@@ -7,7 +7,7 @@ import {
   useFirestoreCollectionData,
 } from "reactfire"
 import { collection, limit, orderBy, query } from "firebase/firestore"
-import { Role as RoleType } from "storage/team"
+import { Role as RoleType } from "types/team"
 
 const RoleThumbnail = styled(StorageImage)({
   objectFit: "cover",
@@ -21,17 +21,11 @@ interface RoleProps {
 }
 
 export function Role({ role, teamId }: RoleProps) {
-  const { title, description, thumbnail, id: roleId } = role
+  const { title, description, image, id: roleId } = role
   const firestore = useFirestore()
   const bidsRef = collection(firestore, `teams/${teamId}/roles/${roleId}/bids`)
   const lowestBidQuery = query(bidsRef, orderBy("amount", "asc"), limit(1))
   const { data: lowestBid } = useFirestoreCollectionData(lowestBidQuery)
-  const bidFormatter = new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: "GBP",
-    maximumSignificantDigits: 2,
-  })
-  const lowestBidGBP = bidFormatter.format(lowestBid?.[0]?.amount)
 
   const makeBid = () => {
     alert("make bid")
@@ -41,7 +35,7 @@ export function Role({ role, teamId }: RoleProps) {
     <Grid item xs={6} width="280px">
       <Box>
         <Stack spacing={4}>
-          <RoleThumbnail storagePath={`teams/roles/role.jpeg`} />
+          <RoleThumbnail storagePath={`general/${image}`} />
           <Stack spacing={1}>
             <Typography variant="h6">{title}</Typography>
             <Stack direction="row" justifyContent="space-between">
@@ -50,7 +44,7 @@ export function Role({ role, teamId }: RoleProps) {
                   variant="body1"
                   sx={{ fontWeight: 400, color: "primary.main" }}
                 >
-                  {"Lowest bid - " + lowestBidGBP}
+                  {"Lowest bid - " + lowestBid[0].amount}
                 </Typography>
               )}
             </Stack>

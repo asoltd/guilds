@@ -1,6 +1,6 @@
 import styled from "@emotion/styled"
 import Select from "react-select"
-import { Tag } from "storage/quest"
+import { Tag } from "types/quest"
 import { FieldProps } from "formik"
 
 const MySelect = styled(Select)`

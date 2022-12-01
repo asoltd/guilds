@@ -60,7 +60,7 @@ export const navigation: Navigation = {
           {
             title: "Customer stories",
             description: "Learn how our customers are making big changes.",
-            image: "/about-us-customer-stories.svg",
+            image: "/about-us-stories.svg",
             href: "/customer-stories",
           },
           {

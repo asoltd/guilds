@@ -29,7 +29,7 @@ export function MonthTopUsers({
         link={link}
         seeAll={seeAll}
       />
-      <Grid container rowSpacing={4}>
+      <Grid container>
         {heroes?.map((hero, key) => (
           <Grid item xs={8} sm={8} md={6} lg={4} xl={4} key={key}>
             <User hero={hero} key={key} />

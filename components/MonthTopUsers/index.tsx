@@ -5,6 +5,10 @@ import { TopUsersHeader, TopUsersHeaderProps } from "./TopUsersHeader"
 import { User } from "./User"
 import { Hero } from "types/hero"
 
+interface TopMonthUserProps extends TopUsersHeaderProps {
+  xpGained: number
+}
+
 export function MonthTopUsers({
   info,
   header,
@@ -12,7 +16,8 @@ export function MonthTopUsers({
   button,
   link,
   seeAll,
-}: TopUsersHeaderProps) {
+  xpGained,
+}: TopMonthUserProps) {
   const firestore = useFirestore()
   const heroesRef = collection(firestore, "heroes")
   const heroesQuery = query(heroesRef, limit(6))
@@ -32,7 +37,7 @@ export function MonthTopUsers({
       <Grid container>
         {heroes?.map((hero, key) => (
           <Grid item xs={8} sm={8} md={6} lg={4} xl={4} key={key}>
-            <User hero={hero} key={key} />
+            <User hero={hero} xpGained={xpGained} key={key} />
           </Grid>
         ))}
       </Grid>

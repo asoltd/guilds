@@ -30,7 +30,12 @@ export function TopUsersHeader({
         {subheader}
       </Typography>
       <Stack direction="row" spacing={2} pt="1rem">
-        <Link href={seeAll}>
+        <Link
+          href={seeAll}
+          style={{
+            textDecoration: "none",
+          }}
+        >
           <Button
             variant="outlined"
             sx={{
@@ -45,7 +50,12 @@ export function TopUsersHeader({
             See all
           </Button>
         </Link>
-        <Link href={link}>
+        <Link
+          href={link}
+          style={{
+            textDecoration: "none",
+          }}
+        >
           <Button
             variant="contained"
             sx={{

@@ -4,15 +4,16 @@ import { Stack, Typography } from "@mui/material"
 import { StorageImage } from "reactfire"
 import { Hero } from "types/hero"
 
-interface HeroType {
+interface UserProps {
   hero: Hero
+  xpGained: number
 }
 
-export function User({ hero }: HeroType) {
+export function User({ hero, xpGained }: UserProps) {
   const lastPosition = hero.experience[hero.experience.length - 1].position
   const lastCompany = hero.experience[hero.experience.length - 1].company
   return (
-    <Stack justifyContent="space-between" height="18rem">
+    <Stack justifyContent="space-between" height="18rem" p="1rem">
       <Stack spacing={1}>
         <StorageImage
           storagePath={`general/${hero.profilePicture}`}
@@ -28,7 +29,7 @@ export function User({ hero }: HeroType) {
             {hero.name.first} {hero.name.last}
           </Typography>
           <Typography variant="body1" color="primary.main">
-            1,252 XP gained
+            {xpGained} XP gained
           </Typography>
         </Stack>
         <Typography variant="body1" color="text.secondary" width="15em">

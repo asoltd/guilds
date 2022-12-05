@@ -29,11 +29,6 @@ export function LatestQuest({ quest }: LatestQuestProps) {
   const { data: topBids } = useFirestoreCollectionData(topBidsQuery)
   const topBid = topBids?.[0]
 
-  const convertImageName = () => {
-    const [imageName, imageExtension] = quest.image.split(".")
-    return imageName + "_420x240." + imageExtension
-  }
-
   return (
     <Grid item xs={6}>
       <Box>

@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { Button, Stack, Typography } from "@mui/material"
-import { Variant } from "components/Slider/Slider"
+import { Variant } from "components/Slider"
 
 function HeroesSliderButtons() {
   return (

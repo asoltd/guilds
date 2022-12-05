@@ -38,9 +38,7 @@ export function LatestQuest({ quest }: LatestQuestProps) {
     <Grid item xs={6}>
       <Box>
         <Stack spacing={1}>
-          <QuestThumbnail
-            storagePath={`quests/questsResized/${convertImageName()}`}
-          />
+          <QuestThumbnail storagePath={`general/${quest.image}`} />
           {topBid && (
             <Typography
               variant="body2"

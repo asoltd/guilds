@@ -35,11 +35,7 @@ enum SliderVariant {
   Role = "role",
 }
 
-export function ReusableSlider({
-  items,
-  status,
-  variant,
-}: ReusableSliderProps) {
+export function Slider({ items, status, variant }: ReusableSliderProps) {
   const [scrolledCard, setScrolledCard] = useState(0)
   const [mouseScrollDisabled, setMouseScrollDisabled] = useState(false)
   const featuredCardsRefs = useRef([])

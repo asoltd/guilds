@@ -1,6 +1,7 @@
-import { Box, Stack } from "@mui/material"
 import { BusinessHeroesSteps } from "./BusinessHeroesSteps"
 import { BusinessHeroesHeader } from "./BusinessHeroesHeader"
+import { BuisnessHeroesSlides } from "./BuisnessHeroesSlides"
+import { Stack } from "@mui/material"
 
 export function BusinessHeroes() {
   return (
@@ -13,12 +14,7 @@ export function BusinessHeroes() {
         alignItems={{ xs: "center", sm: "center", md: "center" }}
       >
         <BusinessHeroesSteps />
-        <Box
-          width="576px"
-          height="560px"
-          bgcolor={(theme) => theme.palette.grey[100]}
-          borderRadius="1rem"
-        />
+        <BuisnessHeroesSlides />
       </Stack>
     </Stack>
   )

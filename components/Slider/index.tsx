@@ -11,6 +11,7 @@ import { SliderButtons } from "components/Slider/SliderButtons"
 import { SliderHeader } from "components/Slider/SliderHeader"
 import { Role } from "components/Role/Role"
 import { Role as RoleType } from "types/team"
+import { useTheme } from "@mui/material/styles"
 
 export interface Variant {
   variant: "hero" | "quest" | "team" | "role"
@@ -40,7 +41,8 @@ export function Slider({ items, status, variant }: ReusableSliderProps) {
   const [mouseScrollDisabled, setMouseScrollDisabled] = useState(false)
   const featuredCardsRefs = useRef([])
   const featuredCardsContainerRef = useRef()
-  const isMobile = useMediaQuery("(max-width: 600px)")
+  const theme = useTheme()
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"))
 
   const renderItem = (item: Hero | Team | Quest | RoleType) => {
     switch (variant) {

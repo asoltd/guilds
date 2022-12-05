@@ -41,12 +41,7 @@ export function BuisnessHeroesSlides() {
   }, [index])
 
   return (
-    <Stack
-      borderRadius="1rem"
-      direction="row"
-      overflow="scroll"
-      maxWidth="576px"
-    >
+    <Stack borderRadius="1rem" direction="row" overflow="clip" maxWidth="576px">
       {heroes?.map((hero: Hero, idx) => (
         <StorageImage
           key={idx}

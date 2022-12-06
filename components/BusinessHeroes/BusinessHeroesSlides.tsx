@@ -3,18 +3,19 @@ import {
   useFirestore,
   useFirestoreCollectionData,
 } from "reactfire"
-import { collection, limit, query } from "firebase/firestore"
+import { collection, query } from "firebase/firestore"
 import { Hero } from "types/hero"
 import { Stack } from "@mui/material"
 import { useEffect, useRef, useState } from "react"
 
 const delay = 5000
 
-export function BuisnessHeroesSlides() {
+export function BusinessHeroesSlides() {
   const firestore = useFirestore()
-  const questRef = collection(firestore, "heroes")
-  const heroesQuery = query(questRef, limit(20))
-  const { data: heroes } = useFirestoreCollectionData(heroesQuery)
+  const heroesRef = collection(firestore, "heroes")
+  const heroesQuery = query(heroesRef)
+  const { status, data } = useFirestoreCollectionData(heroesQuery)
+  const heroes = data as Hero[]
 
   const [index, setIndex] = useState(0)
   const timeoutRef = useRef(null)
@@ -24,6 +25,9 @@ export function BuisnessHeroesSlides() {
       clearTimeout(timeoutRef.current)
     }
   }
+
+  console.log("heroes", status)
+  console.log("heroes", heroes)
 
   useEffect(() => {
     resetTimeout()
@@ -39,19 +43,21 @@ export function BuisnessHeroesSlides() {
       resetTimeout()
     }
   }, [index])
-
+  console.log("heroes", status)
+  console.log("heroes", heroes)
   return (
     <Stack borderRadius="1rem" direction="row" overflow="clip" maxWidth="576px">
       {heroes?.map((hero: Hero, idx) => (
         <StorageImage
           key={idx}
+          alt="hero image"
           storagePath={`general/${heroes[idx].profilePicture}`}
           width="576px"
           height="560px"
           style={{
             objectFit: "cover",
             transform: `translate3d(${-index * 576}px, 0, 0)`,
-            transition: "ease(0.455, 0.03, 0.515, 0.955) 750ms",
+            transition: "ease 0.5s",
           }}
         />
       ))}

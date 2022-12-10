@@ -9,7 +9,7 @@ import { Team } from "types/team"
 import { useRef, useState } from "react"
 import { ScrollLeft, ScrollRight } from "components/ScrollButtons"
 import { Container } from "@mui/system"
-import { GreenButton } from "components/ReusableComponents/buttons"
+import { GreenButton } from "../GreenButton"
 
 const LatestTeamsStack = styled(Stack)({
   "&::-webkit-scrollbar": {

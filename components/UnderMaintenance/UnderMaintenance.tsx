@@ -9,7 +9,7 @@ import {
   Box,
   useMediaQuery,
 } from "@mui/material"
-import { GreenButton } from "components/ReusableComponents/buttons"
+import { GreenButton } from "../GreenButton"
 
 export function UnderMaintenance() {
   const theme = useTheme()

@@ -9,7 +9,7 @@ import { Quest } from "types/quest"
 import { useRef, useState } from "react"
 import { ScrollLeft, ScrollRight } from "components/ScrollButtons"
 import { Container } from "@mui/system"
-import { GreenButton } from "components/ReusableComponents/buttons"
+import { GreenButton } from "../GreenButton"
 
 const LatestQuestsStack = styled(Stack)({
   "&::-webkit-scrollbar": {

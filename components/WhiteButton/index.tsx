@@ -1,7 +1,7 @@
 import { Button, Typography } from "@mui/material"
 
 interface ButtonProps {
-  children: JSX.Element
+  children: JSX.Element | string
 }
 
 export function WhiteButton({ children }: ButtonProps) {

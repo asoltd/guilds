@@ -14,7 +14,7 @@ export function BusinessHeroesSlides() {
   const firestore = useFirestore()
   const heroesRef = collection(firestore, "heroes")
   const heroesQuery = query(heroesRef)
-  const { status, data } = useFirestoreCollectionData(heroesQuery)
+  const { data } = useFirestoreCollectionData(heroesQuery)
   const heroes = data as Hero[]
 
   const [index, setIndex] = useState(0)
@@ -26,16 +26,10 @@ export function BusinessHeroesSlides() {
     }
   }
 
-  console.log("heroes", status)
-  console.log("heroes", heroes)
-
   useEffect(() => {
     resetTimeout()
     timeoutRef.current = setTimeout(
-      () =>
-        setIndex((prevIndex) =>
-          prevIndex === heroes.length - 1 ? 0 : prevIndex + 1
-        ),
+      () => setIndex((prevIndex) => (prevIndex === 6 - 1 ? 0 : prevIndex + 1)),
       delay
     )
 
@@ -43,7 +37,6 @@ export function BusinessHeroesSlides() {
       resetTimeout()
     }
   }, [index])
-  console.log("heroes", status)
   console.log("heroes", heroes)
   return (
     <Stack borderRadius="1rem" direction="row" overflow="clip" maxWidth="576px">

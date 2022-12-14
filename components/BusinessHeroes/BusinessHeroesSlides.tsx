@@ -37,7 +37,6 @@ export function BusinessHeroesSlides() {
       resetTimeout()
     }
   }, [index])
-  console.log("heroes", heroes)
   return (
     <Stack borderRadius="1rem" direction="row" overflow="clip" maxWidth="576px">
       {heroes?.map((hero: Hero, idx) => (

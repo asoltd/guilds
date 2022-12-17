@@ -3,12 +3,13 @@ import Link from "next/link"
 import useMediaQuery from "@mui/material/useMediaQuery"
 import { useFirestore, useFirestoreCollectionData } from "reactfire"
 import { collection, limit, orderBy, query } from "firebase/firestore"
-import { Box, Stack, Button, Typography } from "@mui/material"
+import { Box, Stack, Typography } from "@mui/material"
 import { LatestQuest } from "./LatestQuest"
 import { Quest } from "types/quest"
 import { useRef, useState } from "react"
 import { ScrollLeft, ScrollRight } from "components/ScrollButtons"
 import { Container } from "@mui/system"
+import { GreenButton } from "../GreenButton"
 
 const LatestQuestsStack = styled(Stack)({
   "&::-webkit-scrollbar": {
@@ -43,11 +44,7 @@ export function LatestQuestsSlider() {
             </Stack>
             {!isMobile && (
               <Link href="/quests">
-                <Button variant="contained" sx={{ height: "2.5rem" }}>
-                  <Typography variant="body2" sx={{ textTransform: "none" }}>
-                    View all quests
-                  </Typography>
-                </Button>
+                <GreenButton>View all quests</GreenButton>
               </Link>
             )}
           </Stack>
@@ -98,11 +95,7 @@ export function LatestQuestsSlider() {
             </Stack>
             {isMobile && (
               <Link href="/quests">
-                <Button variant="contained" sx={{ height: "2.5rem" }}>
-                  <Typography variant="body2" sx={{ textTransform: "none" }}>
-                    View all quests
-                  </Typography>
-                </Button>
+                <GreenButton>View all quests</GreenButton>
               </Link>
             )}
           </Stack>

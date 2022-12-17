@@ -25,7 +25,7 @@ export function MonthTopUsers({
   const heroes = data as Hero[]
 
   return (
-    <Stack direction="row" spacing={10}>
+    <Stack direction="row" spacing={10} py="4rem">
       <TopUsersHeader
         info={info}
         header={header}

@@ -1,4 +1,6 @@
-import { Button, Stack, Typography } from "@mui/material"
+import { Stack, Typography } from "@mui/material"
+import { GreenButton } from "components/GreenButton"
+import { WhiteButton } from "components/WhiteButton"
 
 export function GetItDoneHeading() {
   return (
@@ -6,6 +8,7 @@ export function GetItDoneHeading() {
       justifyContent="center"
       py="3rem"
       pl="3rem"
+      pr="0.5rem"
       width="100%"
       spacing={3}
       color="white"
@@ -20,37 +23,8 @@ export function GetItDoneHeading() {
         Create a quest today.
       </Typography>
       <Stack direction="row" spacing={1} pt={1}>
-        <Button
-          variant="outlined"
-          sx={{
-            bgcolor: "white",
-            color: "grey.800",
-            borderColor: "white",
-            borderRadius: "0.5rem",
-            textTransform: "none",
-            height: "2.5rem",
-            "&:hover": {
-              backgroundColor: "white",
-            },
-          }}
-        >
-          Learn more
-        </Button>
-        <Button
-          variant="contained"
-          sx={{
-            bgcolor: "#50915B",
-            color: "white",
-            borderRadius: "0.5rem",
-            textTransform: "none",
-            height: "2.5rem",
-            "&:hover": {
-              backgroundColor: "#50915B",
-            },
-          }}
-        >
-          Get started
-        </Button>
+        <WhiteButton>Learn more</WhiteButton>
+        <GreenButton>Get started</GreenButton>
       </Stack>
     </Stack>
   )

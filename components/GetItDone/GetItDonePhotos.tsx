@@ -7,6 +7,7 @@ export function GetItDonePhotos() {
       spacing={1}
       py="3rem"
       pr="3rem"
+      pl="0.5rem"
       sx={{
         backgroundColor: "primary.main",
       }}

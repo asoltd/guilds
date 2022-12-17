@@ -5,7 +5,7 @@ import { Stack } from "@mui/material"
 
 export function BusinessHeroes() {
   return (
-    <Stack spacing={6} p="1rem" py="4rem">
+    <Stack spacing={6} p="1rem" pt="8rem" pb="4rem">
       <BusinessHeroesHeader />
       <Stack
         spacing={{ xs: 4, sm: 4, md: 4 }}

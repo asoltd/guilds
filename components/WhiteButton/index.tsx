@@ -14,7 +14,7 @@ export function WhiteButton({ children }: ButtonProps) {
         borderColor: (theme) => theme.palette.grey[300],
         bgcolor: "background.default",
         "&:hover": {
-          backgroundColor: (theme) => theme.palette.grey[400],
+          backgroundColor: (theme) => theme.palette.grey[100],
         },
       }}
     >

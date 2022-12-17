@@ -6,6 +6,7 @@ import { GetItDone } from "components/GetItDone"
 import { MonthTopUsers } from "components/MonthTopUsers"
 import { BusinessHeroes } from "components/BusinessHeroes"
 import FeaturedCompanies from "components/FeaturedCompanies"
+import { HirerHeading } from "components/HirerHeading"
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
     >
       <Header />
       <Container>
+        <HirerHeading />
         <FeaturedCompanies />
         <BusinessHeroes />
         <MonthTopUsers

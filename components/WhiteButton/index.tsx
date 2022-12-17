@@ -22,6 +22,7 @@ export function WhiteButton({ children }: ButtonProps) {
         fontWeight={500}
         variant="body1"
         color={(theme) => theme.palette.grey[700]}
+        whiteSpace="nowrap"
       >
         {children}
       </Typography>

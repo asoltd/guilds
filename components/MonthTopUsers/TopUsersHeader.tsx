@@ -1,5 +1,7 @@
 import Link from "next/link"
-import { Button, Stack, Typography } from "@mui/material"
+import { Stack, Typography } from "@mui/material"
+import { WhiteButton } from "components/WhiteButton"
+import { GreenButton } from "components/GreenButton"
 
 export interface TopUsersHeaderProps {
   info: string
@@ -36,19 +38,7 @@ export function TopUsersHeader({
             textDecoration: "none",
           }}
         >
-          <Button
-            variant="outlined"
-            sx={{
-              whiteSpace: "nowrap",
-              textTransform: "none",
-              color: "text.primary",
-              borderColor: (theme) => theme.palette.grey[300],
-              borderRadius: "0.5rem",
-              px: "1rem",
-            }}
-          >
-            See all
-          </Button>
+          <WhiteButton>See all</WhiteButton>
         </Link>
         <Link
           href={link}
@@ -56,19 +46,7 @@ export function TopUsersHeader({
             textDecoration: "none",
           }}
         >
-          <Button
-            variant="contained"
-            sx={{
-              whiteSpace: "nowrap",
-              textTransform: "none",
-              color: "white",
-              borderColor: (theme) => theme.palette.grey[300],
-              borderRadius: "0.5rem",
-              px: "1rem",
-            }}
-          >
-            {button}
-          </Button>
+          <GreenButton>{button}</GreenButton>
         </Link>
       </Stack>
     </Stack>

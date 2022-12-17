@@ -13,6 +13,9 @@ export function WhiteButton({ children }: ButtonProps) {
         borderRadius: "0.6rem",
         borderColor: (theme) => theme.palette.grey[300],
         bgcolor: "background.default",
+        "&:hover": {
+          backgroundColor: (theme) => theme.palette.grey[400],
+        },
       }}
     >
       <Typography

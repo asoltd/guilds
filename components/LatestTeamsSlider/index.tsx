@@ -3,12 +3,13 @@ import Link from "next/link"
 import useMediaQuery from "@mui/material/useMediaQuery"
 import { useFirestore, useFirestoreCollectionData } from "reactfire"
 import { collection, limit, orderBy, query } from "firebase/firestore"
-import { Box, Stack, Button, Typography } from "@mui/material"
+import { Box, Stack, Typography } from "@mui/material"
 import { LatestTeam } from "./LatestTeam"
 import { Team } from "types/team"
 import { useRef, useState } from "react"
 import { ScrollLeft, ScrollRight } from "components/ScrollButtons"
 import { Container } from "@mui/system"
+import { GreenButton } from "../GreenButton"
 
 const LatestTeamsStack = styled(Stack)({
   "&::-webkit-scrollbar": {
@@ -43,11 +44,7 @@ export function LatestTeamsSlider() {
             </Stack>
             {!isMobile && (
               <Link href="/quests">
-                <Button variant="contained" sx={{ height: "2.5rem" }}>
-                  <Typography variant="body2" sx={{ textTransform: "none" }}>
-                    View all teams
-                  </Typography>
-                </Button>
+                <GreenButton>View all teams</GreenButton>
               </Link>
             )}
           </Stack>
@@ -98,11 +95,7 @@ export function LatestTeamsSlider() {
             </Stack>
             {isMobile && (
               <Link href="/quests">
-                <Button variant="contained" sx={{ height: "2.5rem" }}>
-                  <Typography variant="body2" sx={{ textTransform: "none" }}>
-                    View all teams
-                  </Typography>
-                </Button>
+                <GreenButton>View all teams</GreenButton>
               </Link>
             )}
           </Stack>

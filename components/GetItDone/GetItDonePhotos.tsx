@@ -6,7 +6,7 @@ export function GetItDonePhotos() {
     <Stack
       spacing={1}
       py="3rem"
-      pr="30rem"
+      pr="15%"
       pl="0.5rem"
       sx={{
         backgroundColor: "primary.main",

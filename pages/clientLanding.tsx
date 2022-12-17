@@ -27,9 +27,9 @@ export default function Home() {
           info={"1,992 active questers"}
           header={"This month’s top questers"}
           subheader={"The current heroes that are bidding on this quest."}
-          button={"Create a quest"}
-          link={""}
-          seeAll={"See all"}
+          greenButton={"Create a quest"}
+          greenButtonLink={""}
+          whiteButtonLink={"quests"}
         />
       </Container>
       <GetItDone />

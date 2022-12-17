@@ -7,7 +7,7 @@ export function GetItDoneHeading() {
     <Stack
       justifyContent="center"
       py="3rem"
-      pl="30rem"
+      pl="15%"
       pr="0.5rem"
       width="100%"
       spacing={3}

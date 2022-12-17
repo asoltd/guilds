@@ -4,6 +4,8 @@ import { Container, Box } from "@mui/material"
 import { FAQs } from "components/FAQs"
 import { GetItDone } from "components/GetItDone"
 import { MonthTopUsers } from "components/MonthTopUsers"
+import { BusinessHeroes } from "components/BusinessHeroes"
+import FeaturedCompanies from "components/FeaturedCompanies"
 
 export default function Home() {
   return (
@@ -16,6 +18,8 @@ export default function Home() {
     >
       <Header />
       <Container>
+        <FeaturedCompanies />
+        <BusinessHeroes />
         <MonthTopUsers
           xpGained={1992}
           info={"1,992 active questers"}

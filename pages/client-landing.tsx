@@ -23,7 +23,7 @@ export default function Home() {
         <FeaturedCompanies />
         <BusinessHeroes />
         <MonthTopUsers
-          xpGained={1992}
+          xpGained={4892}
           info={"1,992 active questers"}
           header={"This month’s top questers"}
           subheader={"The current heroes that are bidding on this quest."}

@@ -1,13 +1,17 @@
-import { Stack, Typography } from "@mui/material"
+import { Stack, Typography, useMediaQuery, useTheme } from "@mui/material"
 import { GreenButton } from "components/GreenButton"
 import { WhiteButton } from "components/WhiteButton"
 
 export function GetItDoneHeading() {
+  const theme = useTheme()
+  const isVeryLarge = useMediaQuery(theme.breakpoints.up("xl"))
+  const isLarge = useMediaQuery(theme.breakpoints.up("md"))
+  const isMedium = useMediaQuery(theme.breakpoints.up("sm"))
   return (
     <Stack
       justifyContent="center"
       py="3rem"
-      pl="15%"
+      pl={isVeryLarge ? "20%" : isLarge ? "15%" : isMedium ? "5%" : "5%"}
       pr="0.5rem"
       width="100%"
       spacing={3}

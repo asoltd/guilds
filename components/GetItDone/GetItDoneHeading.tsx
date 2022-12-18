@@ -6,12 +6,14 @@ export function GetItDoneHeading() {
   const theme = useTheme()
   const isVeryLarge = useMediaQuery(theme.breakpoints.up("xl"))
   const isLarge = useMediaQuery(theme.breakpoints.up("md"))
-  const isMedium = useMediaQuery(theme.breakpoints.up("sm"))
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"))
   return (
     <Stack
       justifyContent="center"
-      py="3rem"
-      pl={isVeryLarge ? "20%" : isLarge ? "15%" : isMedium ? "5%" : "5%"}
+      alignItems={isMobile ? "center" : "flex-start"}
+      pt={isMobile ? "8rem" : "3rem"}
+      pb={isMobile ? "3rem" : "3rem"}
+      pl={isVeryLarge ? "20%" : isLarge ? "15%" : isMobile ? "0%" : "0%"}
       pr="0.5rem"
       width="100%"
       spacing={3}
@@ -20,7 +22,12 @@ export function GetItDoneHeading() {
         backgroundColor: "primary.main",
       }}
     >
-      <Typography variant="h3" mb="-0.5rem" maxWidth="sm">
+      <Typography
+        variant="h3"
+        mb="-0.5rem"
+        maxWidth="sm"
+        textAlign={isMobile ? "center" : "left"}
+      >
         Whatever it is, get it done quickly with Guilds.
       </Typography>
       <Typography variant="h6" color="primary.light">

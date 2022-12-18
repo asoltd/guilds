@@ -5,7 +5,7 @@ import {
 } from "reactfire"
 import { collection, query } from "firebase/firestore"
 import { Hero } from "types/hero"
-import { Stack, useMediaQuery, useTheme } from "@mui/material"
+import { Stack } from "@mui/material"
 import { useEffect, useRef, useState } from "react"
 
 const delay = 5000
@@ -16,8 +16,6 @@ export function BusinessHeroesSlides() {
   const heroesQuery = query(heroesRef)
   const { data } = useFirestoreCollectionData(heroesQuery)
   const heroes = data as Hero[]
-  const theme = useTheme()
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"))
 
   const [index, setIndex] = useState(0)
   const timeoutRef = useRef(null)
@@ -40,13 +38,7 @@ export function BusinessHeroesSlides() {
     }
   }, [index])
   return (
-    <Stack
-      borderRadius="1rem"
-      direction="row"
-      overflow="clip"
-      maxWidth="576px"
-      pt={isMobile ? "2rem" : 0}
-    >
+    <Stack borderRadius="1rem" direction="row" overflow="clip" maxWidth="576px">
       {heroes?.map((hero: Hero, idx) => (
         <StorageImage
           key={idx}

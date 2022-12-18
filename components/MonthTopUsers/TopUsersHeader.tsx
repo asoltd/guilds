@@ -21,7 +21,7 @@ export function TopUsersHeader({
   greenButtonLink,
 }: TopUsersHeaderProps) {
   return (
-    <Stack spacing={2} maxWidth="17rem">
+    <Stack spacing={2}>
       <Typography variant="body1" fontWeight={500} color="primary.main">
         {info}
       </Typography>

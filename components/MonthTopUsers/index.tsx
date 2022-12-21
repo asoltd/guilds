@@ -27,7 +27,7 @@ export function MonthTopUsers({
   const isMobile = useMediaQuery(theme.breakpoints.down("md"))
 
   return (
-    <Stack direction={isMobile ? "column" : "row"} spacing={10} py="4rem">
+    <Stack direction={isMobile ? "column" : "row"} spacing={10}>
       <TopUsersHeader
         info={info}
         header={header}

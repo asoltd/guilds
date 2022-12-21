@@ -23,16 +23,20 @@ export default function Home() {
           <HirerHeading />
         </Box>
         <FeaturedCompanies />
-        <BusinessHeroes />
-        <MonthTopUsers
-          xpGained={4892}
-          info={"1,992 active questers"}
-          header={"This month's top questers"}
-          subheader={"The current heroes that are bidding on this quest."}
-          greenButton={"Create a quest"}
-          greenButtonLink={""}
-          whiteButtonLink={"quests"}
-        />
+        <Box pt="8rem" pb="4rem">
+          <BusinessHeroes />
+        </Box>
+        <Box py="4rem">
+          <MonthTopUsers
+            xpGained={4892}
+            info={"1,992 active questers"}
+            header={"This month's top questers"}
+            subheader={"The current heroes that are bidding on this quest."}
+            greenButton={"Create a quest"}
+            greenButtonLink={""}
+            whiteButtonLink={"quests"}
+          />
+        </Box>
       </Container>
       <GetItDone />
       <Container>

@@ -2,6 +2,7 @@ import { Box, Stack } from "@mui/material"
 import { useFirestore, useFirestoreCollectionData } from "reactfire"
 import { collection } from "firebase/firestore"
 import { Team } from "types/team"
+import { MemberAvatar } from "./MemberAvatar"
 
 interface TeamMemberProps {
   team: Team

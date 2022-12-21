@@ -1,5 +1,5 @@
 import { Quest, Bid } from "./quest"
-import { URL, Email, ISODateString } from "./common"
+import { URL, Email, ISODateString, UUID } from "./common"
 
 export interface Hero {
   id: string
@@ -44,4 +44,12 @@ export type Name = {
   first: string
   second: string
   last: string
+}
+
+export interface Transaction {
+  id: UUID
+  amount: string
+  userId: UUID
+  description: string
+  date: Date
 }

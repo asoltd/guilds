@@ -5,14 +5,14 @@ const typesenseQuestsInstantsearchAdapter = new TypesenseInstantSearchAdapter({
     apiKey: process.env.NEXT_PUBLIC_TYPESENSE_API_KEY,
     nodes: [
       {
-        host: "aq8h0s27cxp54yvrp-1.a1.typesense.net",
+        host: "e9dqpntv0g2iukz3p-1.a1.typesense.net",
         port: 443,
         protocol: "https",
       },
     ],
   },
   additionalSearchParameters: {
-    query_by: "title,description,tags",
+    query_by: "title,summary,description,tags",
   },
 })
 
@@ -21,14 +21,14 @@ const typesenseTeamsInstantsearchAdapter = new TypesenseInstantSearchAdapter({
     apiKey: process.env.NEXT_PUBLIC_TYPESENSE_API_KEY,
     nodes: [
       {
-        host: "aq8h0s27cxp54yvrp-1.a1.typesense.net",
+        host: "e9dqpntv0g2iukz3p-1.a1.typesense.net",
         port: 443,
         protocol: "https",
       },
     ],
   },
   additionalSearchParameters: {
-    query_by: "title,description,roles,industry",
+    query_by: "title,description,roleCategories,industry",
   },
 })
 

@@ -2,7 +2,7 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward"
 import { IconButton } from "@mui/material"
 import { MutableRefObject } from "react"
 
-interface ScrollRightProps {
+export interface ScrollRightProps {
   scrolledValue: number
   setScrolledValue: (value: number) => void
   refs: MutableRefObject<HTMLDivElement[]>

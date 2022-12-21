@@ -1,5 +1,5 @@
-import { QuestHits } from "./QuestHits"
-import { questsSearchClient } from "typesense/insantsearch"
+import { QuestHits } from "../QuestHits"
+import { questsSearchClient } from "typesense/instantsearch"
 import { InstantSearch } from "react-instantsearch-dom"
 import { RefinementList, Pagination, SearchBox } from "../SearchComponents"
 import { Stack, Divider, Container } from "@mui/material"

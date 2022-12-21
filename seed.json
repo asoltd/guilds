@@ -35,6 +35,7 @@
             "QfABV59rDVWcUDBvtiaZCrQ8mTJ2",
             "0FdxGoe3fcy6v8Rd37VZ"
           ],
+          "roleCategories": ["Software Development"],
           "__collections__": {
             "roles": {
               "0FdxGoe3fcy6v8Rd37VZ": {
@@ -196,6 +197,7 @@
             "zfUtzkbpCdRVjBKHACyT5pjg1bb2"
           ],
           "members": ["QfABV59rDVWcUDBvtiaZCrQ8mTJ2"],
+          "roleCategories": ["Software Development", "Designer", "Manager"],
           "__collections__": {
             "roles": {
               "0FdxGoe3fcy6v8Rd37VZ": {
@@ -304,6 +306,7 @@
             "6BxZRLLnIKROMglmxItnPWv5g9r2",
             "imZrHGqnOCfGy44ya596jOyNHIG3"
           ],
+          "roleCategories": ["Engineer"],
           "__collections__": {
             "roles": {
               "0FdxGoe3fcy6v8Rd37VZ": {

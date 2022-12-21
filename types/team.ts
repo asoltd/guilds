@@ -1,11 +1,13 @@
 import { URL, UUID } from "./common"
 import { Hero } from "./hero"
 
-export enum RoleTitle {
+export enum RoleCategory {
   Designer = "Designer",
   ProductDesigner = "Product Designer",
   SoftwareDevelopment = "Software Development",
   Presentor = "Presentor",
+  Manager = "Manager",
+  Engineer = "Engineer",
 }
 
 export enum Industry {
@@ -26,12 +28,13 @@ export interface Team {
   timeEstimate: string
   bidders: UUID[]
   members: UUID[]
+  roleCategories: RoleCategory[]
   createdAt: Date
 }
 
 export interface Role {
   id: UUID
-  title: RoleTitle | string
+  title: string
   description: string
   status: string
   createdAt: Date

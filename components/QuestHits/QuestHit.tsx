@@ -28,18 +28,11 @@ export function QuestHit({ hit }: QuestHitProps) {
   const { data: topBids } = useFirestoreCollectionData(topBidsQuery)
   const topBid = topBids?.[0]
 
-  const convertImageName = () => {
-    const [imageName, imageExtension] = hit.image.split(".")
-    return imageName + "_420x240." + imageExtension
-  }
-
   return (
     <Grid item xs={6}>
       <Box>
         <Stack spacing={1}>
-          <QuestThumbnail
-            storagePath={`quests/questsResized/${convertImageName()}`}
-          />
+          <QuestThumbnail storagePath={`general/${hit.image}`} />
           {topBid && (
             <Typography
               variant="body2"

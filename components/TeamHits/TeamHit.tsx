@@ -5,7 +5,7 @@ import LinesElipsis from "react-lines-ellipsis"
 import { Grid, Chip, Stack, Typography } from "@mui/material"
 import { Team } from "types/team"
 import { StorageImage } from "reactfire"
-import { TeamMembers } from "../LatestTeamsSlider/TeamMembers"
+import { TeamMembers } from "../LatestTeams/TeamMembers"
 
 const TeamThumbnail = styled(StorageImage)({
   objectFit: "cover",

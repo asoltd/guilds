@@ -5,7 +5,7 @@ import { HirerHeadingButtons } from "./HirerHeadingButtons"
 
 export function HirerHeading() {
   return (
-    <Stack alignItems="center" spacing={7} pt="5rem" pb="7rem">
+    <Stack alignItems="center" spacing={7}>
       <Container maxWidth="md">
         <Stack alignItems="center" spacing={4}>
           <NewFeatureChip />

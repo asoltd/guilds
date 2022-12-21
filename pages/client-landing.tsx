@@ -19,13 +19,15 @@ export default function Home() {
     >
       <Header />
       <Container>
-        <HirerHeading />
+        <Box pt="5rem" pb="7rem">
+          <HirerHeading />
+        </Box>
         <FeaturedCompanies />
         <BusinessHeroes />
         <MonthTopUsers
           xpGained={4892}
           info={"1,992 active questers"}
-          header={"This month’s top questers"}
+          header={"This month's top questers"}
           subheader={"The current heroes that are bidding on this quest."}
           greenButton={"Create a quest"}
           greenButtonLink={""}

@@ -60,7 +60,7 @@ export function LinkColumns() {
           spacing={1.5}
           color="background.default"
           width="13rem"
-          key={column.title}
+          key={column.title + "-link"}
         >
           <Typography
             variant="body1"
@@ -73,11 +73,12 @@ export function LinkColumns() {
           >
             {column.title}
           </Typography>
-          {column.navigationItem.map((navigationItem) => (
-            <FooterLink key={navigationItem.label} {...navigationItem} />
+          {column.navigationItem.map((navigationItem, index) => (
+            <FooterLink key={index + "-footer-link"} {...navigationItem} />
           ))}
         </Stack>
-      ))}
-    </Stack>
+      ))
+      }
+    </Stack >
   )
 }

@@ -16,16 +16,15 @@ export function SocialSignIn({ provider, image, bgcolor }) {
       const result = await signInWithPopup(auth, provider)
 
       if (result.operationType === "signIn") {
-        setMessage("Signed in successfully");
+        setMessage("Signed in successfully")
       } else if (result.operationType === "link") {
-        setMessage("Linked successfully");
+        setMessage("Linked successfully")
       } else if (result.operationType === "reauthenticate") {
-        setMessage("Reauthenticated successfully");
+        setMessage("Reauthenticated successfully")
       }
 
-      setSeverity("success");
+      setSeverity("success")
       setOpen(true)
-
     } catch (error) {
       setSeverity("error")
       setMessage(error.message)
@@ -55,9 +54,7 @@ export function SocialSignIn({ provider, image, bgcolor }) {
         autoHideDuration={6000}
         onClose={() => setOpen(false)}
       >
-        <Alert severity={severity}>
-          {message}
-        </Alert>
+        <Alert severity={severity}>{message}</Alert>
       </Snackbar>
     </Stack>
   )

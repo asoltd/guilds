@@ -77,8 +77,7 @@ export function LinkColumns() {
             <FooterLink key={index + "-footer-link"} {...navigationItem} />
           ))}
         </Stack>
-      ))
-      }
-    </Stack >
+      ))}
+    </Stack>
   )
 }

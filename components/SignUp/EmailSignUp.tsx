@@ -21,7 +21,7 @@ import {
   signInWithPhoneNumber,
 } from "firebase/auth"
 import { Form, Formik, FormikProps } from "formik"
-import { SyntheticEvent, useState } from "react"
+import { useState } from "react"
 import { Visibility, VisibilityOff } from "@mui/icons-material"
 import { validationSchemas } from "./ValidationSchemas"
 import { useRouter } from "next/router"
@@ -59,11 +59,7 @@ function TabPanel(props: TabPanelProps) {
       aria-labelledby={`simple-tab-${index}`}
       {...other}
     >
-      {value === index && (
-        <Box>
-          {children}
-        </Box>
-      )}
+      {value === index && <Box>{children}</Box>}
     </Box>
   )
 }
@@ -125,8 +121,6 @@ export function EmailSignUp() {
       router.push("/")
     }
   }
-
-
 
   return (
     <Stack

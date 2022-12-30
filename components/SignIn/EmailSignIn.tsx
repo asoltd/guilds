@@ -145,9 +145,7 @@ export function EmailSignIn() {
         autoHideDuration={6000}
         onClose={() => setOpen(false)}
       >
-        <Alert severity={severity}>
-          {message}
-        </Alert>
+        <Alert severity={severity}>{message}</Alert>
       </Snackbar>
     </Stack>
   )

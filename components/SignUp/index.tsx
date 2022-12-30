@@ -9,7 +9,7 @@ export function SignUp() {
       <EmailSignUp />
       <Stack direction="row">
         {providers.map((provider) => (
-          <SocialSignIn key={provider.image + '-signin'} {...provider} />
+          <SocialSignIn key={provider.image + "-signin"} {...provider} />
         ))}
       </Stack>
       <Stack direction="row" justifyContent="center" spacing={1} mt="2rem">

@@ -61,7 +61,7 @@ function TabPanel(props: TabPanelProps) {
     >
       {value === index && (
         <Box>
-          <Typography>{children}</Typography>
+          {children}
         </Box>
       )}
     </Box>
@@ -92,31 +92,27 @@ export function EmailSignUp() {
     await sendEmailVerification(userCredential.user)
   }
 
-  const setUpRecaptcha = (phone: string) => {
-    window.recaptchaVerifier = new RecaptchaVerifier(
-      "recaptcha-container",
-      {
-        size: "large",
-        callback: (response: string) => {
-          onSignInSubmit(phone)
-        },
-      },
-      auth
-    )
-  }
-
   const onSignInSubmit = async (phone: string) => {
-    setUpRecaptcha(phone)
     const phoneNumber = phone
-    const appVerifier = window.recaptchaVerifier
     const confirmationResult = await signInWithPhoneNumber(
       auth,
       phoneNumber,
-      appVerifier
+      new RecaptchaVerifier(
+        "recaptcha-container",
+        {
+          size: "large",
+          callback: (response: string) => {
+            // TODO what does this do?
+            console.log(response)
+          },
+        },
+        auth
+      )
     )
-    window.confirmationResult = confirmationResult
     const code = window.prompt("Enter OTP", "")
     const result = await confirmationResult.confirm(code)
+    console.log(result)
+    // TODO this needs try/catch/finally blocks as in SignIn.tsx
   }
 
   const handleSubmit = async (values: FormValues) => {
@@ -130,9 +126,7 @@ export function EmailSignUp() {
     }
   }
 
-  const handleTabsChange = (event: SyntheticEvent, newValue: number) => {
-    setSelectedTab(newValue)
-  }
+
 
   return (
     <Stack
@@ -152,7 +146,9 @@ export function EmailSignUp() {
         <Tabs
           variant="fullWidth"
           value={selectedTab}
-          onChange={handleTabsChange}
+          onChange={(_, newValue: number) => {
+            setSelectedTab(newValue)
+          }}
         >
           <Tab label="Email" {...a11yProps(0)} sx={{ textTransform: "none" }} />
           <Tab label="Phone" {...a11yProps(1)} sx={{ textTransform: "none" }} />
@@ -204,10 +200,10 @@ export function EmailSignUp() {
                     name="email"
                     placeholder="Email"
                   />
-                  {errors.email && touched.email ? (
-                    <Typography color="#ff0000">{errors.email}</Typography>
-                  ) : null}
                 </Stack>
+                {errors.email && touched.email ? (
+                  <Typography color="#ff0000">{errors.email}</Typography>
+                ) : null}
               </TabPanel>
               <TabPanel value={selectedTab} index={1}>
                 <Stack>

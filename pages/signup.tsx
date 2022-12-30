@@ -4,7 +4,7 @@ import { Header } from "../components/Header"
 import { Footer } from "../components/Footer"
 import { SignUp } from "components/SignUp"
 
-export default function Login() {
+export default function SignUpPage() {
   return (
     <Box
       sx={{

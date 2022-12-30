@@ -7,6 +7,9 @@ import {
   TextField,
   Typography,
   Stack,
+  AlertColor,
+  Snackbar,
+  Alert,
 } from "@mui/material"
 import { useAuth } from "reactfire"
 import {
@@ -14,6 +17,7 @@ import {
   signInWithEmailAndPassword,
 } from "firebase/auth"
 import { Form, Formik, FormikProps } from "formik"
+import { useState } from "react"
 
 interface FormValues {
   email: string
@@ -21,25 +25,39 @@ interface FormValues {
   remember: boolean
 }
 
-export function ResetPassword() {
-  const auth = useAuth()
-  sendEmailVerification(auth.currentUser).then(() => {
-    alert("Email sent!")
-  })
-}
-
 export function EmailSignIn() {
+  const [severity, setSeverity] = useState<AlertColor>("info")
+  const [message, setMessage] = useState("")
+  const [open, setOpen] = useState(false)
   const auth = useAuth()
-  const handleSubmit = (values: FormValues) => {
-    const { email, password } = values
 
-    signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        alert("Logged in as:" + userCredential.user.email)
-      })
-      .catch((error) => {
-        alert("Error:" + error.message)
-      })
+  // TODO(JakubFrackowiak) This is not even resetting password
+  async function resetPassword() {
+    try {
+      await sendEmailVerification(auth.currentUser)
+      setSeverity("info")
+      setMessage("Email sent")
+    } catch (error) {
+      setSeverity("error")
+      setMessage(error.message)
+      setOpen(true)
+    } finally {
+      setOpen(true)
+    }
+  }
+
+  async function handleSubmit(values: FormValues) {
+    const { email, password } = values
+    try {
+      await signInWithEmailAndPassword(auth, email, password)
+      setMessage("Signed in successfully")
+      setSeverity("success")
+    } catch (error) {
+      setSeverity("error")
+      setMessage(error.message)
+    } finally {
+      setOpen(true)
+    }
   }
 
   return (
@@ -106,7 +124,7 @@ export function EmailSignIn() {
                   control={<Checkbox />}
                   label="Remember for 30 days"
                 />
-                <Link href="/">Forgot password</Link>
+                <Link href="/reset-password">Forgot password</Link>
               </Stack>
               <Button
                 variant="contained"
@@ -122,6 +140,15 @@ export function EmailSignIn() {
           </Form>
         )}
       </Formik>
+      <Snackbar
+        open={open}
+        autoHideDuration={6000}
+        onClose={() => setOpen(false)}
+      >
+        <Alert severity={severity}>
+          {message}
+        </Alert>
+      </Snackbar>
     </Stack>
   )
 }

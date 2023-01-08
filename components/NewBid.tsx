@@ -31,7 +31,7 @@ const Heading = styled(Typography)({
 const Buttonselect = styled(ToggleButton)`
 textDecoration: 'none
 `
-export function AddBid(): JSX.Element {
+export function NewBid(): JSX.Element {
   const [rate, setRate] = useState("Fixed")
   const [unit, setUnit] = useState("£")
   const [workingTimes, setWorkingTimes] = useState("Weekdays")
@@ -44,7 +44,7 @@ export function AddBid(): JSX.Element {
   const { status, data: signInCheckResult } = useSigninCheck()
 
   const style = {
-    position: "absolute" as "absolute",
+    position: "absolute",
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",

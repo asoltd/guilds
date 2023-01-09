@@ -28,9 +28,6 @@ const Heading = styled(Typography)({
   fontWeight: 500,
 })
 
-const Buttonselect = styled(ToggleButton)`
-  textdecoration: "none";
-`
 export function NewBid(): JSX.Element {
   const [rate, setRate] = useState("Fixed")
   const [unit, setUnit] = useState("£")
@@ -316,12 +313,12 @@ export function NewBid(): JSX.Element {
                               <br />
                               (evenings only)
                             </ToggleButton>
-                            <Buttonselect
+                            <ToggleButton
                               value="Weekends"
                               aria-label="weekends"
                             >
                               Weekends
-                            </Buttonselect>
+                            </ToggleButton>
                             <ToggleButton
                               sx={{ textDecoration: "none" }}
                               value="Any"

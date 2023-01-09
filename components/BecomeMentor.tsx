@@ -1,5 +1,5 @@
 import styled from "@emotion/styled"
-import React, { useState } from "react"
+import React, { useState, MouseEvent } from "react"
 import { useSigninCheck } from "reactfire"
 import Image from "next/image"
 import { useTheme } from "@mui/material/styles"
@@ -30,7 +30,7 @@ const Heading = styled(Typography)({
 })
 
 const Buttonselect = styled(ToggleButton)`
-textDecoration: 'none
+  textdecoration: "none";
 `
 
 export function BecomeMentor(): JSX.Element {
@@ -59,20 +59,20 @@ export function BecomeMentor(): JSX.Element {
   }
 
   const handleUnit = (
-    event: React.MouseEvent<HTMLElement>,
+    event: MouseEvent<HTMLElement>,
     newUnit: string | null
   ) => {
     setUnit(newUnit)
   }
 
   const handleWorkingTimes = (
-    event: React.MouseEvent<HTMLElement>,
+    event: MouseEvent<HTMLElement>,
     newWorkingTimes: string | null
   ) => {
     setWorkingTimes(newWorkingTimes)
   }
 
-  const [open, setOpen] = React.useState(false)
+  const [open, setOpen] = useState(false)
   const handleOpen = () => setOpen(true)
   const handleClose = () => setOpen(false)
 
@@ -100,7 +100,10 @@ export function BecomeMentor(): JSX.Element {
               >
                 Think you have what it takes? Become a mentor
               </Typography>
-              <Button variant="outlined" sx={{ textTransform: "none" }}>
+              <Button
+                variant="outlined"
+                sx={{ marginLeft: 2, textTransform: "none" }}
+              >
                 Learn more
               </Button>
               <Button
@@ -108,7 +111,7 @@ export function BecomeMentor(): JSX.Element {
                 sx={{ textTransform: "none", marginX: 2 }}
                 onClick={handleOpen}
               >
-                Become a Mentor
+                Become mentor
               </Button>
             </Box>
             <Typography
@@ -366,9 +369,7 @@ export function BecomeMentor(): JSX.Element {
                               value="Weekdays(evenings only)"
                               aria-label="weekday-evening-only"
                             >
-                              Weekdays
-                              <br />
-                              (evenings only)
+                              Weekday evenings
                             </ToggleButton>
                             <Buttonselect
                               value="Weekends"

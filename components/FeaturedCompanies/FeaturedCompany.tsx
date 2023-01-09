@@ -11,7 +11,9 @@ export default function FeaturedCompany({ image }: FeaturedCompanyProps) {
       <Box width={40} height={40}>
         <Image src={image} width={40} height={40} alt="Featured Company" />
       </Box>
-      <Typography variant="h5">Guilds</Typography>
+      <Typography variant="h5" color="primary.light">
+        Guilds
+      </Typography>
     </Stack>
   )
 }

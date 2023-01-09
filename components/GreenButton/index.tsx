@@ -21,6 +21,7 @@ export function GreenButton({ children }: ButtonProps) {
         fontWeight={500}
         variant="body1"
         sx={{ textDecoration: "none" }}
+        whiteSpace="nowrap"
       >
         {children}
       </Typography>

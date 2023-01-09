@@ -7,21 +7,21 @@ export interface TopUsersHeaderProps {
   info: string
   header: string
   subheader: string
-  button: string
-  link: string
-  seeAll: string
+  greenButton: string
+  whiteButtonLink: string
+  greenButtonLink: string
 }
 
 export function TopUsersHeader({
   info,
   header,
   subheader,
-  button,
-  link,
-  seeAll,
+  greenButton,
+  whiteButtonLink,
+  greenButtonLink,
 }: TopUsersHeaderProps) {
   return (
-    <Stack spacing={2} maxWidth="17rem">
+    <Stack spacing={2}>
       <Typography variant="body1" fontWeight={500} color="primary.main">
         {info}
       </Typography>
@@ -33,7 +33,7 @@ export function TopUsersHeader({
       </Typography>
       <Stack direction="row" spacing={2} pt="1rem">
         <Link
-          href={seeAll}
+          href={whiteButtonLink}
           style={{
             textDecoration: "none",
           }}
@@ -41,12 +41,12 @@ export function TopUsersHeader({
           <WhiteButton>See all</WhiteButton>
         </Link>
         <Link
-          href={link}
+          href={greenButtonLink}
           style={{
             textDecoration: "none",
           }}
         >
-          <GreenButton>{button}</GreenButton>
+          <GreenButton>{greenButton}</GreenButton>
         </Link>
       </Stack>
     </Stack>

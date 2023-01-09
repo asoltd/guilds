@@ -47,6 +47,15 @@ export const lightThemeOptions: ThemeOptions = {
     },
   },
   typography,
+  components: {
+    MuiToggleButton: {
+      styleOverrides: {
+        root: {
+          textTransform: "capitalize",
+        },
+      },
+    },
+  },
 }
 
 export const darkThemeOptions: ThemeOptions = {

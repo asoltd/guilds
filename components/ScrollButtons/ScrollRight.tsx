@@ -19,7 +19,7 @@ export function ScrollRight({
     if (scrolledValue < refs.current.length - 1) {
       setScrolledValue(scrolledValue + 1)
       const leftOffset = refs.current[1].offsetLeft - refs.current[0].offsetLeft
-      containerRef.current.scrollLeft = leftOffset * (scrolledValue + 1)
+      containerRef.current.scrollLeft = leftOffset * (scrolledValue + 1) * 2
     }
   }
 

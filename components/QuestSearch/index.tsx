@@ -3,7 +3,7 @@ import { questsSearchClient } from "typesense/instantsearch"
 import { InstantSearch } from "react-instantsearch-dom"
 import { RefinementList, Pagination, SearchBox } from "../SearchComponents"
 import { Stack, Divider, Container } from "@mui/material"
-import { PageHeader } from "../ReusableComponents/PageHeader"
+import { PageHeader } from "../PageHeader"
 
 export function Quests(): JSX.Element {
   return (

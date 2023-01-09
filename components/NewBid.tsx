@@ -29,7 +29,7 @@ const Heading = styled(Typography)({
 })
 
 const Buttonselect = styled(ToggleButton)`
-textDecoration: 'none
+  textdecoration: "none";
 `
 export function NewBid(): JSX.Element {
   const [rate, setRate] = useState("Fixed")

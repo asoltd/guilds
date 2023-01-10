@@ -7,18 +7,17 @@ import {
   Grid,
   Box,
   Divider,
-  Avatar,
   Container,
   Checkbox,
   Button,
   useMediaQuery,
   Snackbar,
   Alert,
-  AlertColor,
 } from "@mui/material"
 import { useSigninCheck } from "reactfire"
 import styled from "@emotion/styled"
 import { useTheme } from "@mui/material/styles"
+import { MediumUserCard } from "./UserCards"
 
 const BoldText = styled(Typography)({
   color: "#101828",
@@ -41,7 +40,7 @@ const GreyText = styled(Typography)({
   fontWeight: 400,
 })
 
-export function ContractConfirm() {
+export function BidConfirm() {
   const { data: signInCheckResult } = useSigninCheck()
 
   const [acceptTerms, setAcceptTerms] = useState(false)
@@ -51,9 +50,6 @@ export function ContractConfirm() {
   const submitContract = () => {
     setOpen(true)
   }
-
-  const theme = useTheme()
-  const isSmall = useMediaQuery(theme.breakpoints.down("md"))
 
   if (signInCheckResult) {
     return (
@@ -70,81 +66,16 @@ export function ContractConfirm() {
         </Snackbar>
         <Grid container spacing={4}>
           <Grid item xs={12} sm={6}>
-            <Stack
-              flexDirection={isSmall ? "column" : "row"}
-              alignItems={isSmall ? "center" : null}
-              sx={{
-                height: "100%",
-                border: "1px solid #EAECF0",
-                borderRadius: "8px",
-                boxShadow:
-                  "0px 1px 3px rgba(16, 24, 40, 0.1), 0px 1px 2px rgba(16, 24, 40, 0.06);",
-              }}
-            >
-              <Avatar
-                src={signInCheckResult.user.photoURL}
-                sx={{ width: 80, height: 80, margin: 4 }}
-              />
-              <Stack alignItems={isSmall ? "center" : null}>
-                <Heading sx={{ marginTop: isSmall ? 0 : 4 }}>Yoni Albi</Heading>
-                <Typography
-                  sx={{
-                    fontWeight: 400,
-                    size: "1rem",
-                    lineHeight: "1.5rem",
-                    color: "#498553",
-                  }}
-                >
-                  4.6/5
-                </Typography>
-                <Typography
-                  sx={{
-                    fontWeight: 400,
-                    size: "1rem",
-                    lineHeight: "1.5rem",
-                    color: "#667085",
-                    paddingRight: 4,
-                    marginY: 2,
-                    textAlign: isSmall ? "center" : "left",
-                  }}
-                >
-                  Former co-founder of Opendoor. Early staff at Spotify and
-                  Clearbit.
-                </Typography>
-                <Stack flexDirection="row" sx={{ marginBottom: 2 }}>
-                  <Box sx={{ marginRight: 2 }}>
-                    <Link href="#">
-                      <Image
-                        src="/twitter.svg"
-                        alt="Twitter"
-                        width={20}
-                        height={20}
-                      />
-                    </Link>
-                  </Box>
-                  <Box sx={{ marginRight: 2 }}>
-                    <Link href="#">
-                      <Image
-                        src="/linkedin.svg"
-                        alt="LinkedIn"
-                        width={20}
-                        height={20}
-                      />
-                    </Link>
-                  </Box>
-                  <Box sx={{ marginRight: 2 }}>
-                    <Link href="#">
-                      <Image
-                        src="/instagram.svg"
-                        alt="Instagram"
-                        width={20}
-                        height={20}
-                      />
-                    </Link>
-                  </Box>
-                </Stack>
-              </Stack>
-            </Stack>
+            <MediumUserCard
+              photo={signInCheckResult.user?.photoURL}
+              name="Yoni Albi"
+              level="4.6/5"
+              tagline="Former co-founder of Opendoor. Early staff at Spotify and
+            Clearbit."
+              twitter="#"
+              linkedin="#"
+              instagram="#"
+            />
           </Grid>
           <Grid item xs={12} sm={6}>
             <Stack

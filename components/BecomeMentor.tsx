@@ -21,6 +21,7 @@ import {
   ToggleButton,
   ToggleButtonGroup,
 } from "@mui/material"
+import { SmallUserCard } from "./UserCards"
 
 const Heading = styled(Typography)({
   color: "#101828",
@@ -28,10 +29,6 @@ const Heading = styled(Typography)({
   lineHeight: "1.75rem",
   fontWeight: 500,
 })
-
-const Buttonselect = styled(ToggleButton)`
-  textdecoration: "none";
-`
 
 export function BecomeMentor(): JSX.Element {
   const [mentorTerms, setMentorTerms] = useState("Fixed")
@@ -141,36 +138,11 @@ export function BecomeMentor(): JSX.Element {
               <Box sx={style}>
                 <Grid container spacing={2}>
                   <Grid item xs={12} md={6}>
-                    <Stack
-                      flexDirection={"row"}
-                      alignItems={"center"}
-                      sx={{
-                        height: "100%",
-                        border: "1px solid #EAECF0",
-                        borderRadius: "8px",
-                        boxShadow:
-                          "0px 1px 3px rgba(16, 24, 40, 0.1), 0px 1px 2px rgba(16, 24, 40, 0.06);",
-                      }}
-                    >
-                      <Avatar
-                        src={signInCheckResult.user?.photoURL}
-                        sx={{ width: 80, height: 80, margin: 3 }}
-                      />
-                      <Stack>
-                        <Heading>Yoni Albi</Heading>
-                        <Typography
-                          sx={{
-                            fontWeight: 400,
-                            size: "1rem",
-                            lineHeight: "1.5rem",
-                            color: "#667085",
-                            paddingRight: 2,
-                          }}
-                        >
-                          Front-end developer
-                        </Typography>
-                      </Stack>
-                    </Stack>
+                    <SmallUserCard
+                      photo={signInCheckResult.user?.photoURL}
+                      name="Yoni Albi"
+                      title="Front-end developer"
+                    />
                   </Grid>
                   <Grid item xs={12} md={6}>
                     <Stack
@@ -371,12 +343,12 @@ export function BecomeMentor(): JSX.Element {
                             >
                               Weekday evenings
                             </ToggleButton>
-                            <Buttonselect
+                            <ToggleButton
                               value="Weekends"
                               aria-label="weekends"
                             >
                               Weekends
-                            </Buttonselect>
+                            </ToggleButton>
                             <ToggleButton
                               sx={{ textDecoration: "none" }}
                               value="Any"

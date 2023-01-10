@@ -20,7 +20,7 @@ import {
   ToggleButton,
   ToggleButtonGroup,
 } from "@mui/material"
-import { SmallUserCard } from "./ReusableComponents/UserCards"
+import { SmallUserCard } from "./UserCards"
 
 const Heading = styled(Typography)({
   color: "#101828",

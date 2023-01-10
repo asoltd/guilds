@@ -9,7 +9,7 @@ import {
   SearchBox,
 } from "../components/SearchComponents"
 import { Stack, Divider, Container, Box } from "@mui/material"
-import { PageHeader } from "../components/ReusableComponents/PageHeader"
+import { PageHeader } from "../components/PageHeader"
 
 export default function FindQuest() {
   return (
